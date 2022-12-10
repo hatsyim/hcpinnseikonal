@@ -6,7 +6,7 @@ Reproducible material for **A robust seismic tomography framework via physics-in
 # Project structure
 This repository is organized as follows:
 
-* :open_file_folder: **asset**: folder containing logo;
+* :open_file_folder: **asset**: folder containing logo.
 * :open_file_folder: **data**: folder containing the cropped [Marmousi](https://wiki.seg.org/wiki/Dictionary:Marmousi_model) model.
 * :open_file_folder: **notebooks**: set of jupyter notebooks reproducing the experiments in the paper (see below for more details).
 * :open_file_folder: **scripts**: set of python scripts used to run multiple experiments.
@@ -15,9 +15,7 @@ This repository is organized as follows:
 ## Notebooks
 The following notebooks are provided:
 
-- :orange_book: ``X1.ipynb``: notebook performing ...;
-- :orange_book: ``X2.ipynb``: notebook performing ...
-
+- :orange_book: ``Example-1.ipynb``: notebook performing the first experiment on the manuscript.
 
 ## Getting started :space_invader: :robot:
 To ensure reproducibility of the results, we suggest using the `environment.yml` file when creating an environment.
