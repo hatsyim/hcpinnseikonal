@@ -1,0 +1,424 @@
+2022-12-10 15:14:02,008 INFO    StreamThr :27094 [internal.py:wandb_internal():90] W&B internal server running at pid: 27094, started at: 2022-12-10 15:14:02.007648
+2022-12-10 15:14:02,012 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: status
+2022-12-10 15:14:02,015 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: status
+2022-12-10 15:14:02,020 DEBUG   SenderThread:27094 [sender.py:send():302] send: header
+2022-12-10 15:14:02,021 INFO    WriterThread:27094 [datastore.py:open_for_write():75] open: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/run-1sp0h1k6.wandb
+2022-12-10 15:14:02,044 DEBUG   SenderThread:27094 [sender.py:send():302] send: run
+2022-12-10 15:14:02,779 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: check_version
+2022-12-10 15:14:02,785 INFO    SenderThread:27094 [dir_watcher.py:__init__():216] watching files in: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files
+2022-12-10 15:14:02,785 INFO    SenderThread:27094 [sender.py:_start_run_threads():913] run started: 1sp0h1k6 with start time 1670674441.998895
+2022-12-10 15:14:02,785 DEBUG   SenderThread:27094 [sender.py:send():302] send: summary
+2022-12-10 15:14:02,786 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-10 15:14:02,786 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: check_version
+2022-12-10 15:14:03,144 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: run_start
+2022-12-10 15:14:03,161 DEBUG   HandlerThread:27094 [meta.py:__init__():35] meta init
+2022-12-10 15:14:03,161 DEBUG   HandlerThread:27094 [meta.py:__init__():50] meta init done
+2022-12-10 15:14:03,161 DEBUG   HandlerThread:27094 [meta.py:probe():216] probe
+2022-12-10 15:14:03,169 DEBUG   HandlerThread:27094 [meta.py:_setup_git():206] setup git
+2022-12-10 15:14:03,200 DEBUG   HandlerThread:27094 [meta.py:_setup_git():213] setup git done
+2022-12-10 15:14:03,200 DEBUG   HandlerThread:27094 [meta.py:_save_code():88] save code
+2022-12-10 15:14:03,200 WARNING HandlerThread:27094 [meta.py:_save_code():90] unable to save code -- program entry not found
+2022-12-10 15:14:03,200 DEBUG   HandlerThread:27094 [meta.py:_save_patches():126] save patches
+2022-12-10 15:14:03,277 DEBUG   HandlerThread:27094 [meta.py:_save_patches():168] save patches done
+2022-12-10 15:14:03,277 DEBUG   HandlerThread:27094 [meta.py:_save_pip():54] save pip
+2022-12-10 15:14:03,278 DEBUG   HandlerThread:27094 [meta.py:_save_pip():68] save pip done
+2022-12-10 15:14:03,279 DEBUG   HandlerThread:27094 [meta.py:_save_conda():75] save conda
+2022-12-10 15:14:03,286 ERROR   HandlerThread:27094 [meta.py:_save_conda():84] Error saving conda packages
+Traceback (most recent call last):
+  File "/home/taufikmh/miniconda3/envs/ptl-gmt/lib/python3.8/site-packages/wandb/sdk/internal/meta.py", line 80, in _save_conda
+    subprocess.call(
+  File "/home/taufikmh/miniconda3/envs/ptl-gmt/lib/python3.8/subprocess.py", line 340, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/home/taufikmh/miniconda3/envs/ptl-gmt/lib/python3.8/subprocess.py", line 854, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/taufikmh/miniconda3/envs/ptl-gmt/lib/python3.8/subprocess.py", line 1702, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2022-12-10 15:14:03,288 DEBUG   HandlerThread:27094 [meta.py:_save_conda():85] save conda done
+2022-12-10 15:14:03,288 DEBUG   HandlerThread:27094 [meta.py:probe():254] probe done
+2022-12-10 15:14:03,347 DEBUG   SenderThread:27094 [sender.py:send():302] send: files
+2022-12-10 15:14:03,348 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2022-12-10 15:14:03,349 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file diff.patch with policy now
+2022-12-10 15:14:03,377 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:14:03,378 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:14:03,386 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: pause
+2022-12-10 15:14:03,386 INFO    HandlerThread:27094 [handler.py:handle_request_pause():699] stopping system metrics thread
+2022-12-10 15:14:03,731 DEBUG   SenderThread:27094 [sender.py:send():302] send: telemetry
+2022-12-10 15:14:03,742 DEBUG   SenderThread:27094 [sender.py:send():302] send: stats
+2022-12-10 15:14:03,790 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/requirements.txt
+2022-12-10 15:14:03,790 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/conda-environment.yaml
+2022-12-10 15:14:03,790 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/output.log
+2022-12-10 15:14:03,791 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/wandb-summary.json
+2022-12-10 15:14:03,791 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/wandb-metadata.json
+2022-12-10 15:14:03,791 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/diff.patch
+2022-12-10 15:14:04,389 INFO    Thread-16 :27094 [upload_job.py:push():138] Uploaded file /tmp/tmpbfuipjkewandb/2wly5d7d-wandb-metadata.json
+2022-12-10 15:14:04,653 INFO    Thread-17 :27094 [upload_job.py:push():138] Uploaded file /tmp/tmpbfuipjkewandb/19cndnsu-diff.patch
+2022-12-10 15:14:05,064 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: resume
+2022-12-10 15:14:05,065 INFO    HandlerThread:27094 [handler.py:handle_request_resume():690] starting system metrics thread
+2022-12-10 15:14:05,070 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: pause
+2022-12-10 15:14:05,071 INFO    HandlerThread:27094 [handler.py:handle_request_pause():699] stopping system metrics thread
+2022-12-10 15:14:05,125 DEBUG   SenderThread:27094 [sender.py:send():302] send: stats
+2022-12-10 15:14:05,733 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: resume
+2022-12-10 15:14:05,733 INFO    HandlerThread:27094 [handler.py:handle_request_resume():690] starting system metrics thread
+2022-12-10 15:14:05,787 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/output.log
+2022-12-10 15:14:07,698 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: pause
+2022-12-10 15:14:07,698 INFO    HandlerThread:27094 [handler.py:handle_request_pause():699] stopping system metrics thread
+2022-12-10 15:14:07,788 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/output.log
+2022-12-10 15:14:07,788 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/cross_section.png
+2022-12-10 15:14:07,834 DEBUG   SenderThread:27094 [sender.py:send():302] send: stats
+2022-12-10 15:14:08,790 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/output.log
+2022-12-10 15:14:18,746 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:14:18,746 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:14:32,806 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/config.yaml
+2022-12-10 15:14:34,101 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:14:34,102 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:14:49,458 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:14:49,459 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:14:51,174 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: resume
+2022-12-10 15:14:51,175 INFO    HandlerThread:27094 [handler.py:handle_request_resume():690] starting system metrics thread
+2022-12-10 15:14:51,182 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: pause
+2022-12-10 15:14:51,182 INFO    HandlerThread:27094 [handler.py:handle_request_pause():699] stopping system metrics thread
+2022-12-10 15:14:51,235 DEBUG   SenderThread:27094 [sender.py:send():302] send: stats
+2022-12-10 15:15:04,815 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:15:04,815 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:15:20,170 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:15:20,171 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:15:35,519 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:15:35,520 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:15:50,868 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:15:50,868 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:16:06,216 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:16:06,217 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:16:21,575 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:16:21,575 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:16:36,924 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:16:36,924 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:16:52,280 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:16:52,280 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:17:07,629 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:17:07,630 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:17:22,985 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:17:22,985 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:17:38,364 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:17:38,365 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:17:53,720 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:17:53,721 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:18:09,066 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:18:09,067 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:18:24,422 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:18:24,423 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:18:34,798 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: resume
+2022-12-10 15:18:34,798 INFO    HandlerThread:27094 [handler.py:handle_request_resume():690] starting system metrics thread
+2022-12-10 15:18:34,839 DEBUG   SenderThread:27094 [sender.py:send():302] send: telemetry
+2022-12-10 15:18:34,859 DEBUG   SenderThread:27094 [sender.py:send():302] send: config
+2022-12-10 15:18:34,865 DEBUG   SenderThread:27094 [sender.py:send():302] send: exit
+2022-12-10 15:18:34,865 INFO    SenderThread:27094 [sender.py:send_exit():438] handling exit code: 0
+2022-12-10 15:18:34,866 INFO    SenderThread:27094 [sender.py:send_exit():440] handling runtime: 2
+2022-12-10 15:18:34,866 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:34,871 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-10 15:18:34,872 INFO    SenderThread:27094 [sender.py:send_exit():446] send defer
+2022-12-10 15:18:34,872 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:34,873 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:34,873 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 0
+2022-12-10 15:18:34,874 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:34,874 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 0
+2022-12-10 15:18:34,874 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 1
+2022-12-10 15:18:34,875 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:34,875 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 1
+2022-12-10 15:18:34,944 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/wandb-summary.json
+2022-12-10 15:18:34,944 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/code/_session_history.ipynb
+2022-12-10 15:18:34,945 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/code
+2022-12-10 15:18:34,979 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:34,980 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 1
+2022-12-10 15:18:34,980 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:34,980 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 2
+2022-12-10 15:18:34,981 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:34,982 DEBUG   SenderThread:27094 [sender.py:send():302] send: stats
+2022-12-10 15:18:34,982 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:34,983 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 2
+2022-12-10 15:18:34,983 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:34,983 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 2
+2022-12-10 15:18:34,984 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 3
+2022-12-10 15:18:34,984 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:34,984 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 3
+2022-12-10 15:18:34,985 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:34,985 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 3
+2022-12-10 15:18:34,985 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 4
+2022-12-10 15:18:34,985 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:34,985 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 4
+2022-12-10 15:18:34,986 DEBUG   SenderThread:27094 [sender.py:send():302] send: summary
+2022-12-10 15:18:34,986 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-10 15:18:34,987 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:34,987 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 4
+2022-12-10 15:18:34,987 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 5
+2022-12-10 15:18:34,988 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:34,988 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 5
+2022-12-10 15:18:34,988 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:34,988 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 5
+2022-12-10 15:18:35,086 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:35,392 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 6
+2022-12-10 15:18:35,392 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:35,393 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:35,394 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 6
+2022-12-10 15:18:35,394 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:35,394 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 6
+2022-12-10 15:18:35,497 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:35,945 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/config.yaml
+2022-12-10 15:18:35,945 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/wandb-summary.json
+2022-12-10 15:18:36,816 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 7
+2022-12-10 15:18:36,817 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:36,818 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:36,818 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 7
+2022-12-10 15:18:36,819 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:36,819 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 7
+2022-12-10 15:18:36,819 INFO    SenderThread:27094 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-12-10 15:18:36,921 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:36,945 INFO    Thread-12 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/output.log
+2022-12-10 15:18:36,947 INFO    SenderThread:27094 [dir_watcher.py:finish():392] scan: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files
+2022-12-10 15:18:36,947 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/diff.patch diff.patch
+2022-12-10 15:18:36,947 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/conda-environment.yaml conda-environment.yaml
+2022-12-10 15:18:36,948 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/cross_section.png cross_section.png
+2022-12-10 15:18:36,948 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/requirements.txt requirements.txt
+2022-12-10 15:18:36,948 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/wandb-metadata.json wandb-metadata.json
+2022-12-10 15:18:36,948 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/wandb-summary.json wandb-summary.json
+2022-12-10 15:18:36,949 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/config.yaml config.yaml
+2022-12-10 15:18:36,949 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/output.log output.log
+2022-12-10 15:18:36,989 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/code/_session_history.ipynb code/_session_history.ipynb
+2022-12-10 15:18:36,990 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 8
+2022-12-10 15:18:36,990 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,000 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:37,000 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 8
+2022-12-10 15:18:37,001 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:37,001 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 8
+2022-12-10 15:18:37,001 INFO    SenderThread:27094 [file_pusher.py:finish():171] shutting down file pusher
+2022-12-10 15:18:37,104 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:37,104 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,209 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:37,210 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,313 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:37,314 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,417 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:37,417 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,521 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:37,521 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,625 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:37,625 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,730 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:37,731 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,836 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:37,836 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,900 INFO    Thread-26 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/output.log
+2022-12-10 15:18:37,923 INFO    Thread-25 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/config.yaml
+2022-12-10 15:18:37,934 INFO    Thread-24 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/wandb-summary.json
+2022-12-10 15:18:37,940 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:37,940 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:37,947 INFO    Thread-23 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/requirements.txt
+2022-12-10 15:18:38,044 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:38,044 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:38,148 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:38,148 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:38,252 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:38,252 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:38,268 INFO    Thread-22 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/cross_section.png
+2022-12-10 15:18:38,302 INFO    Thread-27 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/files/code/_session_history.ipynb
+2022-12-10 15:18:38,355 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:38,356 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:38,459 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:38,460 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:38,503 INFO    Thread-11 :27094 [sender.py:transition_state():459] send defer: 9
+2022-12-10 15:18:38,504 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:38,504 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 9
+2022-12-10 15:18:38,505 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:38,505 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 9
+2022-12-10 15:18:38,563 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:39,119 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 10
+2022-12-10 15:18:39,120 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:39,121 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:39,121 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 10
+2022-12-10 15:18:39,122 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:39,122 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 10
+2022-12-10 15:18:39,123 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 11
+2022-12-10 15:18:39,124 DEBUG   SenderThread:27094 [sender.py:send():302] send: final
+2022-12-10 15:18:39,124 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:39,124 DEBUG   SenderThread:27094 [sender.py:send():302] send: footer
+2022-12-10 15:18:39,125 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 11
+2022-12-10 15:18:39,125 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:39,125 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 11
+2022-12-10 15:18:39,225 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:39,225 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:39,225 INFO    SenderThread:27094 [file_pusher.py:join():176] waiting for file pusher
+2022-12-10 15:18:40,018 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: sampled_history
+2022-12-10 15:18:40,021 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: get_summary
+2022-12-10 15:18:40,023 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: shutdown
+2022-12-10 15:18:40,024 INFO    HandlerThread:27094 [handler.py:finish():810] shutting down handler
+2022-12-10 15:18:40,125 INFO    WriterThread:27094 [datastore.py:close():279] close: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151401-1sp0h1k6/run-1sp0h1k6.wandb
+2022-12-10 15:18:40,914 INFO    SenderThread:27094 [sender.py:finish():1312] shutting down sender
+2022-12-10 15:18:40,914 INFO    SenderThread:27094 [file_pusher.py:finish():171] shutting down file pusher
+2022-12-10 15:18:40,914 INFO    SenderThread:27094 [file_pusher.py:join():176] waiting for file pusher
+2022-12-10 15:18:42,033 INFO    StreamThr :27094 [internal.py:wandb_internal():90] W&B internal server running at pid: 27094, started at: 2022-12-10 15:18:42.032154
+2022-12-10 15:18:42,036 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: status
+2022-12-10 15:18:42,038 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: status
+2022-12-10 15:18:42,041 DEBUG   SenderThread:27094 [sender.py:send():302] send: header
+2022-12-10 15:18:42,042 INFO    WriterThread:27094 [datastore.py:open_for_write():75] open: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/run-1uqiu10j.wandb
+2022-12-10 15:18:42,042 DEBUG   SenderThread:27094 [sender.py:send():302] send: run
+2022-12-10 15:18:42,776 INFO    SenderThread:27094 [dir_watcher.py:__init__():216] watching files in: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files
+2022-12-10 15:18:42,777 INFO    SenderThread:27094 [sender.py:_start_run_threads():913] run started: 1uqiu10j with start time 1670674721.046703
+2022-12-10 15:18:42,778 DEBUG   SenderThread:27094 [sender.py:send():302] send: summary
+2022-12-10 15:18:42,779 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: check_version
+2022-12-10 15:18:42,779 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-10 15:18:42,780 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: check_version
+2022-12-10 15:18:43,121 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: run_start
+2022-12-10 15:18:43,122 DEBUG   HandlerThread:27094 [meta.py:__init__():35] meta init
+2022-12-10 15:18:43,123 DEBUG   HandlerThread:27094 [meta.py:__init__():50] meta init done
+2022-12-10 15:18:43,123 DEBUG   HandlerThread:27094 [meta.py:probe():216] probe
+2022-12-10 15:18:43,125 DEBUG   HandlerThread:27094 [meta.py:_setup_git():206] setup git
+2022-12-10 15:18:43,159 DEBUG   HandlerThread:27094 [meta.py:_setup_git():213] setup git done
+2022-12-10 15:18:43,159 DEBUG   HandlerThread:27094 [meta.py:_save_code():88] save code
+2022-12-10 15:18:43,159 WARNING HandlerThread:27094 [meta.py:_save_code():90] unable to save code -- program entry not found
+2022-12-10 15:18:43,159 DEBUG   HandlerThread:27094 [meta.py:_save_patches():126] save patches
+2022-12-10 15:18:43,247 DEBUG   HandlerThread:27094 [meta.py:_save_patches():168] save patches done
+2022-12-10 15:18:43,248 DEBUG   HandlerThread:27094 [meta.py:_save_pip():54] save pip
+2022-12-10 15:18:43,249 DEBUG   HandlerThread:27094 [meta.py:_save_pip():68] save pip done
+2022-12-10 15:18:43,249 DEBUG   HandlerThread:27094 [meta.py:_save_conda():75] save conda
+2022-12-10 15:18:43,258 ERROR   HandlerThread:27094 [meta.py:_save_conda():84] Error saving conda packages
+Traceback (most recent call last):
+  File "/home/taufikmh/miniconda3/envs/ptl-gmt/lib/python3.8/site-packages/wandb/sdk/internal/meta.py", line 80, in _save_conda
+    subprocess.call(
+  File "/home/taufikmh/miniconda3/envs/ptl-gmt/lib/python3.8/subprocess.py", line 340, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/home/taufikmh/miniconda3/envs/ptl-gmt/lib/python3.8/subprocess.py", line 854, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/taufikmh/miniconda3/envs/ptl-gmt/lib/python3.8/subprocess.py", line 1702, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2022-12-10 15:18:43,258 DEBUG   HandlerThread:27094 [meta.py:_save_conda():85] save conda done
+2022-12-10 15:18:43,259 DEBUG   HandlerThread:27094 [meta.py:probe():254] probe done
+2022-12-10 15:18:43,261 DEBUG   SenderThread:27094 [sender.py:send():302] send: files
+2022-12-10 15:18:43,262 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2022-12-10 15:18:43,264 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file diff.patch with policy now
+2022-12-10 15:18:43,285 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-10 15:18:43,286 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: stop_status
+2022-12-10 15:18:43,633 DEBUG   SenderThread:27094 [sender.py:send():302] send: telemetry
+2022-12-10 15:18:43,780 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/wandb-summary.json
+2022-12-10 15:18:43,781 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/diff.patch
+2022-12-10 15:18:43,781 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/requirements.txt
+2022-12-10 15:18:43,782 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/wandb-metadata.json
+2022-12-10 15:18:43,782 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/conda-environment.yaml
+2022-12-10 15:18:43,782 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/output.log
+2022-12-10 15:18:44,157 INFO    Thread-41 :27094 [upload_job.py:push():138] Uploaded file /tmp/tmp6addifj2wandb/zonwlvk6-wandb-metadata.json
+2022-12-10 15:18:44,592 INFO    Thread-42 :27094 [upload_job.py:push():138] Uploaded file /tmp/tmp6addifj2wandb/csi4gcru-diff.patch
+2022-12-10 15:18:44,778 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/cross_section.png
+2022-12-10 15:18:45,778 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/output.log
+2022-12-10 15:18:53,887 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:53,887 DEBUG   SenderThread:27094 [sender.py:send():302] send: exit
+2022-12-10 15:18:53,888 INFO    SenderThread:27094 [sender.py:send_exit():438] handling exit code: 0
+2022-12-10 15:18:53,888 INFO    SenderThread:27094 [sender.py:send_exit():440] handling runtime: 10
+2022-12-10 15:18:53,893 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-10 15:18:53,893 INFO    SenderThread:27094 [sender.py:send_exit():446] send defer
+2022-12-10 15:18:53,893 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:53,894 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:53,895 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 0
+2022-12-10 15:18:53,895 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:53,896 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 0
+2022-12-10 15:18:53,896 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 1
+2022-12-10 15:18:53,896 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:53,897 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 1
+2022-12-10 15:18:53,972 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:53,973 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 1
+2022-12-10 15:18:53,973 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 2
+2022-12-10 15:18:53,973 DEBUG   SenderThread:27094 [sender.py:send():302] send: stats
+2022-12-10 15:18:53,974 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:53,974 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 2
+2022-12-10 15:18:53,974 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:53,975 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 2
+2022-12-10 15:18:53,975 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 3
+2022-12-10 15:18:53,975 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:53,975 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 3
+2022-12-10 15:18:53,976 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:53,976 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 3
+2022-12-10 15:18:53,976 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 4
+2022-12-10 15:18:53,977 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:53,977 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 4
+2022-12-10 15:18:53,977 DEBUG   SenderThread:27094 [sender.py:send():302] send: summary
+2022-12-10 15:18:53,978 INFO    SenderThread:27094 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-10 15:18:53,978 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:53,979 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 4
+2022-12-10 15:18:53,979 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 5
+2022-12-10 15:18:53,979 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:53,980 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 5
+2022-12-10 15:18:53,980 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:53,980 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 5
+2022-12-10 15:18:53,997 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:54,355 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 6
+2022-12-10 15:18:54,355 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:54,356 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:54,357 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 6
+2022-12-10 15:18:54,358 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:54,358 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 6
+2022-12-10 15:18:54,458 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:54,783 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/wandb-summary.json
+2022-12-10 15:18:54,784 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/config.yaml
+2022-12-10 15:18:55,697 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 7
+2022-12-10 15:18:55,697 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:55,698 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:55,699 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 7
+2022-12-10 15:18:55,700 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:55,700 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 7
+2022-12-10 15:18:55,700 INFO    SenderThread:27094 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-12-10 15:18:55,784 INFO    Thread-37 :27094 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/output.log
+2022-12-10 15:18:55,785 INFO    SenderThread:27094 [dir_watcher.py:finish():392] scan: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files
+2022-12-10 15:18:55,785 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/diff.patch diff.patch
+2022-12-10 15:18:55,786 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/conda-environment.yaml conda-environment.yaml
+2022-12-10 15:18:55,786 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/cross_section.png cross_section.png
+2022-12-10 15:18:55,786 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/requirements.txt requirements.txt
+2022-12-10 15:18:55,787 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/wandb-metadata.json wandb-metadata.json
+2022-12-10 15:18:55,787 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/wandb-summary.json wandb-summary.json
+2022-12-10 15:18:55,803 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/config.yaml config.yaml
+2022-12-10 15:18:55,804 INFO    SenderThread:27094 [dir_watcher.py:finish():406] scan save: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/output.log output.log
+2022-12-10 15:18:55,812 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:55,813 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 8
+2022-12-10 15:18:55,821 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:55,822 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:55,830 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 8
+2022-12-10 15:18:55,831 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:55,832 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 8
+2022-12-10 15:18:55,832 INFO    SenderThread:27094 [file_pusher.py:finish():171] shutting down file pusher
+2022-12-10 15:18:55,932 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:55,933 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:56,035 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:56,035 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:56,137 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:56,138 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:56,240 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:56,240 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:56,342 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-10 15:18:56,343 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: poll_exit
+2022-12-10 15:18:56,690 INFO    Thread-45 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/wandb-summary.json
+2022-12-10 15:18:56,700 INFO    Thread-44 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/requirements.txt
+2022-12-10 15:18:56,728 INFO    Thread-46 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/config.yaml
+2022-12-10 15:18:56,974 INFO    Thread-47 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/output.log
+2022-12-10 15:18:57,026 INFO    Thread-43 :27094 [upload_job.py:push():138] Uploaded file /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/files/cross_section.png
+2022-12-10 15:18:57,227 INFO    Thread-36 :27094 [sender.py:transition_state():459] send defer: 9
+2022-12-10 15:18:57,228 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:57,228 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 9
+2022-12-10 15:18:57,229 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:57,229 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 9
+2022-12-10 15:18:57,432 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 10
+2022-12-10 15:18:57,433 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:57,433 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 10
+2022-12-10 15:18:57,434 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:57,434 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 10
+2022-12-10 15:18:57,434 INFO    SenderThread:27094 [sender.py:transition_state():459] send defer: 11
+2022-12-10 15:18:57,435 DEBUG   HandlerThread:27094 [handler.py:handle_request():141] handle_request: defer
+2022-12-10 15:18:57,436 DEBUG   SenderThread:27094 [sender.py:send():302] send: final
+2022-12-10 15:18:57,436 INFO    HandlerThread:27094 [handler.py:handle_request_defer():164] handle defer: 11
+2022-12-10 15:18:57,436 DEBUG   SenderThread:27094 [sender.py:send():302] send: footer
+2022-12-10 15:18:57,437 DEBUG   SenderThread:27094 [sender.py:send_request():316] send_request: defer
+2022-12-10 15:18:57,437 INFO    SenderThread:27094 [sender.py:send_request_defer():455] handle sender defer: 11
+2022-12-10 15:18:59,054 WARNING StreamThr :27094 [internal.py:is_dead():387] Internal process exiting, parent pid 26977 disappeared
+2022-12-10 15:18:59,055 ERROR   StreamThr :27094 [internal.py:wandb_internal():149] Internal process shutdown.
+2022-12-10 15:18:59,436 INFO    WriterThread:27094 [datastore.py:close():279] close: /home/taufikmh/my_paper/eage2023_paper1/repo/HCPINNsEikonal-dev/notebooks/wandb/run-20221210_151834-1uqiu10j/run-1uqiu10j.wandb
+2022-12-10 15:18:59,437 INFO    SenderThread:27094 [sender.py:finish():1312] shutting down sender
+2022-12-10 15:18:59,437 INFO    SenderThread:27094 [file_pusher.py:finish():171] shutting down file pusher
+2022-12-10 15:18:59,438 INFO    SenderThread:27094 [file_pusher.py:join():176] waiting for file pusher
+2022-12-10 15:18:59,440 INFO    HandlerThread:27094 [handler.py:finish():810] shutting down handler

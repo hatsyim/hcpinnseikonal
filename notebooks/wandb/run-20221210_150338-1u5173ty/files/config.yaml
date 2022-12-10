@@ -1,0 +1,193 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.2
+    framework: torch
+    is_jupyter_run: true
+    is_kaggle_kernel: true
+    python_version: 3.8.2
+    start_time: 1670673824.081428
+    t:
+      1:
+      - 55
+      2:
+      - 1
+      - 55
+      3:
+      - 23
+      4: 3.8.2
+      5: 0.13.2
+      8:
+      - 1
+      - 2
+      - 5
+activation:
+  desc: null
+  value: elu
+append_shot:
+  desc: null
+  value: n
+causality_factor:
+  desc: null
+  value: 0.5
+causality_weight:
+  desc: null
+  value: type_0
+checker_size:
+  desc: null
+  value: 5.0
+data_layers:
+  desc: null
+  value: 8
+data_neurons:
+  desc: null
+  value: 16
+data_type:
+  desc: null
+  value: nn
+depth_shift:
+  desc: null
+  value: n
+earth_scale:
+  desc: null
+  value: n
+empty_middle:
+  desc: null
+  value: n
+event_factor:
+  desc: null
+  value: 0.9
+exclude_source:
+  desc: null
+  value: n
+exclude_topo:
+  desc: null
+  value: n
+exclude_well:
+  desc: null
+  value: n
+exp_factor:
+  desc: null
+  value: 1.0
+exp_function:
+  desc: null
+  value: n
+explode_reflector:
+  desc: null
+  value: n
+factorization_type:
+  desc: null
+  value: additive
+field_synthetic:
+  desc: null
+  value: y
+initial_velocity:
+  desc: null
+  value: 3
+initialization:
+  desc: null
+  value: varianceScaling
+irregular_grid:
+  desc: null
+  value: y
+last_vmultiplier:
+  desc: null
+  value: 5
+lateral_spacing:
+  desc: null
+  value: 0.03
+learning_rate:
+  desc: null
+  value: 0.001
+loss_function:
+  desc: null
+  value: mse
+max_depth:
+  desc: null
+  value: 1
+max_offset:
+  desc: null
+  value: 8.6
+middle_shot:
+  desc: null
+  value: n
+model_type:
+  desc: null
+  value: marmousi
+nu_units:
+  desc: null
+  value: unitless
+num_epochs:
+  desc: null
+  value: 3000
+num_layers:
+  desc: null
+  value: 12
+num_neurons:
+  desc: null
+  value: 24
+num_points:
+  desc: null
+  value: 1.0
+plotting_factor:
+  desc: null
+  value: 1
+rec_spacing:
+  desc: null
+  value: 20
+reduce_after:
+  desc: null
+  value: 50
+regular_station:
+  desc: null
+  value: y
+rescale_plot:
+  desc: null
+  value: y
+residual_network:
+  desc: null
+  value: y
+scale_factor:
+  desc: null
+  value: 2
+seed:
+  desc: null
+  value: 1234
+sou_spacing:
+  desc: null
+  value: 40
+station_factor:
+  desc: null
+  value: 0.1
+tau_act:
+  desc: null
+  value: tanh
+tau_multiplier:
+  desc: null
+  value: 1
+until_cmb:
+  desc: null
+  value: y
+v_multiplier:
+  desc: null
+  value: 3
+velocity_loss:
+  desc: null
+  value: n
+vertical_spacing:
+  desc: null
+  value: 0.01
+well_depth:
+  desc: null
+  value: null
+xid_well:
+  desc: null
+  value: 5
+zid_receiver:
+  desc: null
+  value: 0
+zid_source:
+  desc: null
+  value: 5

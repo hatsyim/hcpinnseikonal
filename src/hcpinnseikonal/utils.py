@@ -1,7 +1,10 @@
 import random
 import numpy as np
 import torch
+import torch.nn as nn
 import skfmm
+
+from torch.nn import Linear
 from torch.utils.data import TensorDataset, DataLoader
 
 class SaveBestModel:

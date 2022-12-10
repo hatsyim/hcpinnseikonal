@@ -8,8 +8,8 @@ import os
 import seislib.colormaps as scm
 import wandb
 
-from mpl_toolkits.axes_grid1 import make_axes_locatable
 from torch.optim.lr_scheduler import ReduceLROnPlateau
+from hcpinnseikonal.utils import create_dataloader
 
 # Load style @hatsyim
 # plt.style.use("~/science.mplstyle")
@@ -18,15 +18,14 @@ plt.rcParams['savefig.dpi'] = 300
 plt.rcParams['xtick.bottom'] = plt.rcParams['xtick.labelbottom'] = False
 plt.rcParams['xtick.top'] = plt.rcParams['xtick.labeltop'] = True
 plt.rcParams['figure.figsize'] =  [6.4, 4.8]
-        
-from argparse import ArgumentParser        
-def numerical_traveltime():
+           
+def numerical_traveltime(vel, nx, nz, ns, xmin, zmin, deltax, deltaz, id_sou_x, id_sou_z):
     
     import pykonal
 
-    T_data_surf = np.zeros((nz,nx,id_sou_x.shape[0]))
+    T_data_surf = np.zeros((nz,nx,ns))
 
-    for i in range(id_sou_x.shape[0]):
+    for i in range(ns):
 
         solver = pykonal.EikonalSolver(coord_sys="cartesian")
         solver.velocity.min_coords = zmin, xmin, zmin
@@ -58,7 +57,7 @@ from torch.utils.data import TensorDataset, DataLoader
 
 def train(input_wosrc, sx, sz,
           tau_model, v_model, optimizer, epoch,
-          batch_size, vscaler, scheduler, fast_loader, device):
+          batch_size, vscaler, scheduler, fast_loader, device, args):
     tau_model.train()
     v_model.train()
     loss = []
@@ -96,8 +95,8 @@ def train(input_wosrc, sx, sz,
         tau_dz = gradient[:, 1]
     
         # Loss function based on the factored isotropic eikonal equation
-        if args.exp_function:
-            rec_op = (1-torch.exp((xz[:,1])**args.exp_factor))
+        if args['exp_function']=='y':
+            rec_op = (1-torch.exp((xz[:,1])**args['exp_factor']))
 
             # Initialize output tensor with desired value
             rec_op_dz = torch.full_like(xz[:,1], fill_value=0.)
@@ -105,12 +104,12 @@ def train(input_wosrc, sx, sz,
             # Zero mask
             mask = (xz[:,1] != 0)
 
-            rec_op_dz[mask] = (-args.exp_factor*torch.exp((xz[:,1][mask])**args.exp_factor)/(xz[:,1][mask]**(1-args.exp_factor)))
+            rec_op_dz[mask] = (-args['exp_factor']*torch.exp((xz[:,1][mask])**args['exp_factor'])/(xz[:,1][mask]**(1-args['exp_factor'])))
         else:
             rec_op = xz[:,1]
             rec_op_dz = 1
                 
-        if args.factorization_type=='multiplicative':
+        if args['factorization_type']=='multiplicative':
             T_dx = (rec_op*tau_dx[:-num_sou] + taud_dx)*t0 + (rec_op*tau[:-num_sou] + taud)*t0_dx
             T_dz = (rec_op*tau_dz[:-num_sou] + rec_op_dz*tau[:-num_sou])*t0 + (rec_op*tau[:-num_sou] + taud)*t0_dz
         else:
@@ -119,28 +118,28 @@ def train(input_wosrc, sx, sz,
         
         pde_lhs = (T_dx**2 + T_dz**2) * vscaler
 
-        if args.velocity_loss=='y':
+        if args['velocity_loss']=='y':
             pde = torch.sqrt(1/pde_lhs) - v[:-num_sou]
         else:
             pde = pde_lhs - vscaler / (v[:-num_sou] ** 2)
         
         # No causality
-        if args.causality_weight=='type_0':
+        if args['causality_weight']=='type_0':
             wl2=1        
         # Stationary causality
-        elif args.causality_weight=='type_1':
-            wl2 = torch.exp(-args.causality_factor*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args.zid_source])**2))
+        elif args['causality_weight']=='type_1':
+            wl2 = torch.exp(-args['causality_factor']*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args['zid_source']])**2))
         # Anti-causal causal non-stationary
-        elif args.causality_weight=='type_2':
-            delt = (1-0.01)/args.num_epochs
-            wl2 = torch.exp((-1+delt*epoch)*args.causality_factor*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args.zid_source])**2))
+        elif args['causality_weight']=='type_2':
+            delt = (1-0.01)/args['num_epochs']
+            wl2 = torch.exp((-1+delt*epoch)*args['causality_factor']*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args['zid_source']])**2))
         # Anti-causal
-        elif args.causality_weight=='type_3':
-            wl2 = 1.05*(1-torch.exp(-args.causality_factor*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args.zid_source])**2)))
+        elif args['causality_weight']=='type_3':
+            wl2 = 1.05*(1-torch.exp(-args['causality_factor']*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args['zid_source']])**2)))
         # Anti-causal causal non-stationary
-        elif args.causality_weight=='type_4':
-            delt = (1-0.01)/args.num_epochs
-            wl2 = torch.abs(torch.exp((-1+delt*epoch)*args.causality_factor*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args.zid_source])**2))-1) + (1-torch.exp(torch.tensor(-5e-4*epoch)))
+        elif args['causality_weight']=='type_4':
+            delt = (1-0.01)/args['num_epochs']
+            wl2 = torch.abs(torch.exp((-1+delt*epoch)*args['causality_factor']*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args['zid_source']])**2))-1) + (1-torch.exp(torch.tensor(-5e-4*epoch)))
         
         ls_pde = torch.mean(wl2*pde**2)
         ls = ls_pde
@@ -183,7 +182,7 @@ def evaluate_velocity(v_model, grid_loader):
 def training_loop(input_wosrc, sx, sz,
                   tau_model, v_model, optimizer, epochs,
                   batch_size=200**3,
-                  vscaler= 1., scheduler=None, fast_loader='n', device='cuda', wandb=None):
+                  vscaler= 1., scheduler=None, fast_loader='n', device='cuda', wandb=None, args=None):
 
     loss_history = []
 
@@ -193,7 +192,7 @@ def training_loop(input_wosrc, sx, sz,
         mean_loss = train(input_wosrc, sx, sz,
                   tau_model, v_model, optimizer, epoch,
                   batch_size,
-                  vscaler, scheduler, fast_loader, device)
+                  vscaler, scheduler, fast_loader, device, args)
         if wandb is not None:
             wandb.log({"loss": mean_loss})
         loss_history.append(mean_loss)

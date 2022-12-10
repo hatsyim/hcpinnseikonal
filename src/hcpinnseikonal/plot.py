@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
+
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 # Load style @hatsyim
 # plt.style.use("../asset/science.mplstyle")
@@ -36,20 +39,19 @@ def plot_contour(pred, true, init, idx, fig_name=None, save_dir='./'):
                     format='png', bbox_inches="tight") 
 
 def plot_section(data, fig_name, data_type='km/s', vmin=None, vmax=None, 
-                 cmap='terrain', save_dir='./', aspect='equal'):
+                 cmap='terrain', save_dir='./', aspect='equal', 
+                 xmin=0, xmax=1, zmin=0, zmax=1, 
+                 sx=None, sz=None, rx=None, rz=None):
     plt.figure()
     ax = plt.gca()
     im = ax.imshow(data, extent=[xmin,xmax,zmax,zmin], cmap=cmap, 
                    aspect=aspect, vmin=vmin, vmax=vmax, interpolation='kaiser')
     
-    if id_sou_z.size>1:
-        plt.scatter(x[id_sou_x], z[id_sou_z], 5, 'white', marker='*')
-        plt.scatter(x[id_rec_x], z[id_rec_z], 5, 'y', marker='v')
-    else:
-        plt.scatter(x[id_sou_x], z[np.ones_like(id_sou_x)*id_sou_z], 
-                    5, 'white', marker='*')
-        plt.scatter(x[id_rec_x], z[np.ones_like(id_sou_x)*id_rec_z], 
-                    5, 'y', marker='v')   
+    if sx is not None:
+        plt.scatter(sx, sz, 5, 'white', marker='*')
+    
+    if rx is not None:
+        plt.scatter(rx, rz, 5, 'y', marker='v')
     
     plt.xlabel('Offset (km)', fontsize=14)
     plt.xticks(fontsize=11)
@@ -91,8 +93,8 @@ def plot_trace(init, true, pred, trace_id, fig_name=None, save_dir='./'):
         plt.savefig(os.path.join(save_dir, fig_name), 
                     format='png', bbox_inches="tight") 
         
-def plot_horizontal(trace1,trace2,x,title,ylabel,fig_name,
-                    label1,label2,save_dir='./'):
+def plot_horizontal(trace1, trace2, x, title, ylabel, fig_name,
+                    label1, label2, save_dir='./', id_rec_x=None, id_rec_z=None):
     plt.figure(figsize=(5,3))
 
     ax = plt.gca()
@@ -100,7 +102,7 @@ def plot_horizontal(trace1,trace2,x,title,ylabel,fig_name,
     plt.plot(x,trace1,'b')
     plt.plot(x,trace2,'r:')
     
-    if args.field_synthetic=='y':
+    if id_rec_x is not None:
         plt.scatter(x[id_rec_x], trace1[id_rec_x])
 
     ax.set_title(title, fontsize=14)
