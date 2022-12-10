@@ -6,7 +6,6 @@ Reproducible material for **A robust seismic tomography framework via physics-in
 # Project structure
 This repository is organized as follows:
 
-* :open_file_folder: **package**: python library containing routines for ....;
 * :open_file_folder: **asset**: folder containing logo;
 * :open_file_folder: **data**: folder containing the cropped [Marmousi](https://wiki.seg.org/wiki/Dictionary:Marmousi_model) model.
 * :open_file_folder: **notebooks**: set of jupyter notebooks reproducing the experiments in the paper (see below for more details).
