@@ -5,14 +5,17 @@ def src(pth):
     return os.path.join(os.path.dirname(__file__), pth)
 
 # Project description
-descr = 'My project description.'
+descr = 'Repository for DWXXX: A robust seismic tomography framework via physics-informed machine learning with hard constrained data.'
 
 setup(
-    name="package", # Choose your package name
+    name="hcpinnseikonal",
     description=descr,
     long_description=open(src('README.md')).read(),
     keywords=['inverse problems',
               'deep learning',
+              'tomography',
+              'pinns',
+              'pde',
               'seismic'],
     classifiers=[
         'Intended Audience :: Science/Research',
@@ -21,15 +24,14 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Topic :: Scientific/Engineering :: Mathematics'
     ],
-    author='First Author, Second author, Third author',
-    author_email='first.auth@kaust.edu.sa, second.auth@kaust.edu.sa, third.auth@kaust.edu.sa',
+    author='Mohammad Taufik, Tariq Alkhalifah, Umair bin Waheed',
+    author_email='mohammad.taufik@kaust.edu.sa, tariq.alkhalifah@kaust.edu.sa, umair.waheed@kfupm.edu.sa',
     install_requires=['numpy >= 1.15.0',
-                      'torch >= 1.2.0',
-                      'pylops >= 1.17.0'],
+                      'torch >= 1.2.0'],
     packages=find_packages(),
     use_scm_version=dict(root='.',
                          relative_to=__file__,
-                         write_to=src('package/version.py')),
+                         write_to=src('hcpinnseikonal/version.py')),
     setup_requires=['setuptools_scm'],
 
 )
