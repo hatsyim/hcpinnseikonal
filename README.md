@@ -1,4 +1,4 @@
-![LOGO](https://github.com/DeepWave-Kaust/Project-Template/blob/main/asset/logo.png)
+![LOGO](asset/logo.png)  
 
 Reproducible material for **A robust seismic tomography framework via physics-informed machine learning with hard constrained data - Taufik M., Alkhalifah T., and Waheed U.**
 
