@@ -1,4 +1,5 @@
 import os
+from glob import glob
 from setuptools import setup, find_packages
 
 def src(pth):
@@ -28,10 +29,12 @@ setup(
     author_email='mohammad.taufik@kaust.edu.sa, tariq.alkhalifah@kaust.edu.sa, umair.waheed@kfupm.edu.sa',
     install_requires=['numpy >= 1.15.0',
                       'torch >= 1.2.0'],
-    packages=find_packages(),
+    packages=find_packages(where='src'),
+    package_dir={'': 'src'},
+    py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
     use_scm_version=dict(root='.',
                          relative_to=__file__,
-                         write_to=src('hcpinnseikonal/version.py')),
+                         write_to=src('src/hcpinnseikonal/version.py')),
     setup_requires=['setuptools_scm'],
 
 )
