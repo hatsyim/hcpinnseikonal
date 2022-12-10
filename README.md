@@ -1,6 +1,6 @@
 ![LOGO](https://github.com/DeepWave-Kaust/Project-Template/blob/main/asset/logo.png)
 
-Reproducible material for **XXX - Author M., Author M., Author C.**
+Reproducible material for **A robust seismic tomography framework via physics-informed machine learning with hard constrained data - Taufik M., Alkhalifah T., and Waheed U.**
 
 
 # Project structure
@@ -33,9 +33,8 @@ Remember to always activate the environment by typing:
 conda activate my_env
 ```
 
-**Disclaimer:** All experiments have been carried on a Intel(R) Xeon(R) CPU @ 2.10GHz equipped with a single NVIDIA GEForce RTX 3090 GPU. Different environment 
+**Disclaimer:** All experiments have been carried on a Intel(R) Xeon(R) Gold 6230R CPU @ 2.10GHz equipped with a single NVIDIA Quadro RTX 8000 GPU. Different environment 
 configurations may be required for different combinations of workstation and GPU.
 
 ## Cite us 
-DWXXX - Author1 et al. (2022) Report title.
-
+DWXXX - Taufik et al. (2022) Report title.
