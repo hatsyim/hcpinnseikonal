@@ -12,6 +12,7 @@ conda env create -f environment.yml
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate my_env
 pip install -e git+https://github.com/malcolmw/pykonal@373a7d4#egg=pykonal
+pip install -e .
 conda env list
 echo 'Created and activated environment:' $(which python)
 
