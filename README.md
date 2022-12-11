@@ -1,6 +1,6 @@
 ![LOGO](asset/logo.png)  
 
-Reproducible material for **A robust seismic tomography framework via physics-informed machine learning with hard constrained data - Taufik M., Alkhalifah T., and Waheed U.**
+Reproducible material for **A robust seismic tomography framework via physics-informed machine learning with hard constrained data - Taufik M. and Alkhalifah T.**
 
 
 # Project structure
@@ -35,4 +35,4 @@ conda activate my_env
 configurations may be required for different combinations of workstation and GPU.
 
 ## Cite us 
-DWXXX - Taufik et al. (2022) Report title.
+DWXXX - Taufik and Alkhalifah (2022) Report title.
