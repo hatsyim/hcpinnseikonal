@@ -7,16 +7,21 @@
 
 echo 'Creating Package environment'
 
-# create conda env
+# Create conda env
 conda env create -f environment.yml
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate my_env
+
+# Install eikonal solver: fast-marching with Pykonal
 pip install -e git+https://github.com/malcolmw/pykonal@373a7d4#egg=pykonal
+
+# Install hcpinns package
 pip install -e .
+
 conda env list
 echo 'Created and activated environment:' $(which python)
 
-# check cupy works as expected
+# Check cupy works as expected
 echo 'Checking cupy version and running a command...'
 python -c 'import torch; print(torch.__version__);  print(torch.cuda.get_device_name(torch.cuda.current_device())); print(torch.ones(10).to("cuda:0"))'
 
