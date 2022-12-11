@@ -2,19 +2,19 @@
  
  
 # Using diffrent receiver spacing
-for i in 5 10 20
+for i in 5 #10 30
 do
     python example-1.py \
     --scale_factor=2 \
     --until_cmb=y \
-    --num_epochs=3000 \
+    --num_epochs=3 \
     --seed=1234 \
     --learning_rate=1e-3 \
     --rescale_plot=y \
     --initial_velocity=3 \
     --zid_source=5 \
     --zid_receiver=0 \
-    --data_type=nn \
+    --data_type=full \
     --irregular_grid=y \
     --num_layers=12 \
     --model_type=marmousi \
