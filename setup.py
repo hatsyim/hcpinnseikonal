@@ -27,8 +27,6 @@ setup(
     ],
     author='Mohammad Taufik, Tariq Alkhalifah',
     author_email='mohammad.taufik@kaust.edu.sa, tariq.alkhalifah@kaust.edu.sa',
-    install_requires=['numpy >= 1.15.0',
-                      'torch >= 1.2.0'],
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
