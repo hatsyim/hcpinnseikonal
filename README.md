@@ -10,12 +10,12 @@ This repository is organized as follows:
 * :open_file_folder: **data**: folder containing the cropped [Marmousi](https://wiki.seg.org/wiki/Dictionary:Marmousi_model) model.
 * :open_file_folder: **notebooks**: set of jupyter notebooks reproducing the experiments in the paper (see below for more details).
 * :open_file_folder: **scripts**: set of python scripts used to run multiple experiments.
-* :open_file_folder: **src**: folder containing materials for the hcpinnseikonal package.
+* :open_file_folder: **src**: folder containing materials for the *hcpinnseikonal* package.
 
 ## Notebooks
 The following notebooks are provided:
 
-- :orange_book: ``Example-1.ipynb``: notebook performing the first experiment on the manuscript.
+- :orange_book: ``Example-1.ipynb``: notebook performing a surface tomography acquisition with lateral source-receiver sampling of $\Delta x_s=1.2 km$ and $\Delta x_r=0.6 km$, respectively.
 
 ## Getting started :space_invader: :robot:
 To ensure reproducibility of the results, we suggest using the `environment.yml` file when creating an environment.
