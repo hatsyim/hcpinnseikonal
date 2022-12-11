@@ -15,7 +15,7 @@ do
     --initial_velocity=3 \
     --zid_source=5 \
     --zid_receiver=0 \
-    --data_type=full \
+    --data_type=nn \
     --irregular_grid=y \
     --num_layers=12 \
     --model_type=marmousi \
