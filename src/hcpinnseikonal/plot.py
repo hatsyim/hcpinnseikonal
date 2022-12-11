@@ -14,7 +14,7 @@ plt.rcParams['xtick.bottom'] = plt.rcParams['xtick.labelbottom'] = False
 plt.rcParams['xtick.top'] = plt.rcParams['xtick.labeltop'] = True
 plt.rcParams['figure.figsize'] =  [6.4, 4.8]
 
-def plot_contour(pred, true, init, idx, nx, nz, ns, x, z, fig_name=None, save_dir='./'):
+def plot_contour(pred, true, init, idx, nx, nz, ns, sx, sz, x, z, fig_name=None, save_dir='./'):
     plt.figure()
     c_p = plt.contour(pred.reshape(nz,nx,ns)[:,:,idx],20, 
                       colors='k',extent=(x[0], x[-1], z[0], z[-1]))

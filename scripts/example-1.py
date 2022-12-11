@@ -1065,7 +1065,7 @@ if __name__ == "__main__":
                      xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
                      sx=x[id_sou_x],sz=z[id_sou_z],rx=x[id_rec_x],rz=z[id_rec_z]) 
         plot_contour(t_pred.reshape(nz,nx,len(id_sou_x)), T_true.reshape(nz,nx,len(id_sou_x)),
-                     T0.reshape(nz,nx,len(id_sou_x)), i, nx, nz, len(id_sou_x), x, z,
+                     T0.reshape(nz,nx,len(id_sou_x)), i, nx, nz, len(id_sou_x), sx, sz, x, z,
                      'contour_'+str(i)+'.png', save_dir=wandb_dir)
         plot_section(t_pred.reshape(nz,nx,len(id_sou_x))[:,:,i], 't_pred_'+str(i)+'.png', 's', 
                      save_dir=wandb_dir, aspect='equal') 
