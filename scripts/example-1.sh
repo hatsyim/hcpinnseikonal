@@ -2,7 +2,7 @@
 # 
 # Using diffrent receiver spacing
 # 
-# Run: ./install_env.sh
+# Run: ./example-1.sh
 
 for i in 5 10 30
 do
