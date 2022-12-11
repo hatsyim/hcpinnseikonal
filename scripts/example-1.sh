@@ -1,7 +1,9 @@
- #!/usr/bin/bash
- 
- 
+#!/bin/bash
+# 
 # Using diffrent receiver spacing
+# 
+# Run: ./install_env.sh
+
 for i in 5 10 30
 do
     python example-1.py \
