@@ -17,6 +17,11 @@ The following notebooks are provided:
 
 - :orange_book: ``Example-1.ipynb``: notebook performing a surface tomography acquisition with sparse source-receiver sampling.
 
+## Scripts
+The following scripts are provided:
+
+- :page_with_curl: ``example-1.sh``: script to perform different receiver sampling experiment for the acquisition perform in the ``Example-1.ipynb`` and ``example-1.py``.
+
 ## Getting started :space_invader: :robot:
 To ensure reproducibility of the results, we suggest using the `environment.yml` file when creating an environment.
 
