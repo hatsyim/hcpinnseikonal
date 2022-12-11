@@ -200,8 +200,8 @@ dependencies:
       - geopy==2.2.0
       - gitdb==4.0.9
       - gitpython==3.1.27
-      - google-api-core==2.10.0
-      - google-api-python-client==1.12.11
+      - google-api-core
+      - google-api-python-client
       - google-auth==1.35.0
       - google-auth-httplib2==0.1.0
       - google-auth-oauthlib==0.4.6
@@ -210,7 +210,7 @@ dependencies:
       - google-crc32c==1.5.0
       - google-pasta==0.2.0
       - google-resumable-media==2.3.3
-      - googleapis-common-protos==1.56.4
+      - googleapis-common-protos
       - greenlet==1.1.2
       - grpcio==1.47.0
       - gunicorn==20.1.0
@@ -296,7 +296,7 @@ dependencies:
       - prometheus-flask-exporter==0.20.3
       - promise==2.3
       - prompt-toolkit==3.0.30
-      - protobuf==3.20.1
+      - protobuf
       - psutil==5.9.1
       - pyasn1==0.4.8
       - pyasn1-modules==0.2.8
@@ -306,7 +306,6 @@ dependencies:
       - pydeprecate==0.3.2
       - pygmt==0.7.0
       - pyjwt==2.4.0
-      - pykonal==0.3.2b3
       - pymap3d==2.9.1
       - pyperclip==1.8.2
       - pyrsistent==0.18.1
@@ -346,13 +345,13 @@ dependencies:
       - strip-hints==0.1.10
       - tabulate==0.8.10
       - tenacity==8.1.0
-      - tensorboard==2.9.1
+      - tensorboard
       - tensorboard-data-server==0.6.1
       - tensorboard-plugin-wit==1.8.1
-      - tensorboardx==2.5.1
-      - tensorflow==2.9.1
-      - tensorflow-estimator==2.9.0
-      - tensorflow-io-gcs-filesystem==0.26.0
+      - tensorboardx
+      - tensorflow
+      - tensorflow-estimator
+      - tensorflow-io-gcs-filesystem
       - termcolor==1.1.0
       - terminado==0.15.0
       - textwrap3==0.9.2
