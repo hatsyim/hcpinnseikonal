@@ -3,7 +3,6 @@
 # Installer for package
 # 
 # Run: ./install_env.sh
-# 
 
 echo 'Creating Package environment'
 
