@@ -5,7 +5,6 @@ import scipy.io
 import time
 import random
 import os
-import seislib.colormaps as scm
 import wandb
 
 from torch.optim.lr_scheduler import ReduceLROnPlateau
