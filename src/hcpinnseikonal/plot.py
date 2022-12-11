@@ -7,19 +7,20 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 # Load style @hatsyim
 # plt.style.use("../asset/science.mplstyle")
+
 plt.rcParams['figure.dpi'] = 100
 plt.rcParams['savefig.dpi'] = 300
 plt.rcParams['xtick.bottom'] = plt.rcParams['xtick.labelbottom'] = False
 plt.rcParams['xtick.top'] = plt.rcParams['xtick.labeltop'] = True
 plt.rcParams['figure.figsize'] =  [6.4, 4.8]
 
-def plot_contour(pred, true, init, idx, fig_name=None, save_dir='./'):
+def plot_contour(pred, true, init, idx, nx, nz, ns, x, z, fig_name=None, save_dir='./'):
     plt.figure()
-    c_p = plt.contour(pred.reshape(nz,nx,len(id_sou_x))[:,:,idx],20, 
+    c_p = plt.contour(pred.reshape(nz,nx,ns)[:,:,idx],20, 
                       colors='k',extent=(x[0], x[-1], z[0], z[-1]))
-    c_t = plt.contour(true.reshape(nz,nx,len(id_sou_x))[:,:,idx], 20, 
+    c_t = plt.contour(true.reshape(nz,nx,ns)[:,:,idx], 20, 
                       colors='y', linestyles='dashed', extent=(x[0], x[-1], z[0], z[-1]))
-    c_i = plt.contour(init.reshape(nz,nx,len(id_sou_x))[:,:,idx], 20, 
+    c_i = plt.contour(init.reshape(nz,nx,ns)[:,:,idx], 20, 
                       colors='b', linestyles='dashed', extent=(x[0], x[-1], z[0], z[-1]))
 
     h1,_ = c_p.legend_elements()
@@ -68,7 +69,7 @@ def plot_section(data, fig_name, data_type='km/s', vmin=None, vmax=None,
         plt.savefig(os.path.join(save_dir, fig_name), 
                     format='png', bbox_inches="tight") 
         
-def plot_trace(init, true, pred, trace_id, fig_name=None, save_dir='./'):
+def plot_trace(init, true, pred, trace_id, x, z, fig_name=None, save_dir='./'):
     plt.figure(figsize=(3,5))
     plt.rcParams['xtick.bottom'] = plt.rcParams['xtick.labelbottom'] = False
     plt.rcParams['xtick.top'] = plt.rcParams['xtick.labeltop'] = True
@@ -83,7 +84,7 @@ def plot_trace(init, true, pred, trace_id, fig_name=None, save_dir='./'):
     
     plt.xticks(fontsize=11)
     plt.ylabel('Depth (km)', fontsize=14)
-    plt.xlabel('Offset '+str(x[trace_id])+' (km)', fontsize=14)
+    plt.xlabel('Offset '+str(x[trace_id].round(3))+' (km)', fontsize=14)
     plt.yticks(fontsize=11)
     plt.gca().invert_yaxis()
     plt.legend(['Initial','True','Inverted'], fontsize=11)
