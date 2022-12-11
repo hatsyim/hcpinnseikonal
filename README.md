@@ -9,7 +9,7 @@ This repository is organized as follows:
 * :open_file_folder: **asset**: folder containing logo.
 * :open_file_folder: **data**: folder containing the cropped [Marmousi](https://wiki.seg.org/wiki/Dictionary:Marmousi_model) model.
 * :open_file_folder: **notebooks**: set of jupyter notebooks reproducing the experiments in the paper (see below for more details).
-* :open_file_folder: **scripts**: set of python scripts used to run multiple experiments.
+* :open_file_folder: **scripts**: set of (bash and python) scripts used to run multiple experiments.
 * :open_file_folder: **src**: folder containing materials for the *hcpinnseikonal* package.
 
 ## Notebooks
