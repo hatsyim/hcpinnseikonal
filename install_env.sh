@@ -15,7 +15,7 @@ conda activate my_env
 # Install eikonal solver: fast-marching with Pykonal
 pip install -e git+https://github.com/malcolmw/pykonal@373a7d4#egg=pykonal
 
-# Install hcpinns package
+# Install hcpinnseikonal package
 pip install -e .
 
 conda env list
