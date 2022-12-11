@@ -15,7 +15,7 @@ This repository is organized as follows:
 ## Notebooks
 The following notebooks are provided:
 
-- :orange_book: ``Example-1.ipynb``: notebook performing a surface tomography acquisition with lateral source-receiver sampling of $\Delta x_s=1.2 km$ and $\Delta x_r=0.6 km$, respectively.
+- :orange_book: ``Example-1.ipynb``: notebook performing a surface tomography acquisition with sparse source-receiver sampling.
 
 ## Getting started :space_invader: :robot:
 To ensure reproducibility of the results, we suggest using the `environment.yml` file when creating an environment.
