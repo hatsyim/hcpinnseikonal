@@ -2,7 +2,6 @@ name: ptl-gmt
 channels:
   - conda-forge
   - defaults
-  - pytorch
 dependencies:
   - _ipython_minor_entry_point=8.7.0=h3b92ee0_0
   - _libgcc_mutex=0.1=conda_forge
