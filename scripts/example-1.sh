@@ -2,13 +2,14 @@
  
  
 # Using diffrent receiver spacing
-for i in 5 #10 30
+for i in 5 10 30
 do
     python example-1.py \
     --scale_factor=2 \
     --until_cmb=y \
-    --num_epochs=3 \
+    --num_epochs=3000 \
     --seed=1234 \
+    --data_type=nn \
     --learning_rate=1e-3 \
     --rescale_plot=y \
     --initial_velocity=3 \
