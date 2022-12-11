@@ -8,7 +8,8 @@
 echo 'Creating Package environment'
 
 # create conda env
-conda env create -f environment.yml
+conda create --name my_env--file requirements.txt
+# conda env create -f environment.yml
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate my_env
 conda env list
