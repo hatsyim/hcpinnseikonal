@@ -20,7 +20,7 @@ The following notebooks are provided:
 ## Scripts
 The following scripts are provided:
 
-- :page_with_curl: ``example-1.sh``: script to perform different receiver sampling experiment for the acquisition perform in the ``Example-1.ipynb`` and ``example-1.py``.
+- :page_with_curl: ``Example-1.sh``: script to perform different receiver sampling experiment for the acquisition perform in the ``Example-1.ipynb`` and ``Example-1.py``.
 
 ## Getting started
 To ensure reproducibility of the results, we suggest using the `environment.yml` file when creating an environment.
