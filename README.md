@@ -40,4 +40,4 @@ conda activate my_env
 configurations may be required for different combinations of workstation and GPU.
 
 ## Cite us 
-DWXXX - Taufik and Alkhalifah (2022) A robust seismic tomography framework via physics-informed machine learning with hard constrained data.
+DW003 - Taufik and Alkhalifah (2022) A robust seismic tomography framework via physics-informed machine learning with hard constrained data.
