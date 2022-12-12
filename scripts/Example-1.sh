@@ -6,7 +6,7 @@
 
 for i in 5 10 30
 do
-    python Example-1.py \
+    python ./Example-1.py \
     --scale_factor=2 \
     --until_cmb=y \
     --num_epochs=3000 \
