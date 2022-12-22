@@ -33,7 +33,7 @@ It will take some time, if at the end you see the word `Done!` on your terminal 
 
 Remember to always activate the environment by typing:
 ```
-conda activate my_env
+conda activate my_env_plot
 ```
 
 **Disclaimer:** All experiments have been carried on a Intel(R) Xeon(R) Gold 6230R CPU @ 2.10GHz equipped with a single NVIDIA Quadro RTX 8000 GPU. Different environment 
