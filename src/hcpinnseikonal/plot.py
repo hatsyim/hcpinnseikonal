@@ -14,6 +14,83 @@ plt.rcParams['xtick.bottom'] = plt.rcParams['xtick.labelbottom'] = False
 plt.rcParams['xtick.top'] = plt.rcParams['xtick.labeltop'] = True
 plt.rcParams['figure.figsize'] =  [6.4, 4.8]
 
+import pyvista as pv
+
+from pyvista import examples
+
+import matplotlib
+from mpl_toolkits.mplot3d import Axes3D
+
+def plot_slice(x, y, z, data, xslice, yslice, zslice, ax=None, vmin=None, vmax=None, fig_name=None, save_dir='./'):
+    
+    if ax is None:
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+    else:
+        fig = plt.figure()
+
+    data_z = data[zslice,:,:]
+    data_x = data[:,:,xslice]
+    data_y = data[:,yslice,:]
+    
+    norm = matplotlib.colors.Normalize(vmin=data.min(), vmax=data.max())
+    cmap = plt.cm.get_cmap('terrain')#plt.cm.
+    m = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
+    m.set_array([])
+    # fcolors = m.to_rgba(data.reshape(-1,1))
+    
+    # Plot X slice
+    xs, ys, zs = data.shape
+    
+    xplot = ax.plot_surface(np.atleast_2d(x[xslice]), y[:, np.newaxis], z[np.newaxis, :],
+                            facecolors=m.to_rgba(data_x.T), cmap=cmap) #, vmin=1.5, vmax=8.85)
+    # Plot Y slice
+    yplot = ax.plot_surface(x[:, np.newaxis], np.atleast_2d(y[yslice]), z[np.newaxis, :],
+                            facecolors=m.to_rgba(data_y.T), cmap=cmap) #, vmin=1.5, vmax=8.85)
+    # Plot Z slice
+    zplot = ax.plot_surface(x[:, np.newaxis], y[np.newaxis, :], np.atleast_2d(z[zslice]),
+                            facecolors=m.to_rgba(data_z.T), cmap=cmap) #, vmin=1.5, vmax=8.85)
+    # zplot.
+    cbar = plt.colorbar(m, shrink=0.15, aspect=5, location='bottom')
+    cbar.set_label('km/s')
+    
+    ax.invert_zaxis()
+    ax.set_xlabel('X (km)')
+    ax.set_ylabel('Y (km)')
+    ax.set_zlabel('Z (km)')
+    
+    if fig_name is not None:
+        plt.savefig(os.path.join(save_dir, fig_name), 
+                    format='png', bbox_inches="tight")
+
+def plot_cube(values, xmin, ymin, zmin, deltax, deltay, deltaz, fig_name=None, save_dir='./'):
+
+    # Create the spatial reference
+    grid = pv.UniformGrid()
+
+    # Set the grid dimensions: shape + 1 because we want to inject our values on
+    grid.dimensions = np.array(values.shape) + 1
+
+    # Edit the spatial reference
+    grid.spacing = (deltax, deltax, deltax)  # The bottom left corner of the data set
+    grid.origin = (xmin, ymin, zmin)  # These are the cell sizes along each axis
+
+    # Add the data values to the cell data
+    grid.cell_data["values"] = values.flatten(order="F")  # Flatten the array!
+
+    cmap = plt.cm.get_cmap("terrain", 4)
+
+    # Now plot the grid!
+    grid.plot(show_edges=True, cmap=cmap, jupyter_backend='pythreejs', background='white', show_axes=True)
+
+    # # Plot the slice
+    # slices = grid.slice_orthogonal(x=2, y=2, z=3)
+    # slices.plot(cmap=cmap, jupyter_backend='pythreejs', background='white', show_axes=True)
+    
+    if fig_name is not None:
+        plt.savefig(os.path.join(save_dir, fig_name), 
+                    format='png', bbox_inches="tight") 
+
 def plot_contour(pred, true, init, idx, nx, nz, ns, sx, sz, x, z, fig_name=None, save_dir='./'):
     plt.figure()
     c_p = plt.contour(pred.reshape(nz,nx,ns)[:,:,idx],20, 

@@ -356,3 +356,15 @@ parser.add_argument(
     default='GFATT_PINNs-11-pytorch-surface-inversion',
     help="The wandb project name when it is enabled.",
 )
+parser.add_argument(
+    "--regularization_type",
+    type=str,
+    default='None',
+    help="Types of regularization scheme (e.g., isotropic-TV, 1st-Tikhonov, 2nd-Tikhonov)",
+)
+parser.add_argument(
+    "--regularization_weight",
+    type=float,
+    default=0.,
+    help="Regularization weighting coefficient",
+)

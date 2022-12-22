@@ -1,0 +1,141 @@
+diff --git a/environment.yml b/environment.yml
+index 09c7d17..5119999 100755
+--- a/environment.yml
++++ b/environment.yml
+@@ -311,7 +311,6 @@ dependencies:
+       - pyrsistent==0.18.1
+       - pytorch-lightning==1.7.2
+       - pytz==2022.2.1
+-      - pyvista==0.37.0
+       - pyyaml==5.4.1
+       - pyzmq==23.2.1
+       - qtconsole==5.3.1
+diff --git a/install_env.sh b/install_env.sh
+index 33e06c7..dac1b67 100755
+--- a/install_env.sh
++++ b/install_env.sh
+@@ -17,6 +17,9 @@ pip install -e git+https://github.com/malcolmw/pykonal@373a7d4#egg=pykonal
+ # Install hcpinnseikonal package
+ pip install -e .
+ 
++# Install Pyvista
++pip install pyvista[all]
++
+ conda env list
+ echo 'Created and activated environment:' $(which python)
+ 
+diff --git a/src/hcpinnseikonal.egg-info/PKG-INFO b/src/hcpinnseikonal.egg-info/PKG-INFO
+index d2e025e..6cdded7 100644
+--- a/src/hcpinnseikonal.egg-info/PKG-INFO
++++ b/src/hcpinnseikonal.egg-info/PKG-INFO
+@@ -1,9 +1,9 @@
+ Metadata-Version: 2.1
+ Name: hcpinnseikonal
+-Version: 0.1.dev9+g307789d.d20221210
++Version: 0.1.dev67+ge94359d.d20221212
+ Summary: Repository for DWXXX: A robust seismic tomography framework via physics-informed machine learning with hard constrained data.
+-Author: Mohammad Taufik, Tariq Alkhalifah, Umair bin Waheed
+-Author-email: mohammad.taufik@kaust.edu.sa, tariq.alkhalifah@kaust.edu.sa, umair.waheed@kfupm.edu.sa
++Author: Mohammad Taufik, Tariq Alkhalifah
++Author-email: mohammad.taufik@kaust.edu.sa, tariq.alkhalifah@kaust.edu.sa
+ Keywords: inverse problems,deep learning,tomography,pinns,pde,seismic
+ Classifier: Intended Audience :: Science/Research
+ Classifier: Natural Language :: English
+@@ -13,26 +13,29 @@ Classifier: Topic :: Scientific/Engineering :: Mathematics
+ 
+ ![LOGO](asset/logo.png)  
+ 
+-Reproducible material for **A robust seismic tomography framework via physics-informed machine learning with hard constrained data - Taufik M., Alkhalifah T., and Waheed U.**
++Reproducible material for **A robust seismic tomography framework via physics-informed machine learning with hard constrained data - Taufik M. and Alkhalifah T.**
+ 
+ 
+ # Project structure
+ This repository is organized as follows:
+ 
+-* :open_file_folder: **package**: python library containing routines for ....;
+-* :open_file_folder: **asset**: folder containing logo;
+-* :open_file_folder: **data**: folder containing data (or instructions on how to retrieve the data
+-* :open_file_folder: **notebooks**: set of jupyter notebooks reproducing the experiments in the paper (see below for more details);
+-* :open_file_folder: **scripts**: set of python scripts used to run multiple experiments ...
++* :open_file_folder: **asset**: folder containing logo.
++* :open_file_folder: **data**: folder containing the cropped [Marmousi](https://wiki.seg.org/wiki/Dictionary:Marmousi_model) model.
++* :open_file_folder: **notebooks**: set of jupyter notebooks reproducing the experiments in the paper (see below for more details).
++* :open_file_folder: **scripts**: set of (bash and python) scripts used to run multiple experiments.
++* :open_file_folder: **src**: folder containing materials for the *hcpinnseikonal* package.
+ 
+ ## Notebooks
+ The following notebooks are provided:
+ 
+-- :orange_book: ``X1.ipynb``: notebook performing ...;
+-- :orange_book: ``X2.ipynb``: notebook performing ...
++- :orange_book: ``Example-1.ipynb``: notebook performing a surface tomography acquisition with sparse source-receiver sampling.
+ 
++## Scripts
++The following scripts are provided:
+ 
+-## Getting started :space_invader: :robot:
++- :page_with_curl: ``Example-1.sh``: script to perform different receiver sampling experiment for the acquisition perform in the ``Example-1.ipynb`` and ``Example-1.py``.
++
++## Getting started
+ To ensure reproducibility of the results, we suggest using the `environment.yml` file when creating an environment.
+ 
+ Simply run:
+@@ -50,4 +53,4 @@ conda activate my_env
+ configurations may be required for different combinations of workstation and GPU.
+ 
+ ## Cite us 
+-DWXXX - Taufik et al. (2022) Report title.
++DW0003 - Taufik and Alkhalifah (2022) A robust seismic tomography framework via physics-informed machine learning with hard constrained data.
+diff --git a/src/hcpinnseikonal.egg-info/SOURCES.txt b/src/hcpinnseikonal.egg-info/SOURCES.txt
+index 4fec461..65f9d95 100644
+--- a/src/hcpinnseikonal.egg-info/SOURCES.txt
++++ b/src/hcpinnseikonal.egg-info/SOURCES.txt
+@@ -2,15 +2,19 @@
+ README.md
+ environment.yml
+ install_env.sh
+-requirements.txt
+ setup.py
+ asset/logo.png
+ asset/placeholder
++data/marmousi.bin
+ data/placeholder
++notebooks/Example-1.ipynb
+ notebooks/placeholder
+-package/__init__.py
++scripts/Example-1.py
++scripts/Example-1.sh
+ scripts/placeholder
+ src/hcpinnseikonal/__init__.py
++src/hcpinnseikonal/arguments.py
++src/hcpinnseikonal/model.py
+ src/hcpinnseikonal/plot.py
+ src/hcpinnseikonal/train.py
+ src/hcpinnseikonal/utils.py
+@@ -18,5 +22,4 @@ src/hcpinnseikonal/version.py
+ src/hcpinnseikonal.egg-info/PKG-INFO
+ src/hcpinnseikonal.egg-info/SOURCES.txt
+ src/hcpinnseikonal.egg-info/dependency_links.txt
+-src/hcpinnseikonal.egg-info/requires.txt
+ src/hcpinnseikonal.egg-info/top_level.txt
+\ No newline at end of file
+diff --git a/src/hcpinnseikonal.egg-info/requires.txt b/src/hcpinnseikonal.egg-info/requires.txt
+deleted file mode 100644
+index d678af1..0000000
+--- a/src/hcpinnseikonal.egg-info/requires.txt
++++ /dev/null
+@@ -1,2 +0,0 @@
+-numpy>=1.15.0
+-torch>=1.2.0
+diff --git a/src/hcpinnseikonal/version.py b/src/hcpinnseikonal/version.py
+index 92e38ba..9b4ea61 100644
+--- a/src/hcpinnseikonal/version.py
++++ b/src/hcpinnseikonal/version.py
+@@ -1,5 +1,5 @@
+ # coding: utf-8
+ # file generated by setuptools_scm
+ # don't change, don't track in version control
+-__version__ = version = '0.1.dev55+g8d9691f.d20221211'
+-__version_tuple__ = version_tuple = (0, 1, 'dev55', 'g8d9691f.d20221211')
++__version__ = version = '0.1.dev67+ge94359d.d20221212'
++__version_tuple__ = version_tuple = (0, 1, 'dev67', 'ge94359d.d20221212')

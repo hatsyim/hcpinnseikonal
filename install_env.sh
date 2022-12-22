@@ -9,13 +9,16 @@ echo 'Creating Package environment'
 # Create conda env
 conda env create -f environment.yml
 source ~/miniconda3/etc/profile.d/conda.sh
-conda activate my_env
+conda activate my_env_plot
 
 # Install eikonal solver: fast-marching with Pykonal
 pip install -e git+https://github.com/malcolmw/pykonal@373a7d4#egg=pykonal
 
 # Install hcpinnseikonal package
 pip install -e .
+
+# Install packages for 3D plotting on Jupyterlab
+pip install pyvista[all]
 
 conda env list
 echo 'Created and activated environment:' $(which python)

@@ -1,4 +1,4 @@
-name: my_env_plot
+name: my_env
 channels:
   - conda-forge
   - defaults
@@ -34,14 +34,10 @@ dependencies:
   - gst-plugins-base=1.14.5=h0935bb2_2
   - gstreamer=1.18.5=h9f60fe5_3
   - icu=67.1=he1b5a44_0
-  - importlib_resources=5.10.1=pyhd8ed1ab_0
   - ipycanvas=0.13.1=pyhd8ed1ab_0
   - ipympl=0.9.2=pyhd8ed1ab_0
   - ipython_genutils=0.2.0=py_1
   - jpeg=9e=h166bdaf_2
-  - jupyter_client=7.4.8=pyhd8ed1ab_0
-  - jupyter_core=5.1.0=py38h578d9bd_0
-  - jupyterlab_widgets=3.0.4=pyhd8ed1ab_0
   - keyutils=1.6.1=h166bdaf_0
   - kiwisolver=1.4.4=py38h43d8883_1
   - krb5=1.19.3=h3790be6_0
@@ -85,7 +81,6 @@ dependencies:
   - libxkbcommon=1.0.3=he3ba5ed_0
   - libxml2=2.9.10=h68273f3_2
   - libzlib=1.2.13=h166bdaf_4
-  - matplotlib-base=3.6.2=py38hb021067_0
   - matplotlib-inline=0.1.6=pyhd8ed1ab_0
   - munkres=1.1.4=pyh9f0ad1d_0
   - mysql-common=8.0.31=haf5c9bc_0
@@ -95,7 +90,6 @@ dependencies:
   - nss=3.82=he02c5a1_0
   - openjpeg=2.5.0=h7d73246_1
   - openssl=1.1.1s=h0b41bf4_1
-  - packaging=22.0=pyhd8ed1ab_0
   - parso=0.8.3=pyhd8ed1ab_0
   - pcre=8.45=h9c3ff4c_0
   - pcre2=10.40=hc3806b6_0
@@ -120,7 +114,6 @@ dependencies:
   - pyshp=2.3.1=pyhd8ed1ab_0
   - python=3.8.15=h257c98d_0_cpython
   - python-dateutil=2.8.2=pyhd8ed1ab_0
-  - python-fastjsonschema=2.16.2=pyhd8ed1ab_0
   - python_abi=3.8=3_cp38
   - qt=5.12.9=h763d07f_1
   - readline=8.1.2=h0f457ee_0
@@ -128,10 +121,8 @@ dependencies:
   - shapely=1.8.5=py38hafd38ec_2
   - six=1.16.0=pyh6c4a22f_0
   - sqlite=3.40.0=h4ff8645_0
-  - stack_data=0.6.2=pyhd8ed1ab_0
   - tk=8.6.12=h27826a3_0
   - tornado=6.2=py38h0a891b7_1
-  - typing_extensions=4.4.0=pyha770c72_0
   - unicodedata2=15.0.0=py38h0a891b7_0
   - wcwidth=0.2.5=pyh9f0ad1d_2
   - wheel=0.38.4=pyhd8ed1ab_0
@@ -162,6 +153,7 @@ dependencies:
       - beautifulsoup4==4.11.1
       - black==22.8.0
       - bleach==5.0.1
+      - bokeh==2.4.3
       - cachetools==4.2.4
       - catalyst==22.4
       - certifi==2022.6.15
@@ -173,7 +165,9 @@ dependencies:
       - cloudpickle==2.1.0
       - cmaes==0.8.2
       - cmd2==2.4.2
+      - cmocean==2.0
       - colorama==0.4.5
+      - colorcet==3.0.1
       - colorlog==6.7.0
       - commonmark==0.9.1
       - cython==0.29.32
@@ -200,8 +194,8 @@ dependencies:
       - geopy==2.2.0
       - gitdb==4.0.9
       - gitpython==3.1.27
-      - google-api-core
-      - google-api-python-client
+      - google-api-core==2.10.2
+      - google-api-python-client==1.12.11
       - google-auth==1.35.0
       - google-auth-httplib2==0.1.0
       - google-auth-oauthlib==0.4.6
@@ -210,7 +204,7 @@ dependencies:
       - google-crc32c==1.5.0
       - google-pasta==0.2.0
       - google-resumable-media==2.3.3
-      - googleapis-common-protos
+      - googleapis-common-protos==1.57.0
       - greenlet==1.1.2
       - grpcio==1.47.0
       - gunicorn==20.1.0
@@ -222,10 +216,10 @@ dependencies:
       - imageio==2.22.4
       - importlib-metadata==4.12.0
       - importlib-resources==5.9.0
+      - ipydatawidgets==4.3.2
       - ipyevents==2.0.1
       - ipykernel==6.15.1
       - ipython==8.4.0
-      - ipython-genutils==0.2.0
       - ipyvtklink==0.2.3
       - ipywidgets==7.7.2
       - isort==5.10.1
@@ -259,6 +253,7 @@ dependencies:
       - markdown==3.4.1
       - markupsafe==2.1.1
       - matplotlib==3.5.3
+      - meshio==5.3.4
       - mistune==2.0.4
       - mlflow==1.28.0
       - multidict==6.0.2
@@ -283,9 +278,12 @@ dependencies:
       - opt-einsum==3.3.0
       - optional-django==0.1.0
       - optuna==3.0.1
+      - packaging==21.3
       - pandas==1.4.3
       - pandocfilters==1.5.0
+      - panel==0.14.1
       - papermill==2.4.0
+      - param==1.12.3
       - pathspec==0.10.1
       - pathtools==0.1.2
       - pbr==5.10.0
@@ -296,12 +294,13 @@ dependencies:
       - prometheus-flask-exporter==0.20.3
       - promise==2.3
       - prompt-toolkit==3.0.30
-      - protobuf
+      - protobuf==3.19.6
       - psutil==5.9.1
       - pyasn1==0.4.8
       - pyasn1-modules==0.2.8
       - pycparser==2.21
       - pycryptodome==3.15.0
+      - pyct==0.4.8
       - pydantic==1.10.2
       - pydeprecate==0.3.2
       - pygmt==0.7.0
@@ -309,8 +308,11 @@ dependencies:
       - pymap3d==2.9.1
       - pyperclip==1.8.2
       - pyrsistent==0.18.1
+      - pythreejs==2.4.1
       - pytorch-lightning==1.7.2
       - pytz==2022.2.1
+      - pyvista==0.37.0
+      - pyviz-comms==2.2.1
       - pyyaml==5.4.1
       - pyzmq==23.2.1
       - qtconsole==5.3.1
@@ -344,13 +346,13 @@ dependencies:
       - strip-hints==0.1.10
       - tabulate==0.8.10
       - tenacity==8.1.0
-      - tensorboard
+      - tensorboard==2.9.1
       - tensorboard-data-server==0.6.1
       - tensorboard-plugin-wit==1.8.1
-      - tensorboardx
-      - tensorflow
-      - tensorflow-estimator
-      - tensorflow-io-gcs-filesystem
+      - tensorboardx==2.5.1
+      - tensorflow==2.9.3
+      - tensorflow-estimator==2.9.0
+      - tensorflow-io-gcs-filesystem==0.28.0
       - termcolor==1.1.0
       - terminado==0.15.0
       - textwrap3==0.9.2
@@ -365,6 +367,7 @@ dependencies:
       - torchvision==0.13.1
       - tqdm==4.64.0
       - traitlets==5.3.0
+      - traittypes==0.2.1
       - transformers==4.21.1
       - typer==0.6.1
       - types-setuptools==65.3.0
@@ -383,3 +386,4 @@ dependencies:
       - xlrd==2.0.1
       - yarl==1.8.1
       - zipp==3.8.1
+prefix: /home/taufikmh/miniconda3/envs/my_env

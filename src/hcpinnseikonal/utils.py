@@ -181,6 +181,97 @@ def create_dataloader(input_vec, sx, sz, batch_size=200**3, shuffle='y',
 
     return data_loader, ic.T
 
+
+def create_dataloader3d(input_vec, sx, sy, sz, batch_size=200**4, shuffle='y', 
+                      device='cuda', fast_loader='n', perm_id=None):
+    
+    # input_wsrc = [X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index]
+    
+    XYZ = torch.from_numpy(np.vstack((input_vec[0], input_vec[1], input_vec[2])).T).float().to(device)
+    SX = torch.from_numpy(input_vec[3]).float().to(device)
+    SY = torch.from_numpy(input_vec[4]).float().to(device)
+    SZ = torch.from_numpy(input_vec[5]).float().to(device)
+    
+    taud = torch.from_numpy(input_vec[6]).float().to(device)
+    taud_dx = torch.from_numpy(input_vec[7]).float().to(device)
+    taud_dy = torch.from_numpy(input_vec[8]).float().to(device)
+
+    tana = torch.from_numpy(input_vec[9]).float().to(device)
+    tana_dx = torch.from_numpy(input_vec[10]).float().to(device)
+    tana_dy = torch.from_numpy(input_vec[11]).float().to(device)
+    tana_dz = torch.from_numpy(input_vec[12]).float().to(device)
+    
+    index = torch.from_numpy(input_vec[13]).float().to(device)
+    
+    if perm_id is not None:
+        dataset = TensorDataset(XYZ[perm_id], SX[perm_id], SY[perm_id], SZ[perm_id], taud[perm_id], 
+                                taud_dx[perm_id], taud_dy[perm_id], 
+                                tana[perm_id], tana_dx[perm_id], 
+                                tana_dy[perm_id], tana_dz[perm_id], index[perm_id])
+    else:
+        dataset = TensorDataset(XYZ, SX, SY, SZ, taud, taud_dx, taud_dy, tana, tana_dx, tana_dy, tana_dz, index)
+    
+    if fast_loader:
+        data_loader = FastTensorDataLoader(XYZ, SX, SY, SZ, taud, taud_dx, 
+                                           taud_dy, tana, tana_dx, tana_dy, tana_dz, index, 
+                                           batch_size=batch_size, shuffle=shuffle)
+    else:
+        data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+
+    # initial condition
+    ic = torch.tensor(np.array([sx, sy, sz]), dtype=torch.float).to(device)
+
+    return data_loader, ic.T
+
+def create_dataloaderdd(input_vec, sx1, sz1, sx2, sz2, 
+                        batch_size=200**3, shuffle='y', 
+                        device='cuda', fast_loader='n', perm_id=None):
+    
+    XZ = torch.from_numpy(np.vstack((input_vec[0], input_vec[1])).T).float().to(device)
+    SX1 = torch.from_numpy(input_vec[2]).float().to(device)
+    SX2 = torch.from_numpy(input_vec[3]).float().to(device)
+    
+    taud1 = torch.from_numpy(input_vec[4]).float().to(device)
+    taud_dx1 = torch.from_numpy(input_vec[5]).float().to(device)
+    
+    taud2 = torch.from_numpy(input_vec[6]).float().to(device)
+    taud_dx2 = torch.from_numpy(input_vec[7]).float().to(device)
+
+    tana1 = torch.from_numpy(input_vec[8]).float().to(device)
+    tana_dx1 = torch.from_numpy(input_vec[9]).float().to(device)
+    tana_dz1 = torch.from_numpy(input_vec[10]).float().to(device)
+    
+    tana2 = torch.from_numpy(input_vec[11]).float().to(device)
+    tana_dx2 = torch.from_numpy(input_vec[12]).float().to(device)
+    tana_dz2 = torch.from_numpy(input_vec[13]).float().to(device)
+    
+    index = torch.arange(input_vec[0].size)
+    
+    if perm_id is not None:
+        dataset = TensorDataset(XZ[perm_id], SX1[perm_id], SX2[perm_id], 
+                                taud1[perm_id], taud_dx1[perm_id], 
+                                taud2[perm_id], taud_dx2[perm_id], 
+                                tana1[perm_id], tana_dx1[perm_id], tana_dz1[perm_id],
+                                tana2[perm_id], tana_dx2[perm_id], tana_dz2[perm_id], index[perm_id])
+    else:
+        dataset = TensorDataset(XZ, SX1, SX2, taud1, taud_dx1, taud2, taud_dx2, 
+                                tana1, tana_dx1, tana_dz1, 
+                                tana2, tana_dx2, tana_dz2, index)
+    
+    if fast_loader:
+        data_loader = FastTensorDataLoader(XZ, SX1, SX2, taud1, taud_dx1, taud2, taud_dx2, 
+                                           tana1, tana_dx1, tana_dz1, 
+                                           tana2, tana_dx2, tana_dz2, index, 
+                                           batch_size=batch_size, shuffle=shuffle)
+    else:
+        data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+
+    # initial condition
+    ic1 = torch.tensor(np.array([sx1, sz1]), dtype=torch.float).to(device)
+    ic2 = torch.tensor(np.array([sx2, sz2]), dtype=torch.float).to(device)
+
+    return data_loader, ic1.T, ic2.T
+
 def set_seed(seed):
 
     random.seed(seed)
