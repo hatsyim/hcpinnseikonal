@@ -1,0 +1,6 @@
+
+Global seed set to 1234
+Traceback (most recent call last):
+  File "./Example-5.py", line 95, in <module>
+    plot_section(vel3d[:,10,:], 'v_true_zx.png', vmin=np.nanmin(data.velmodel)+0.1,
+NameError: name 'vel3d' is not defined

@@ -1,0 +1,6 @@
+
+Global seed set to 1234
+Traceback (most recent call last):
+  File "./Example-5.py", line 44, in <module>
+    data.id_sou_z = np.array(dict_args['zdata.id_source'])
+KeyError: 'zdata.id_source'

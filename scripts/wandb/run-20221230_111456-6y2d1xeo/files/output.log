@@ -1,0 +1,9 @@
+Global seed set to 1234
+Traceback (most recent call last):
+  File "./Example-5.py", line 39, in <module>
+    data = HCEikonalPINNsData(dict_args, batch_size=int(nx*nz*ns)//200)
+  File "/home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/src/hcpinnseikonal/distributed.py", line 562, in __init__
+    X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index, self.sx, self.sy, self.sz, rx, ry, rz, self.velmodel = setup_medium(args)
+  File "/home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/src/hcpinnseikonal/distributed.py", line 51, in setup_medium
+    z = np.arange(0,args['sampling_rate']*dz*599,args['sampling_rate']*dz)[::args['sampling_rate']]
+NameError: name 'dz' is not defined

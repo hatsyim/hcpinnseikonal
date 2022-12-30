@@ -16,7 +16,7 @@ python ./Example-5.py \
 --zid_receiver=0 \
 --data_type=full \
 --irregular_grid=y \
---model_type=arid \
+--model_type=seam \
 --v_multiplier=3 \
 --factorization_type=additive \
 --tau_act=tanh \
@@ -26,6 +26,7 @@ python ./Example-5.py \
 --vertical_spacing=0.009375 \
 --lateral_spacing=0.0375 \
 --num_neurons=32 \
+--num_layers=12 \
 --causality_factor=0.5 \
 --causality_weight=type_0 \
 --reduce_after=50 \

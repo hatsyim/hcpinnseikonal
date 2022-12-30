@@ -669,17 +669,23 @@ class HCEikonalPINNsModel(pl.LightningModule):
         self.register_buffer("rz", torch.tensor(Z.reshape(-1)[id_rec]))
         self.register_buffer("sid", torch.arange(torch.tensor(self.sx.shape[0])))
         
-        self.register_buffer("bias", torch.tensor(2))
-        self.register_buffer("mean", torch.tensor(2))
-        self.register_buffer("std", torch.tensor(1))
+        self.register_buffer("bias", torch.tensor(0.2))
+        self.register_buffer("mean", torch.tensor(0.01))
+        self.register_buffer("std", torch.tensor(0.05))
         self.register_buffer("v_scaler", torch.tensor(1.))
         self.register_buffer("num_epochs", torch.tensor(args['num_epochs']))
         self.register_buffer("reduce_after", torch.tensor(args['reduce_after']))
         
         # network
-        self.tau_model = FullyConnectedNetwork(4, 1, [args['num_neurons']]*args['num_layers'], last_act=args['tau_act'], act=args['activation'], lay='linear', last_multiplier=args['tau_multiplier'])
-
-        self.v_model = FullyConnectedNetwork(3, 1, [args['num_neurons']//2]*args['num_layers'], act=args['activation'], lay='linear', last_act='relu', last_multiplier=args['v_multiplier'])
+        if args['residual_network']=='y':
+            self.tau_model = FullyConnectedNetwork(4, 1, [args['num_neurons']]*args['num_layers'], last_act=args['tau_act'], act=args['activation'], lay='linear', last_multiplier=args['tau_multiplier'])
+            
+            self.v_model = FullyConnectedNetwork(3, 1, [args['num_neurons']//2]*args['num_layers'], act='relu', lay='linear', last_act='relu', last_multiplier=args['v_multiplier'])
+        else:
+            self.tau_model = ResidualNetwork(4, 1, num_neurons=args['num_neurons'], num_layers=args['num_layers'], act=args['activation'], lay='linear', last_multiplier=args['tau_multiplier'])
+            
+            self.v_model = ResidualNetwork(3, 1, num_neurons=args['num_neurons']//2, act='relu', last_act='relu', num_layers=args['num_layers'], lay='linear', last_multiplier=args['v_multiplier'])
+        
         self.v_model = self.v_model.apply(lambda m: init_weights(m, init_type=args['initialization'], bias=self.bias, mean=self.mean, std=self.std))
 
     def configure_optimizers(self):

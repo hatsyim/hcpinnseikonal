@@ -1,0 +1,199 @@
+2022-12-30 10:34:15,674 INFO    StreamThr :19409 [internal.py:wandb_internal():90] W&B internal server running at pid: 19409, started at: 2022-12-30 10:34:15.673297
+2022-12-30 10:34:15,678 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: status
+2022-12-30 10:34:15,680 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: status
+2022-12-30 10:34:15,683 INFO    WriterThread:19409 [datastore.py:open_for_write():75] open: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/run-21b90oyv.wandb
+2022-12-30 10:34:15,684 DEBUG   SenderThread:19409 [sender.py:send():302] send: header
+2022-12-30 10:34:15,700 DEBUG   SenderThread:19409 [sender.py:send():302] send: run
+2022-12-30 10:34:16,452 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: check_version
+2022-12-30 10:34:16,459 INFO    SenderThread:19409 [dir_watcher.py:__init__():216] watching files in: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files
+2022-12-30 10:34:16,460 INFO    SenderThread:19409 [sender.py:_start_run_threads():913] run started: 21b90oyv with start time 1672385655.658669
+2022-12-30 10:34:16,460 DEBUG   SenderThread:19409 [sender.py:send():302] send: summary
+2022-12-30 10:34:16,460 INFO    SenderThread:19409 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-30 10:34:16,461 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: check_version
+2022-12-30 10:34:16,804 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: run_start
+2022-12-30 10:34:16,822 DEBUG   HandlerThread:19409 [meta.py:__init__():35] meta init
+2022-12-30 10:34:16,822 DEBUG   HandlerThread:19409 [meta.py:__init__():50] meta init done
+2022-12-30 10:34:16,822 DEBUG   HandlerThread:19409 [meta.py:probe():216] probe
+2022-12-30 10:34:16,829 DEBUG   HandlerThread:19409 [meta.py:_setup_git():206] setup git
+2022-12-30 10:34:16,859 DEBUG   HandlerThread:19409 [meta.py:_setup_git():213] setup git done
+2022-12-30 10:34:16,859 DEBUG   HandlerThread:19409 [meta.py:_save_code():88] save code
+2022-12-30 10:34:16,870 DEBUG   HandlerThread:19409 [meta.py:_save_code():109] save code done
+2022-12-30 10:34:16,871 DEBUG   HandlerThread:19409 [meta.py:_save_patches():126] save patches
+2022-12-30 10:34:17,467 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/code/scripts/Example-5.py
+2022-12-30 10:34:17,467 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/wandb-summary.json
+2022-12-30 10:34:17,468 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/code/scripts
+2022-12-30 10:34:17,468 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/code
+2022-12-30 10:34:18,150 DEBUG   HandlerThread:19409 [meta.py:_save_patches():168] save patches done
+2022-12-30 10:34:18,151 DEBUG   HandlerThread:19409 [meta.py:_save_pip():54] save pip
+2022-12-30 10:34:18,152 DEBUG   HandlerThread:19409 [meta.py:_save_pip():68] save pip done
+2022-12-30 10:34:18,152 DEBUG   HandlerThread:19409 [meta.py:_save_conda():75] save conda
+2022-12-30 10:34:18,160 ERROR   HandlerThread:19409 [meta.py:_save_conda():84] Error saving conda packages
+Traceback (most recent call last):
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/site-packages/wandb/sdk/internal/meta.py", line 80, in _save_conda
+    subprocess.call(
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/subprocess.py", line 340, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2022-12-30 10:34:18,183 DEBUG   HandlerThread:19409 [meta.py:_save_conda():85] save conda done
+2022-12-30 10:34:18,184 DEBUG   HandlerThread:19409 [meta.py:probe():254] probe done
+2022-12-30 10:34:18,253 DEBUG   SenderThread:19409 [sender.py:send():302] send: files
+2022-12-30 10:34:18,254 INFO    SenderThread:19409 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2022-12-30 10:34:18,255 INFO    SenderThread:19409 [sender.py:_save_file():1156] saving file code/scripts/Example-5.py with policy now
+2022-12-30 10:34:18,256 INFO    SenderThread:19409 [sender.py:_save_file():1156] saving file diff.patch with policy now
+2022-12-30 10:34:18,266 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-30 10:34:18,266 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: stop_status
+2022-12-30 10:34:18,465 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/wandb-metadata.json
+2022-12-30 10:34:18,465 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/requirements.txt
+2022-12-30 10:34:18,465 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/conda-environment.yaml
+2022-12-30 10:34:18,466 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/diff.patch
+2022-12-30 10:34:18,613 DEBUG   SenderThread:19409 [sender.py:send():302] send: telemetry
+2022-12-30 10:34:18,657 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: log_artifact
+2022-12-30 10:34:18,663 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: log_artifact
+2022-12-30 10:34:19,387 INFO    Thread-18 :19409 [upload_job.py:push():138] Uploaded file /tmp/tmpw8xlgb3kwandb/16pfxyt3-diff.patch
+2022-12-30 10:34:19,400 INFO    Thread-17 :19409 [upload_job.py:push():138] Uploaded file /tmp/tmpw8xlgb3kwandb/22m73abn-code/scripts/Example-5.py
+2022-12-30 10:34:19,402 INFO    Thread-16 :19409 [upload_job.py:push():138] Uploaded file /tmp/tmpw8xlgb3kwandb/2mhhuyp2-wandb-metadata.json
+2022-12-30 10:34:20,577 INFO    Thread-20 :19409 [upload_job.py:push():93] Skipped uploading /home/taufikmh/.cache/wandb/artifacts/obj/md5/36/20cb96acc83ed3bd7f946d834a1a72
+2022-12-30 10:34:20,578 INFO    Thread-21 :19409 [upload_job.py:push():93] Skipped uploading /home/taufikmh/.cache/wandb/artifacts/obj/md5/1e/dd5e2e098966be72cc5ef51a9bed2a
+2022-12-30 10:34:22,138 INFO    SenderThread:19409 [sender.py:send_request_log_artifact():1207] logged artifact source-GFATT_PINNs-20-3d-lightning-inversion-scripts_Example-5.py - {'id': 'QXJ0aWZhY3Q6MzA2NTE3Njcy', 'digest': '74bb7e42c18316ae07cdef68132d3a26', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjQ4Mzc4NDA3', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MzA2NDkyMzQ0', 'versionIndex': 0}}, 'version': 'latest'}
+2022-12-30 10:34:22,468 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/output.log
+2022-12-30 10:34:24,469 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/output.log
+2022-12-30 10:34:33,162 DEBUG   SenderThread:19409 [sender.py:send():302] send: exit
+2022-12-30 10:34:33,162 INFO    SenderThread:19409 [sender.py:send_exit():438] handling exit code: 1
+2022-12-30 10:34:33,163 INFO    SenderThread:19409 [sender.py:send_exit():440] handling runtime: 16
+2022-12-30 10:34:33,163 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:33,168 INFO    SenderThread:19409 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-30 10:34:33,168 INFO    SenderThread:19409 [sender.py:send_exit():446] send defer
+2022-12-30 10:34:33,169 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:33,169 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:33,170 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 0
+2022-12-30 10:34:33,170 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:33,171 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 0
+2022-12-30 10:34:33,171 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 1
+2022-12-30 10:34:33,171 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:33,171 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 1
+2022-12-30 10:34:33,242 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:33,243 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 1
+2022-12-30 10:34:33,243 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 2
+2022-12-30 10:34:33,243 DEBUG   SenderThread:19409 [sender.py:send():302] send: stats
+2022-12-30 10:34:33,244 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:33,244 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 2
+2022-12-30 10:34:33,245 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:33,245 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 2
+2022-12-30 10:34:33,245 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 3
+2022-12-30 10:34:33,245 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:33,246 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 3
+2022-12-30 10:34:33,246 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:33,246 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 3
+2022-12-30 10:34:33,246 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 4
+2022-12-30 10:34:33,247 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:33,247 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 4
+2022-12-30 10:34:33,247 DEBUG   SenderThread:19409 [sender.py:send():302] send: summary
+2022-12-30 10:34:33,248 INFO    SenderThread:19409 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-30 10:34:33,248 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:33,248 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 4
+2022-12-30 10:34:33,248 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 5
+2022-12-30 10:34:33,249 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:33,249 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 5
+2022-12-30 10:34:33,250 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:33,250 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 5
+2022-12-30 10:34:33,272 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:33,475 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/wandb-summary.json
+2022-12-30 10:34:33,631 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 6
+2022-12-30 10:34:33,631 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:33,632 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:33,632 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 6
+2022-12-30 10:34:33,633 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:33,633 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 6
+2022-12-30 10:34:33,734 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:34,162 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 7
+2022-12-30 10:34:34,162 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:34,163 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:34,163 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 7
+2022-12-30 10:34:34,164 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:34,164 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 7
+2022-12-30 10:34:34,164 INFO    SenderThread:19409 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-12-30 10:34:34,265 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:34,476 INFO    Thread-12 :19409 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/config.yaml
+2022-12-30 10:34:34,477 INFO    SenderThread:19409 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/output.log
+2022-12-30 10:34:34,477 INFO    SenderThread:19409 [dir_watcher.py:finish():392] scan: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files
+2022-12-30 10:34:34,478 INFO    SenderThread:19409 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/diff.patch diff.patch
+2022-12-30 10:34:34,478 INFO    SenderThread:19409 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/conda-environment.yaml conda-environment.yaml
+2022-12-30 10:34:34,478 INFO    SenderThread:19409 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/requirements.txt requirements.txt
+2022-12-30 10:34:34,478 INFO    SenderThread:19409 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/wandb-metadata.json wandb-metadata.json
+2022-12-30 10:34:34,478 INFO    SenderThread:19409 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/wandb-summary.json wandb-summary.json
+2022-12-30 10:34:34,479 INFO    SenderThread:19409 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/config.yaml config.yaml
+2022-12-30 10:34:34,493 INFO    SenderThread:19409 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/output.log output.log
+2022-12-30 10:34:34,508 INFO    SenderThread:19409 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/code/scripts/Example-5.py code/scripts/Example-5.py
+2022-12-30 10:34:34,508 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 8
+2022-12-30 10:34:34,508 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:34,509 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:34,509 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 8
+2022-12-30 10:34:34,510 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:34,510 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 8
+2022-12-30 10:34:34,510 INFO    SenderThread:19409 [file_pusher.py:finish():171] shutting down file pusher
+2022-12-30 10:34:34,611 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:34,611 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:34,714 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:34,714 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:34,816 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:34,816 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:34,918 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:34,919 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:35,021 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:35,021 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:35,123 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:35,124 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:35,226 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:35,227 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:35,329 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:35,329 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:35,431 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:35,431 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:35,520 INFO    Thread-23 :19409 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/wandb-summary.json
+2022-12-30 10:34:35,534 INFO    Thread-22 :19409 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/requirements.txt
+2022-12-30 10:34:35,535 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:35,535 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:35,573 INFO    Thread-24 :19409 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/config.yaml
+2022-12-30 10:34:35,597 INFO    Thread-25 :19409 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/files/output.log
+2022-12-30 10:34:35,637 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:35,638 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:35,740 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:35,740 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:35,797 INFO    Thread-11 :19409 [sender.py:transition_state():459] send defer: 9
+2022-12-30 10:34:35,798 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:35,798 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 9
+2022-12-30 10:34:35,799 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:35,799 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 9
+2022-12-30 10:34:35,842 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:36,151 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 10
+2022-12-30 10:34:36,151 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:36,152 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:36,152 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 10
+2022-12-30 10:34:36,153 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:36,153 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 10
+2022-12-30 10:34:36,153 INFO    SenderThread:19409 [sender.py:transition_state():459] send defer: 11
+2022-12-30 10:34:36,154 DEBUG   SenderThread:19409 [sender.py:send():302] send: final
+2022-12-30 10:34:36,155 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 10:34:36,155 DEBUG   SenderThread:19409 [sender.py:send():302] send: footer
+2022-12-30 10:34:36,155 INFO    HandlerThread:19409 [handler.py:handle_request_defer():164] handle defer: 11
+2022-12-30 10:34:36,155 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: defer
+2022-12-30 10:34:36,156 INFO    SenderThread:19409 [sender.py:send_request_defer():455] handle sender defer: 11
+2022-12-30 10:34:36,254 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 10:34:36,255 DEBUG   SenderThread:19409 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 10:34:36,255 INFO    SenderThread:19409 [file_pusher.py:join():176] waiting for file pusher
+2022-12-30 10:34:36,709 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: sampled_history
+2022-12-30 10:34:36,711 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: get_summary
+2022-12-30 10:34:36,712 INFO    MainThread:19409 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2022-12-30 10:34:36,712 INFO    MainThread:19409 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2022-12-30 10:34:36,712 INFO    MainThread:19409 [wandb_run.py:_footer_sync_info():3261] logging synced files
+2022-12-30 10:34:36,713 DEBUG   HandlerThread:19409 [handler.py:handle_request():141] handle_request: shutdown
+2022-12-30 10:34:36,713 INFO    HandlerThread:19409 [handler.py:finish():810] shutting down handler
+2022-12-30 10:34:37,155 INFO    WriterThread:19409 [datastore.py:close():279] close: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20221230_103415-21b90oyv/run-21b90oyv.wandb
+2022-12-30 10:34:37,608 INFO    SenderThread:19409 [sender.py:finish():1312] shutting down sender
+2022-12-30 10:34:37,608 INFO    SenderThread:19409 [file_pusher.py:finish():171] shutting down file pusher
+2022-12-30 10:34:37,608 INFO    SenderThread:19409 [file_pusher.py:join():176] waiting for file pusher
+2022-12-30 10:34:37,717 INFO    MainThread:19409 [internal.py:handle_exit():80] Internal process exited

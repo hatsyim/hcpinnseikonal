@@ -1,0 +1,28 @@
+diff --git a/scripts/wandb/debug-internal.log b/scripts/wandb/debug-internal.log
+index 01625e7..a6e11be 120000
+--- a/scripts/wandb/debug-internal.log
++++ b/scripts/wandb/debug-internal.log
+@@ -1 +1 @@
+-run-20221230_100829-1ccz2iby/logs/debug-internal.log
+\ No newline at end of file
++run-20221230_103638-s94i286a/logs/debug-internal.log
+\ No newline at end of file
+diff --git a/scripts/wandb/debug.log b/scripts/wandb/debug.log
+index dbaf26b..c695800 120000
+--- a/scripts/wandb/debug.log
++++ b/scripts/wandb/debug.log
+@@ -1 +1 @@
+-run-20221230_100829-1ccz2iby/logs/debug.log
+\ No newline at end of file
++run-20221230_103638-s94i286a/logs/debug.log
+\ No newline at end of file
+diff --git a/scripts/wandb/latest-run b/scripts/wandb/latest-run
+index 22dfc72..9b9fdbc 120000
+--- a/scripts/wandb/latest-run
++++ b/scripts/wandb/latest-run
+@@ -1 +1 @@
+-run-20221230_100829-1ccz2iby
+\ No newline at end of file
++run-20221230_103638-s94i286a
+\ No newline at end of file
+Submodule src/pykonal contains untracked content
