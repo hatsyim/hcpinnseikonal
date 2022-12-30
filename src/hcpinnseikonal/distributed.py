@@ -543,7 +543,7 @@ def setup_medium(args):
     ry=Y[:,:,:,0].reshape(-1)[id_rec]
     rz=Z[:,:,:,0].reshape(-1)[id_rec]
     
-    return X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index, sx, sy, sz, rx, ry, rz, velmodel, id_rec
+    return X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index, sx, sy, sz, rx, ry, rz, velmodel, id_rec, id_sou
 
 # Lightning Dataset
 import copy
