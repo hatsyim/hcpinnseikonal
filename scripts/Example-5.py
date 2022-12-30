@@ -98,13 +98,24 @@ if __name__ == "__main__":
     )
 
     v_init = model.evaluate_velocity(init_loader,batch_size=BATCH_SIZE,num_pts=X.size)
-    tau_init = model.evaluate_tau(init_loader,batch_size=BATCH_SIZE,num_pts=X.size)
 
-    v_init = v_init.detach()
-    v_init = v_init.reshape(nz,nx,-1)
-    tau_init = tau_init.detach()
-    tau_init = tau_init.reshape(nz,nx,-1)
+    # ZX plane after
+    plot_section(v_init.reshape(X.shape)[:,10,:,0], 'v_init_zx.png', vmin=np.nanmin(velmodel)+0.1, 
+                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+                 xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
+                 sx=X[:,:,:,0].reshape(-1)[id_sou],sz=Z[:,:,:,0].reshape(-1)[id_sou],rx=X[:,:,:,0].reshape(-1)[id_rec],rz=Z[:,:,:,0].reshape(-1)[id_rec])
 
+    # XY plane
+    plot_section(v_init.reshape(X.shape)[5,:,:,0], 'v_init_xy.png', vmin=np.nanmin(velmodel)+0.1, 
+                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+                 xmin=xmin, xmax=xmax, zmin=xmin, zmax=xmax, 
+                 sx=X[:,:,:,0].reshape(-1)[id_sou],sz=Y[:,:,:,0].reshape(-1)[id_sou],rx=X[:,:,:,0].reshape(-1)[id_rec],rz=Y[:,:,:,0].reshape(-1)[id_rec])
+
+    # ZY plane
+    plot_section(v_init.reshape(X.shape)[:,:,10,0], 'v_init_zy.png', vmin=np.nanmin(velmodel)+0.1, 
+                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+                 xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
+                 sx=Y[:,:,:,0].reshape(-1)[id_sou],sz=Z[:,:,:,0].reshape(-1)[id_sou],rx=Y[:,:,:,0].reshape(-1)[id_rec],rz=Z[:,:,:,0].reshape(-1)[id_rec])
     # Training
     wandb_logger = WandbLogger(log_model="all")
 
@@ -138,36 +149,32 @@ if __name__ == "__main__":
     v_pred = model.evaluate_velocity(init_loader,batch_size=BATCH_SIZE,num_pts=X.size)
     tau_pred = model.evaluate_tau(init_loader,batch_size=BATCH_SIZE,num_pts=X.size)
 
-    tau_pred = tau_pred.detach()
-    tau_pred = tau_pred.reshape(nz,nx,ns)
+    # ZX plane after
+    plot_section(v_pred.reshape(X.shape)[:,0,:,i], 'v_pred_zx.png', vmin=np.nanmin(velmodel)+0.1, 
+                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+                 xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
+                 sx=X[:,:,:,i].reshape(-1)[id_sou],sz=Z[:,:,:,i].reshape(-1)[id_sou],rx=X[:,:,:,i].reshape(-1)[id_rec],rz=Z[:,:,:,i].reshape(-1)[id_rec])
 
-    T_pred = (torch.tensor(taud).reshape(nz,nx,ns) + torch.tensor(Z.reshape(nz,nx,ns))*tau_pred)*torch.tensor(T0).reshape(nz,nx,ns)
+    # XY plane
+    plot_section(v_pred.reshape(X.shape)[args.zid_source,:,:,i], 'v_pred_xy.png', vmin=np.nanmin(velmodel)+0.1, 
+                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+                 xmin=xmin, xmax=xmax, zmin=xmin, zmax=xmax, 
+                 sx=X[:,:,:,i].reshape(-1)[id_sou],sz=Y[:,:,:,i].reshape(-1)[id_sou],rx=X[:,:,:,i].reshape(-1)[id_rec],rz=Y[:,:,:,i].reshape(-1)[id_rec])
 
-    v_pred = v_pred.detach()
-    v_pred = v_pred.reshape(nz,nx,ns)[:,:,0]
-    v_init = v_init.detach()
-    v_init = v_init.reshape(nz,nx,ns)[:,:,0]
-    v_true = data.velmodel.reshape(Z.shape)[::1,:,0]
+    # ZY plane
+    plot_section(v_pred.reshape(X.shape)[:,:,0,i], 'v_pred_zy.png', vmin=np.nanmin(velmodel)+0.1, 
+                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+                 xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
+                 sx=Y[:,:,:,i].reshape(-1)[id_sou],sz=Z[:,:,:,i].reshape(-1)[id_sou],rx=Y[:,:,:,i].reshape(-1)[id_rec],rz=Z[:,:,:,i].reshape(-1)[id_rec])
 
-    if args['rescale_plot']=='y':
-        earth_radi = dict_args['plotting_factor'] # Average in km
-        xmin, xmax, deltax = earth_radi*model.x.min(), earth_radi*model.x.max(), earth_radi*dict_args['lateral_spacing']
-        zmin, zmax, deltaz = earth_radi*model.z.min(), earth_radi*model.z.max(), earth_radi*dict_args['vertical_spacing']
-
-        # Creating grid, extending the velocity model, and prepare list of grid points for training (X_star)
-        z = np.arange(zmin,zmax+deltaz,deltaz)
-        x = np.arange(xmin,xmax+deltax,deltax)
-
-        # Point-source locations
-        sx = x[id_sou_x]
-        sz = z[id_sou_z]*np.ones_like(sx)
-
-        Z,X,SX = np.meshgrid(z,x,sx,indexing='ij')
-
-        SZ = np.ones(SX.shape)*sz # Creating an array of sources along z with same size as SX
-
-        T_pred, T_data, T0 = T_pred*dict_args['plotting_factor'], T_data*dict_args['plotting_factor'], T0*dict_args['plotting_factor']
-
+    # Save model
+    torch.save({
+            'tau_model_state_dict': tau_model.state_dict(),
+            'v_model_state_dict': v_model.state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+            'loss': loss_history
+    }, wandb_dir+'/saved_model')
+    
     # Save model
     torch.save({
             'tau_model_state_dict': model.tau_model.state_dict(),
