@@ -48,13 +48,13 @@ def setup_medium(args):
         zmin, zmax, deltaz = earth_radi*zmin, earth_radi*zmax, earth_radi*deltaz
 
     # Creating grid, extending the velocity model, and prepare list of grid points for training (X_star)
-    z = np.arange(0,args['sampling_rate']*dz*599,args['sampling_rate']*dz)[::args['sampling_rate']]
+    z = np.arange(0,args['sampling_rate']*deltaz*599,args['sampling_rate']*deltaz)[::args['sampling_rate']]
     nz = z.size
 
-    y = np.arange(0,args['sampling_rate']*dy*399,args['sampling_rate']*dy)[::args['sampling_rate']]
+    y = np.arange(0,args['sampling_rate']*deltay*399,args['sampling_rate']*deltay)[::args['sampling_rate']]
     ny = y.size
 
-    x = np.arange(0,args['sampling_rate']*dx*399,args['sampling_rate']*dx)[::args['sampling_rate']]
+    x = np.arange(0,args['sampling_rate']*deltax*399,args['sampling_rate']*deltax)[::args['sampling_rate']]
     nx = x.size
 
     Z,Y,X = np.meshgrid(z,y,x,indexing='ij')
