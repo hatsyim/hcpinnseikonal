@@ -16,7 +16,7 @@ python ./Example-5.py \
 --zid_receiver=0 \
 --data_type=full \
 --irregular_grid=y \
---model_type=seam \
+--model_type=arid \
 --v_multiplier=3 \
 --factorization_type=additive \
 --tau_act=tanh \
@@ -33,7 +33,7 @@ python ./Example-5.py \
 --field_synthetic=n \
 --event_factor=0.9 \
 --station_factor=0.2 \
---residual_network=y \
+--residual_network=n \
 --empty_middle=n \
 --regular_station=y \
 --rec_spacing=20 \

@@ -39,7 +39,7 @@ def setup_medium(args):
     zmin = -0.1 if args['field_synthetic']=='y' else 0; zmax = args['max_depth'] #; deltaz = args['vertical_spacing'];
     ymin = 0.; ymax = args['max_offset'] #; deltay = args['lateral_spacing'];
     xmin = 0.; xmax = args['max_offset'] #; deltax = args['lateral_spacing'];
-    deltax, deltay, deltaz = args['sampling_rate']*0.00625/2, args['sampling_rate']*0.00625/2, args['sampling_rate']*0.00625/2
+    deltax, deltay, deltaz = args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2
 
     if args['earth_scale']=='y':
         earth_radi = 6371/args['scale_factor'] # Average in km
@@ -48,13 +48,13 @@ def setup_medium(args):
         zmin, zmax, deltaz = earth_radi*zmin, earth_radi*zmax, earth_radi*deltaz
 
     # Creating grid, extending the velocity model, and prepare list of grid points for training (X_star)
-    z = np.arange(0,args['sampling_rate']*deltaz*599,args['sampling_rate']*deltaz)[::args['sampling_rate']]
+    z = np.arange(zmin,zmax,deltaz)
     nz = z.size
 
-    y = np.arange(0,args['sampling_rate']*deltay*399,args['sampling_rate']*deltay)[::args['sampling_rate']]
+    y = np.arange(ymin,ymax,deltay)
     ny = y.size
 
-    x = np.arange(0,args['sampling_rate']*deltax*399,args['sampling_rate']*deltax)[::args['sampling_rate']]
+    x = np.arange(xmin,xmax,deltax)
     nx = x.size
 
     Z,Y,X = np.meshgrid(z,y,x,indexing='ij')
@@ -268,7 +268,7 @@ def setup_medium(args):
         z2 = np.linspace(0.09, 0.55, len(z)) 
         f = interpolate.interp2d(x1, z1, vel, kind='cubic')
         vel = f(x2, z2)
-        # Augment a 3D velocity volume from 2D data
+        # Augment a 3D velocity volume frdeom 2D data
         vel3d = np.repeat(vel[:, np.newaxis, :], len(y), axis=1)
     elif args['model_type']=='seam':
         vel = np.load('/home/taufikmh/KAUST/spring_2022/constrained_eikonal/notebooks/PINNtomo/inputs/seam_model/vel_seam.npy')
@@ -437,7 +437,7 @@ def setup_medium(args):
     if args['depth_shift']=='y':
         vs = args['initial_velocity'] #velmodel[np.round((SZ-5)/deltaz).astype(int),np.round(SX/deltax).astype(int),0]
     else:
-        vs = 1 #vel3d[np.round(SZ/deltaz).astype(int),np.round(SY/deltay).astype(int),np.round(SX/deltax).astype(int)]
+        vs = vel3d[np.round(SZ/deltaz).astype(int),np.round(SY/deltay).astype(int),np.round(SX/deltax).astype(int)]
 
     T0 = np.sqrt((Z-SZ)**2 + (Y-SY)**2 + (X-SX)**2)/vs;
     px0 = np.divide(X-SX, T0*vs**2, out=np.zeros_like(T0), where=T0!=0)

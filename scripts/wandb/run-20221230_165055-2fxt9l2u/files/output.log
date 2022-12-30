@@ -1,0 +1,122 @@
+
+Global seed set to 1234
+/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/site-packages/pytorch_lightning/loggers/wandb.py:352: UserWarning: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+  rank_zero_warn(
+Using 16bit native Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Global seed set to 1234
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/1
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 1 processes
+----------------------------------------------------------------------------------------------------
+Epoch 0:   0%|                                         | 0/5712 [00:00<?, ?it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/src/hcpinnseikonal/distributed.py:696: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  scheduler = {'scheduler': ReduceLROnPlateau(self.optimizer, mode='min', factor=0.5, patience=self.num_epochs//self.reduce_after, verbose=True),
+  | Name      | Type            | Params
+----------------------------------------------
+0 | tau_model | ResidualNetwork | 40.3 K
+1 | v_model   | ResidualNetwork | 10.4 K
+----------------------------------------------
+50.7 K    Trainable params
+0         Non-trainable params
+50.7 K    Total params
+
+Epoch 0:   0%|        | 20/5712 [00:21<1:42:05,  1.08s/it, loss=inf, v_num=9l2u]
+/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/site-packages/torch/autograd/__init__.py:173: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 32], strides() = [1, 1]
+bucket_view.sizes() = [1, 32], strides() = [32, 1] (Triggered internally at  ../torch/csrc/distributed/c10d/reducer.cpp:326.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0:  41%|███▎    | 2360/5712 [02:59<04:14, 13.16it/s, loss=inf, v_num=9l2u]
+/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py:653: UserWarning: Detected KeyboardInterrupt, attempting graceful shutdown...
+  rank_zero_warn("Detected KeyboardInterrupt, attempting graceful shutdown...")
+Traceback (most recent call last):
+  File "./Example-5.py", line 161, in <module>
+    v_pred = model.evaluate_velocity(init_loader,batch_size=BATCH_SIZE,num_pts=X.size)
+  File "/home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/src/hcpinnseikonal/distributed.py", line 712, in evaluate_velocity
+    for i, X in enumerate(data_loader):
+  File "/home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/src/hcpinnseikonal/utils.py", line 128, in __iter__
+    r = torch.randperm(self.dataset_len)
+KeyboardInterrupt
