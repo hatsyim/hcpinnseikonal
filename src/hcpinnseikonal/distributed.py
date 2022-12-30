@@ -34,11 +34,12 @@ def setup_medium(args):
     data_type = args['data_type']
     deltar = args['rec_spacing']
     deltas = args['sou_spacing']
-
+    
     # Computational model parameters
-    zmin = -0.1 if args['field_synthetic']=='y' else 0; zmax = args['max_depth']; deltaz = args['vertical_spacing'];
-    ymin = 0.; ymax = args['max_offset']; deltay = args['lateral_spacing'];
-    xmin = 0.; xmax = args['max_offset']; deltax = args['lateral_spacing'];
+    zmin = -0.1 if args['field_synthetic']=='y' else 0; zmax = args['max_depth'] #; deltaz = args['vertical_spacing'];
+    ymin = 0.; ymax = args['max_offset'] #; deltay = args['lateral_spacing'];
+    xmin = 0.; xmax = args['max_offset'] #; deltax = args['lateral_spacing'];
+    deltax, deltay, deltaz = args['sampling_rate']*0.00625/2, args['sampling_rate']*0.00625/2, args['sampling_rate']*0.00625/2
 
     if args['earth_scale']=='y':
         earth_radi = 6371/args['scale_factor'] # Average in km
@@ -47,13 +48,13 @@ def setup_medium(args):
         zmin, zmax, deltaz = earth_radi*zmin, earth_radi*zmax, earth_radi*deltaz
 
     # Creating grid, extending the velocity model, and prepare list of grid points for training (X_star)
-    z = np.arange(zmin,zmax+deltaz,deltaz)
+    z = np.arange(0,args['sampling_rate']*dz*599,args['sampling_rate']*dz)[::args['sampling_rate']]
     nz = z.size
 
-    y = np.arange(ymin,ymax+deltay,deltay)
+    y = np.arange(0,args['sampling_rate']*dy*399,args['sampling_rate']*dy)[::args['sampling_rate']]
     ny = y.size
 
-    x = np.arange(xmin,xmax+deltax,deltax)
+    x = np.arange(0,args['sampling_rate']*dx*399,args['sampling_rate']*dx)[::args['sampling_rate']]
     nx = x.size
 
     Z,Y,X = np.meshgrid(z,y,x,indexing='ij')
@@ -284,7 +285,7 @@ def setup_medium(args):
         vel = 1 + 7*np.meshgrid(x,z)[1]
     elif args['model_type']=='arid':
         vel = np.fromfile('../data/seam_arid', np.float32).reshape(400,400,600)/1000
-        vel3d = np.moveaxis(vel[::4,::4,::4], -1, 0)
+        vel3d = np.moveaxis(vel[::args['sampling_rate'],::args['sampling_rate'],::args['sampling_rate']], -1, 0)
 
     # Extending the velocity model in thirs dimension byy repeatin the array
     velmodel = np.repeat(vel3d[...,np.newaxis], sx.size,axis=2)

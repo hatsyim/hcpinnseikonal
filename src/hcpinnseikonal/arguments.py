@@ -386,3 +386,9 @@ parser.add_argument(
     default='n',
     help="Whether a non-default PyTorch's data loader.",
 )
+parser.add_argument(
+    "--sampling_rate",
+    type=int,
+    default=4,
+    help="Sampling rate for the input velocity.",
+)
