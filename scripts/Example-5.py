@@ -41,8 +41,8 @@ if __name__ == "__main__":
     xmin, ymin, zmin = 0, 0, 0
     xmax, ymax, zmax = dict_args['max_offset'], dict_args['max_offset'], dict_args['max_depth']
 
-    data.id_sou_z = np.array(dict_args['zid.id_source'])
-    data.id_rec_z = np.array(dict_args['zid.id_receiver'])
+    data.id_sou_z = np.array(dict_args['zid_source'])
+    data.id_rec_z = np.array(dict_args['zid_receiver'])
     data.id_sou_x = np.arange(0,len(X[0,:,0]),dict_args['sou_spacing'])
     data.id_rec_x = np.arange(0,len(X[0,:,0]),dict_args['rec_spacing'])
 
@@ -168,7 +168,7 @@ if __name__ == "__main__":
                  sx=X[:,:,:,i].reshape(-1)[data.id_sou],sz=Z[:,:,:,i].reshape(-1)[data.id_sou],rx=X[:,:,:,i].reshape(-1)[data.id_rec],rz=Z[:,:,:,i].reshape(-1)[data.id_rec])
 
     # XY plane
-    plot_section(v_pred.reshape(X.shape)[args.zid.id_source,:,:,i], 'v_pred_xy.png', vmin=np.nanmin(data.velmodel)+0.1, 
+    plot_section(v_pred.reshape(X.shape)[args.zid_source,:,:,i], 'v_pred_xy.png', vmin=np.nanmin(data.velmodel)+0.1, 
                  vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
                  xmin=xmin, xmax=xmax, zmin=xmin, zmax=xmax, 
                  sx=X[:,:,:,i].reshape(-1)[data.id_sou],sz=Y[:,:,:,i].reshape(-1)[data.id_sou],rx=X[:,:,:,i].reshape(-1)[data.id_rec],rz=Y[:,:,:,i].reshape(-1)[data.id_rec])
