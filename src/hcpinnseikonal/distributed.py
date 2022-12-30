@@ -677,7 +677,7 @@ class HCEikonalPINNsModel(pl.LightningModule):
         self.register_buffer("reduce_after", torch.tensor(args['reduce_after']))
         
         # network
-        if args['residual_network']=='y':
+        if args['residual_network']=='n':
             self.tau_model = FullyConnectedNetwork(4, 1, [args['num_neurons']]*args['num_layers'], last_act=args['tau_act'], act=args['activation'], lay='linear', last_multiplier=args['tau_multiplier'])
             
             self.v_model = FullyConnectedNetwork(3, 1, [args['num_neurons']//2]*args['num_layers'], act='relu', lay='linear', last_act='relu', last_multiplier=args['v_multiplier'])
