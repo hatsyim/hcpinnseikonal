@@ -1,0 +1,188 @@
+2022-12-30 09:39:31,580 INFO    StreamThr :75335 [internal.py:wandb_internal():90] W&B internal server running at pid: 75335, started at: 2022-12-30 09:39:31.579012
+2022-12-30 09:39:31,583 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: status
+2022-12-30 09:39:31,588 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: status
+2022-12-30 09:39:31,590 DEBUG   SenderThread:75335 [sender.py:send():302] send: header
+2022-12-30 09:39:31,590 INFO    WriterThread:75335 [datastore.py:open_for_write():75] open: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/run-2f05wh1w.wandb
+2022-12-30 09:39:31,614 DEBUG   SenderThread:75335 [sender.py:send():302] send: run
+2022-12-30 09:39:32,360 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: check_version
+2022-12-30 09:39:32,368 INFO    SenderThread:75335 [dir_watcher.py:__init__():216] watching files in: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files
+2022-12-30 09:39:32,369 INFO    SenderThread:75335 [sender.py:_start_run_threads():913] run started: 2f05wh1w with start time 1672382371.569524
+2022-12-30 09:39:32,369 DEBUG   SenderThread:75335 [sender.py:send():302] send: summary
+2022-12-30 09:39:32,370 INFO    SenderThread:75335 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-30 09:39:32,371 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: check_version
+2022-12-30 09:39:32,724 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: run_start
+2022-12-30 09:39:33,374 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/wandb-summary.json
+2022-12-30 09:39:35,645 DEBUG   HandlerThread:75335 [meta.py:__init__():35] meta init
+2022-12-30 09:39:35,645 DEBUG   HandlerThread:75335 [meta.py:__init__():50] meta init done
+2022-12-30 09:39:35,646 DEBUG   HandlerThread:75335 [meta.py:probe():216] probe
+2022-12-30 09:39:38,861 DEBUG   HandlerThread:75335 [meta.py:_setup_git():206] setup git
+2022-12-30 09:39:38,893 DEBUG   HandlerThread:75335 [meta.py:_setup_git():213] setup git done
+2022-12-30 09:39:38,893 DEBUG   HandlerThread:75335 [meta.py:_save_code():88] save code
+2022-12-30 09:39:38,908 DEBUG   HandlerThread:75335 [meta.py:_save_code():109] save code done
+2022-12-30 09:39:38,908 DEBUG   HandlerThread:75335 [meta.py:_save_patches():126] save patches
+2022-12-30 09:39:39,123 DEBUG   HandlerThread:75335 [meta.py:_save_patches():168] save patches done
+2022-12-30 09:39:39,124 DEBUG   HandlerThread:75335 [meta.py:_save_pip():54] save pip
+2022-12-30 09:39:39,126 DEBUG   HandlerThread:75335 [meta.py:_save_pip():68] save pip done
+2022-12-30 09:39:39,126 DEBUG   HandlerThread:75335 [meta.py:_save_conda():75] save conda
+2022-12-30 09:39:39,382 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/diff.patch
+2022-12-30 09:39:39,383 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/code/scripts/Example-5.py
+2022-12-30 09:39:39,383 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/conda-environment.yaml
+2022-12-30 09:39:39,383 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/requirements.txt
+2022-12-30 09:39:39,383 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/code/scripts
+2022-12-30 09:39:39,384 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/code
+2022-12-30 09:39:46,237 DEBUG   HandlerThread:75335 [meta.py:_save_conda():85] save conda done
+2022-12-30 09:39:46,238 DEBUG   HandlerThread:75335 [meta.py:probe():254] probe done
+2022-12-30 09:39:46,373 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: stop_status
+2022-12-30 09:39:46,374 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: stop_status
+2022-12-30 09:39:46,374 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: log_artifact
+2022-12-30 09:39:46,395 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/conda-environment.yaml
+2022-12-30 09:39:46,395 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/wandb-metadata.json
+2022-12-30 09:39:46,732 DEBUG   SenderThread:75335 [sender.py:send():302] send: telemetry
+2022-12-30 09:39:46,732 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: log_artifact
+2022-12-30 09:39:47,804 INFO    SenderThread:75335 [sender.py:send_request_log_artifact():1207] logged artifact source-GFATT_PINNs-11-pytorch-surface-inversion-scripts_Example-5.py - {'id': 'QXJ0aWZhY3Q6MzA2NDU0NTgx', 'digest': 'ba30e8d67d2fc2ae82255e4e705ccfea', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'source-GFATT_PINNs-11-pytorch-surface-inversion-scripts_Example-5.py', 'alias': 'latest'}, {'artifactCollectionName': 'source-GFATT_PINNs-11-pytorch-surface-inversion-scripts_Example-5.py', 'alias': 'v0'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjQ4Mzc2Mjcw', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MzA2NDU0NTgx', 'versionIndex': 0}}, 'version': 'v0'}
+2022-12-30 09:39:47,807 DEBUG   SenderThread:75335 [sender.py:send():302] send: files
+2022-12-30 09:39:47,807 INFO    SenderThread:75335 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2022-12-30 09:39:47,808 INFO    SenderThread:75335 [sender.py:_save_file():1156] saving file code/scripts/Example-5.py with policy now
+2022-12-30 09:39:47,809 INFO    SenderThread:75335 [sender.py:_save_file():1156] saving file diff.patch with policy now
+2022-12-30 09:39:48,400 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/output.log
+2022-12-30 09:39:48,902 INFO    Thread-16 :75335 [upload_job.py:push():138] Uploaded file /tmp/tmpkoidoaadwandb/13dnxb8s-wandb-metadata.json
+2022-12-30 09:39:48,911 INFO    Thread-17 :75335 [upload_job.py:push():138] Uploaded file /tmp/tmpkoidoaadwandb/3jdj3960-code/scripts/Example-5.py
+2022-12-30 09:39:49,979 INFO    Thread-18 :75335 [upload_job.py:push():138] Uploaded file /tmp/tmpkoidoaadwandb/3id3anls-diff.patch
+2022-12-30 09:39:50,405 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/output.log
+2022-12-30 09:39:56,085 DEBUG   SenderThread:75335 [sender.py:send():302] send: exit
+2022-12-30 09:39:56,086 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:56,086 INFO    SenderThread:75335 [sender.py:send_exit():438] handling exit code: 1
+2022-12-30 09:39:56,086 INFO    SenderThread:75335 [sender.py:send_exit():440] handling runtime: 23
+2022-12-30 09:39:56,090 INFO    SenderThread:75335 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-30 09:39:56,090 INFO    SenderThread:75335 [sender.py:send_exit():446] send defer
+2022-12-30 09:39:56,091 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:56,091 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:56,091 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 0
+2022-12-30 09:39:56,092 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:56,092 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 0
+2022-12-30 09:39:56,092 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 1
+2022-12-30 09:39:56,093 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:56,093 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 1
+2022-12-30 09:39:56,112 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:56,112 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 1
+2022-12-30 09:39:56,112 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 2
+2022-12-30 09:39:56,112 DEBUG   SenderThread:75335 [sender.py:send():302] send: stats
+2022-12-30 09:39:56,113 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:56,113 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 2
+2022-12-30 09:39:56,113 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:56,113 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 2
+2022-12-30 09:39:56,113 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 3
+2022-12-30 09:39:56,114 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:56,114 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 3
+2022-12-30 09:39:56,114 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:56,114 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 3
+2022-12-30 09:39:56,114 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 4
+2022-12-30 09:39:56,114 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:56,114 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 4
+2022-12-30 09:39:56,115 DEBUG   SenderThread:75335 [sender.py:send():302] send: summary
+2022-12-30 09:39:56,116 INFO    SenderThread:75335 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2022-12-30 09:39:56,117 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:56,117 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 4
+2022-12-30 09:39:56,117 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 5
+2022-12-30 09:39:56,117 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:56,117 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 5
+2022-12-30 09:39:56,117 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:56,118 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 5
+2022-12-30 09:39:56,194 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:56,415 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/wandb-summary.json
+2022-12-30 09:39:56,519 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 6
+2022-12-30 09:39:56,519 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:56,520 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:56,520 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 6
+2022-12-30 09:39:56,521 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:56,521 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 6
+2022-12-30 09:39:56,622 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:57,417 INFO    Thread-12 :75335 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/config.yaml
+2022-12-30 09:39:57,826 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 7
+2022-12-30 09:39:57,826 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:57,827 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:57,827 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 7
+2022-12-30 09:39:57,828 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:57,828 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 7
+2022-12-30 09:39:57,828 INFO    SenderThread:75335 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-12-30 09:39:57,929 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:58,421 INFO    SenderThread:75335 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/output.log
+2022-12-30 09:39:58,421 INFO    SenderThread:75335 [dir_watcher.py:finish():392] scan: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files
+2022-12-30 09:39:58,422 INFO    SenderThread:75335 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/config.yaml config.yaml
+2022-12-30 09:39:58,422 INFO    SenderThread:75335 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/wandb-summary.json wandb-summary.json
+2022-12-30 09:39:58,423 INFO    SenderThread:75335 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/diff.patch diff.patch
+2022-12-30 09:39:58,423 INFO    SenderThread:75335 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/requirements.txt requirements.txt
+2022-12-30 09:39:58,435 INFO    SenderThread:75335 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/conda-environment.yaml conda-environment.yaml
+2022-12-30 09:39:58,437 INFO    SenderThread:75335 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/wandb-metadata.json wandb-metadata.json
+2022-12-30 09:39:58,438 INFO    SenderThread:75335 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/output.log output.log
+2022-12-30 09:39:58,455 INFO    SenderThread:75335 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/code/scripts/Example-5.py code/scripts/Example-5.py
+2022-12-30 09:39:58,455 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 8
+2022-12-30 09:39:58,455 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:58,457 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:58,457 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 8
+2022-12-30 09:39:58,458 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:58,458 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 8
+2022-12-30 09:39:58,458 INFO    SenderThread:75335 [file_pusher.py:finish():171] shutting down file pusher
+2022-12-30 09:39:58,558 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:58,559 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:58,661 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:58,661 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:58,763 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:58,764 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:58,866 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:58,866 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:58,968 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:58,968 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:59,070 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:59,071 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:59,173 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:59,173 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:59,275 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:59,276 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:59,378 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:59,378 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:59,453 INFO    Thread-20 :75335 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/wandb-summary.json
+2022-12-30 09:39:59,480 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:59,480 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:59,515 INFO    Thread-21 :75335 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/requirements.txt
+2022-12-30 09:39:59,535 INFO    Thread-23 :75335 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/output.log
+2022-12-30 09:39:59,548 INFO    Thread-19 :75335 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/config.yaml
+2022-12-30 09:39:59,563 INFO    Thread-22 :75335 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/files/conda-environment.yaml
+2022-12-30 09:39:59,583 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:59,583 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:59,685 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:39:59,685 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:39:59,763 INFO    Thread-11 :75335 [sender.py:transition_state():459] send defer: 9
+2022-12-30 09:39:59,764 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:39:59,764 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 9
+2022-12-30 09:39:59,765 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:39:59,765 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 9
+2022-12-30 09:39:59,787 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:40:00,060 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 10
+2022-12-30 09:40:00,061 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:40:00,062 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:40:00,062 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 10
+2022-12-30 09:40:00,063 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:40:00,063 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 10
+2022-12-30 09:40:00,063 INFO    SenderThread:75335 [sender.py:transition_state():459] send defer: 11
+2022-12-30 09:40:00,064 DEBUG   SenderThread:75335 [sender.py:send():302] send: final
+2022-12-30 09:40:00,065 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: defer
+2022-12-30 09:40:00,065 DEBUG   SenderThread:75335 [sender.py:send():302] send: footer
+2022-12-30 09:40:00,065 INFO    HandlerThread:75335 [handler.py:handle_request_defer():164] handle defer: 11
+2022-12-30 09:40:00,065 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: defer
+2022-12-30 09:40:00,065 INFO    SenderThread:75335 [sender.py:send_request_defer():455] handle sender defer: 11
+2022-12-30 09:40:00,164 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: poll_exit
+2022-12-30 09:40:00,164 DEBUG   SenderThread:75335 [sender.py:send_request():316] send_request: poll_exit
+2022-12-30 09:40:00,165 INFO    SenderThread:75335 [file_pusher.py:join():176] waiting for file pusher
+2022-12-30 09:40:00,610 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: sampled_history
+2022-12-30 09:40:00,611 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: get_summary
+2022-12-30 09:40:00,612 INFO    MainThread:75335 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2022-12-30 09:40:00,613 INFO    MainThread:75335 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2022-12-30 09:40:00,613 INFO    MainThread:75335 [wandb_run.py:_footer_sync_info():3261] logging synced files
+2022-12-30 09:40:00,614 DEBUG   HandlerThread:75335 [handler.py:handle_request():141] handle_request: shutdown
+2022-12-30 09:40:00,614 INFO    HandlerThread:75335 [handler.py:finish():810] shutting down handler
+2022-12-30 09:40:01,065 INFO    WriterThread:75335 [datastore.py:close():279] close: /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/scripts/wandb/run-20221230_093931-2f05wh1w/run-2f05wh1w.wandb
+2022-12-30 09:40:01,508 INFO    SenderThread:75335 [sender.py:finish():1312] shutting down sender
+2022-12-30 09:40:01,508 INFO    SenderThread:75335 [file_pusher.py:finish():171] shutting down file pusher
+2022-12-30 09:40:01,509 INFO    SenderThread:75335 [file_pusher.py:join():176] waiting for file pusher
+2022-12-30 09:40:01,616 INFO    MainThread:75335 [internal.py:handle_exit():80] Internal process exited

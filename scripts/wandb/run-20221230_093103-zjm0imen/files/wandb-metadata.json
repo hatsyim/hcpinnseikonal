@@ -1,0 +1,22 @@
+{
+    "os": "Linux-3.10.0-1160.76.1.el7.x86_64-x86_64-with-glibc2.10",
+    "python": "3.8.15",
+    "heartbeatAt": "2022-12-30T06:31:07.811638",
+    "startedAt": "2022-12-30T06:31:03.360865",
+    "docker": null,
+    "cpu_count": 40,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "Example-5.py",
+    "codePath": "scripts/Example-5.py",
+    "git": {
+        "remote": "https://github.com/hatsyim/HCPINNsEikonal3D",
+        "commit": "89e2badea6c251c9363982a53860320d302558b6"
+    },
+    "email": null,
+    "root": "/home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D",
+    "host": "login510-27",
+    "username": "taufikmh",
+    "executable": "/home/taufikmh/miniconda3/envs/my_env_plot/bin/python"
+}

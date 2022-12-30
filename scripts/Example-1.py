@@ -9,13 +9,17 @@ from scipy import interpolate
 
 from hcpinnseikonal.utils import *
 from hcpinnseikonal.model import *
-from hcpinnseikonal.train import *
 from hcpinnseikonal.plot import *
 from hcpinnseikonal.arguments import *
+from hcpinnseikonal.distributed import *
+
 
 if __name__ == "__main__":
     
     args = parser.parse_args()
+
+    args.use_wandb='n'
+
     dict_args = vars(args)
     print(dict_args)
 
@@ -25,7 +29,9 @@ if __name__ == "__main__":
         wandb.run.log_code(".")
         wandb_dir = wandb.run.dir
     else:
-        args.save_folder='YOUR_FOLDER'    
+        args.save_folder='../saves/saves_lightning3d'
+        from pathlib import Path
+        Path(args.save_folder).mkdir(parents=True, exist_ok=True)
         wandb_dir = args.save_folder
         
     # Setup

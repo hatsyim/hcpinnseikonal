@@ -1,0 +1,30 @@
+2022-12-28 18:20:39,540 INFO    MainThread:19452 [wandb_setup.py:_flush():76] Configure stats pid to 19452
+2022-12-28 18:20:39,540 INFO    MainThread:19452 [wandb_setup.py:_flush():76] Loading settings from /home/taufikmh/.config/wandb/settings
+2022-12-28 18:20:39,541 INFO    MainThread:19452 [wandb_setup.py:_flush():76] Loading settings from /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/notebooks/wandb/settings
+2022-12-28 18:20:39,541 INFO    MainThread:19452 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'_require_service': 'True'}
+2022-12-28 18:20:39,541 INFO    MainThread:19452 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2022-12-28 18:20:39,541 INFO    MainThread:19452 [wandb_init.py:_log_setup():461] Logging user logs to /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/notebooks/wandb/run-20221228_182039-2t7wasle/logs/debug.log
+2022-12-28 18:20:39,541 INFO    MainThread:19452 [wandb_init.py:_log_setup():462] Logging internal logs to /home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/notebooks/wandb/run-20221228_182039-2t7wasle/logs/debug-internal.log
+2022-12-28 18:20:39,541 INFO    MainThread:19452 [wandb_init.py:_jupyter_setup():411] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x2ac5f27c3130>
+2022-12-28 18:20:39,542 INFO    MainThread:19452 [wandb_init.py:init():495] calling init triggers
+2022-12-28 18:20:39,542 INFO    MainThread:19452 [wandb_init.py:init():498] wandb.init called with sweep_config: {}
+config: {}
+2022-12-28 18:20:39,543 INFO    MainThread:19452 [wandb_init.py:init():548] starting backend
+2022-12-28 18:20:39,543 INFO    MainThread:19452 [wandb_init.py:init():552] setting up manager
+2022-12-28 18:20:39,547 INFO    MainThread:19452 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-12-28 18:20:39,553 INFO    MainThread:19452 [wandb_init.py:init():558] backend started and connected
+2022-12-28 18:20:39,582 INFO    MainThread:19452 [wandb_run.py:_label_probe_notebook():1105] probe notebook
+2022-12-28 18:20:39,585 INFO    MainThread:19452 [wandb_run.py:_label_probe_notebook():1115] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2022-12-28 18:20:39,585 INFO    MainThread:19452 [wandb_init.py:init():636] updated telemetry
+2022-12-28 18:20:39,630 INFO    MainThread:19452 [wandb_init.py:init():667] communicating run to backend with 30 second timeout
+2022-12-28 18:20:40,736 INFO    MainThread:19452 [wandb_run.py:_on_init():1982] communicating current version
+2022-12-28 18:20:41,083 INFO    MainThread:19452 [wandb_run.py:_on_init():1986] got version response upgrade_message: "wandb version 0.13.7 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-12-28 18:20:41,083 INFO    MainThread:19452 [wandb_init.py:init():700] starting run threads in backend
+2022-12-28 18:20:46,124 INFO    MainThread:19452 [wandb_run.py:_console_start():1962] atexit reg
+2022-12-28 18:20:46,125 INFO    MainThread:19452 [wandb_run.py:_redirect():1820] redirect: SettingsConsole.WRAP_RAW
+2022-12-28 18:20:46,126 INFO    MainThread:19452 [wandb_run.py:_redirect():1885] Wrapping output streams.
+2022-12-28 18:20:46,126 INFO    MainThread:19452 [wandb_run.py:_redirect():1907] Redirects installed.
+2022-12-28 18:20:46,127 INFO    MainThread:19452 [wandb_init.py:init():732] run started, returning control to user process
+2022-12-28 18:20:56,280 INFO    MainThread:19452 [wandb_init.py:_pause_backend():374] pausing backend
+2022-12-28 18:20:56,282 INFO    MainThread:19452 [jupyter.py:_save_ipynb():388] looking for notebook: KAUST/fall_2022/external_repos/HCPINNsEikonal3D/notebooks/Example-5.ipynb

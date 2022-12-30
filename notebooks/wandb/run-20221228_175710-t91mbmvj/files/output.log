@@ -1,0 +1,37 @@
+Multiprocessing is handled by SLURM.
+Using 16bit native Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Global seed set to 1234
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/1
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 1 processes
+----------------------------------------------------------------------------------------------------
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/taufikmh/KAUST/fall_2022/external_repos/HCPINNsEikonal3D/src/hcpinnseikonal/distributed.py:681: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  scheduler = {'scheduler': ReduceLROnPlateau(self.optimizer, mode='min', factor=0.5, patience=self.num_epochs//self.reduce_after, verbose=True),
+  | Name      | Type                  | Params
+----------------------------------------------------
+0 | tau_model | FullyConnectedNetwork | 6.7 K
+1 | v_model   | FullyConnectedNetwork | 1.8 K
+----------------------------------------------------
+8.5 K     Trainable params
+0         Non-trainable params
+8.5 K     Total params
+0.017     Total estimated model params size (MB)
+SLURM auto-requeueing enabled. Setting signal handlers.
+/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/site-packages/torch/utils/data/dataloader.py:563: UserWarning: This DataLoader will create 24 worker processes in total. Our suggested max number of worker in current system is 3, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Traceback (most recent call last):
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/multiprocessing/queues.py", line 245, in _feed
+    send_bytes(obj)
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe

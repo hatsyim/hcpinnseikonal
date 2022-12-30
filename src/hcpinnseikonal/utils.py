@@ -304,3 +304,36 @@ def init_weights(m,init_type='xavierUniform', bias=0.1, mean=0., std=1.,):
         elif init_type=='uniform':
             m.weight.data.uniform_(-2.0, 15.0)
         m.bias.data.fill_(bias)
+        
+# Multi-GPU setup
+import torch, os, logging, sys
+from torch.utils.data import DataLoader, Dataset
+from pytorch_lightning import LightningModule, Trainer, LightningDataModule
+
+os.environ["MKL_THREADING_LAYER"] = "GNU" # fixes https://github.com/pytorch/pytorch/issues/37377?
+
+divider_str="-"*40
+
+def get_env_display_text(var_name):
+    var_value = os.environ.get(var_name, "")
+    return f"{var_name} = {var_value}"
+
+def display_environment():
+    """
+    Print a few environment variables of note
+    """
+    variable_names = [
+        "MASTER_ADDR",
+        "MASTER_PORT",
+        "NODE_RANK",
+        "LOCAL_RANK",
+        "GLOBAL_RANK",
+        "WORLD_SIZE",
+        "NCCL_SOCKET_IFNAME",
+        "OMPI_COMM_WORLD_RANK",
+        "OMPI_COMM_WORLD_LOCAL_RANK",
+        "OMPI_COMM_WORLD_SIZE",
+        "OMPI_COMM_WORLD_LOCAL_SIZE"
+    ]
+    var_text = "\n".join([get_env_display_text(var) for var in variable_names])
+    print(f"\nEnvironmental variables:\n{divider_str}\n{var_text}\n{divider_str}\n")

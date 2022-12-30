@@ -353,7 +353,7 @@ parser.add_argument(
 parser.add_argument(
     "--project_name",
     type=str,
-    default='GFATT_PINNs-11-pytorch-surface-inversion',
+    default='GFATT_PINNs-20-3d-lightning-inversion',
     help="The wandb project name when it is enabled.",
 )
 parser.add_argument(
@@ -367,4 +367,22 @@ parser.add_argument(
     type=float,
     default=0.,
     help="Regularization weighting coefficient",
+)
+parser.add_argument(
+    "--optimizer",
+    type=str,
+    default='adam',
+    help="Type of optimization algorithm.",
+)
+parser.add_argument(
+    "--mixed_precision",
+    type=str,
+    default='n',
+    help="Whether the mixed precision flag is used.",
+)
+parser.add_argument(
+    "--fast_loader",
+    type=str,
+    default='n',
+    help="Whether a non-default PyTorch's data loader.",
 )
