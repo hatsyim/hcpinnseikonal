@@ -38,6 +38,8 @@ if __name__ == "__main__":
     nx, nz, ns = model.x.shape[0], model.z.shape[0], model.sx.shape[0]    
     data = HCEikonalPINNsData(dict_args, batch_size=int(nx*nz*ns)//200)
     X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index = data.input_list
+    xmin, ymin, zmin = 0, 0, 0
+    xmax, ymax, zmax = args['max_offset'], args['max_offset'], args['max_depth']
 
     data.id_sou_z = np.array(dict_args['zdata.id_source'])
     data.id_rec_z = np.array(dict_args['zdata.id_receiver'])
