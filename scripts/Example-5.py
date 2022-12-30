@@ -39,18 +39,10 @@ if __name__ == "__main__":
     data = HCEikonalPINNsData(dict_args, batch_size=int(nx*nz*ns)//200)
     X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index = data.input_list
 
-    # Setup
-    pl.seed_everything(dict_args['seed'])
-
-    model = HCEikonalPINNsModel(dict_args)
-    nx, nz, ns = model.x.shape[0], model.z.shape[0], model.sx.shape[0]    
-    data = HCEikonalPINNsData(dict_args, batch_size=int(nx*nz*ns)//200)
-    X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index = data.input_list
-
-    id_sou_z = np.array(dict_args['zid_source'])
-    id_rec_z = np.array(dict_args['zid_receiver'])
-    id_sou_x = np.arange(0,len(X[0,:,0]),dict_args['sou_spacing'])
-    id_rec_x = np.arange(0,len(X[0,:,0]),dict_args['rec_spacing'])
+    data.id_sou_z = np.array(dict_args['zdata.id_source'])
+    data.id_rec_z = np.array(dict_args['zdata.id_receiver'])
+    data.id_sou_x = np.arange(0,len(X[0,:,0]),dict_args['sou_spacing'])
+    data.id_rec_x = np.arange(0,len(X[0,:,0]),dict_args['rec_spacing'])
 
     BATCH_SIZE = Z.size//200 if torch.cuda.is_available() else 64
     NUM_WORKERS = int(os.cpu_count() / 2)
@@ -97,25 +89,43 @@ if __name__ == "__main__":
         shuffle=True
     )
 
+    # ZX plane after
+    plot_section(vel3d[:,10,:], 'v_true_zx.png', vmin=np.nanmin(data.velmodel)+0.1, 
+                 vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+                 xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
+                 sx=X[:,:,:,0].reshape(-1)[data.id_sou],sz=Z[:,:,:,0].reshape(-1)[data.id_sou],rx=X[:,:,:,0].reshape(-1)[data.id_rec],rz=Z[:,:,:,0].reshape(-1)[data.id_rec])
+
+    # XY plane
+    plot_section(vel3d[5,:,:], 'v_true_xy.png', vmin=np.nanmin(data.velmodel)+0.1, 
+                 vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+                 xmin=xmin, xmax=xmax, zmin=xmin, zmax=xmax, 
+                 sx=X[:,:,:,0].reshape(-1)[data.id_sou],sz=Y[:,:,:,0].reshape(-1)[data.id_sou],rx=X[:,:,:,0].reshape(-1)[data.id_rec],rz=Y[:,:,:,0].reshape(-1)[data.id_rec])
+
+    # ZY plane
+    plot_section(vel3d[:,:,10], 'v_true_zy.png', vmin=np.nanmin(data.velmodel)+0.1, 
+                 vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+                 xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
+                 sx=Y[:,:,:,0].reshape(-1)[data.id_sou],sz=Z[:,:,:,0].reshape(-1)[data.id_sou],rx=Y[:,:,:,0].reshape(-1)[data.id_rec],rz=Z[:,:,:,0].reshape(-1)[data.id_rec])
+    
     v_init = model.evaluate_velocity(init_loader,batch_size=BATCH_SIZE,num_pts=X.size)
 
     # ZX plane after
-    plot_section(v_init.reshape(X.shape)[:,10,:,0], 'v_init_zx.png', vmin=np.nanmin(velmodel)+0.1, 
-                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+    plot_section(v_init.reshape(X.shape)[:,10,:,0], 'v_init_zx.png', vmin=np.nanmin(data.velmodel)+0.1, 
+                 vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
                  xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
-                 sx=X[:,:,:,0].reshape(-1)[id_sou],sz=Z[:,:,:,0].reshape(-1)[id_sou],rx=X[:,:,:,0].reshape(-1)[id_rec],rz=Z[:,:,:,0].reshape(-1)[id_rec])
+                 sx=X[:,:,:,0].reshape(-1)[data.id_sou],sz=Z[:,:,:,0].reshape(-1)[data.id_sou],rx=X[:,:,:,0].reshape(-1)[data.id_rec],rz=Z[:,:,:,0].reshape(-1)[data.id_rec])
 
     # XY plane
-    plot_section(v_init.reshape(X.shape)[5,:,:,0], 'v_init_xy.png', vmin=np.nanmin(velmodel)+0.1, 
-                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+    plot_section(v_init.reshape(X.shape)[5,:,:,0], 'v_init_xy.png', vmin=np.nanmin(data.velmodel)+0.1, 
+                 vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
                  xmin=xmin, xmax=xmax, zmin=xmin, zmax=xmax, 
-                 sx=X[:,:,:,0].reshape(-1)[id_sou],sz=Y[:,:,:,0].reshape(-1)[id_sou],rx=X[:,:,:,0].reshape(-1)[id_rec],rz=Y[:,:,:,0].reshape(-1)[id_rec])
+                 sx=X[:,:,:,0].reshape(-1)[data.id_sou],sz=Y[:,:,:,0].reshape(-1)[data.id_sou],rx=X[:,:,:,0].reshape(-1)[data.id_rec],rz=Y[:,:,:,0].reshape(-1)[data.id_rec])
 
     # ZY plane
-    plot_section(v_init.reshape(X.shape)[:,:,10,0], 'v_init_zy.png', vmin=np.nanmin(velmodel)+0.1, 
-                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+    plot_section(v_init.reshape(X.shape)[:,:,10,0], 'v_init_zy.png', vmin=np.nanmin(data.velmodel)+0.1, 
+                 vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
                  xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
-                 sx=Y[:,:,:,0].reshape(-1)[id_sou],sz=Z[:,:,:,0].reshape(-1)[id_sou],rx=Y[:,:,:,0].reshape(-1)[id_rec],rz=Z[:,:,:,0].reshape(-1)[id_rec])
+                 sx=Y[:,:,:,0].reshape(-1)[data.id_sou],sz=Z[:,:,:,0].reshape(-1)[data.id_sou],rx=Y[:,:,:,0].reshape(-1)[data.id_rec],rz=Z[:,:,:,0].reshape(-1)[data.id_rec])
     # Training
     wandb_logger = WandbLogger(log_model="all")
 
@@ -150,22 +160,22 @@ if __name__ == "__main__":
     tau_pred = model.evaluate_tau(init_loader,batch_size=BATCH_SIZE,num_pts=X.size)
 
     # ZX plane after
-    plot_section(v_pred.reshape(X.shape)[:,0,:,i], 'v_pred_zx.png', vmin=np.nanmin(velmodel)+0.1, 
-                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+    plot_section(v_pred.reshape(X.shape)[:,0,:,i], 'v_pred_zx.png', vmin=np.nanmin(data.velmodel)+0.1, 
+                 vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
                  xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
-                 sx=X[:,:,:,i].reshape(-1)[id_sou],sz=Z[:,:,:,i].reshape(-1)[id_sou],rx=X[:,:,:,i].reshape(-1)[id_rec],rz=Z[:,:,:,i].reshape(-1)[id_rec])
+                 sx=X[:,:,:,i].reshape(-1)[data.id_sou],sz=Z[:,:,:,i].reshape(-1)[data.id_sou],rx=X[:,:,:,i].reshape(-1)[data.id_rec],rz=Z[:,:,:,i].reshape(-1)[data.id_rec])
 
     # XY plane
-    plot_section(v_pred.reshape(X.shape)[args.zid_source,:,:,i], 'v_pred_xy.png', vmin=np.nanmin(velmodel)+0.1, 
-                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+    plot_section(v_pred.reshape(X.shape)[args.zdata.id_source,:,:,i], 'v_pred_xy.png', vmin=np.nanmin(data.velmodel)+0.1, 
+                 vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
                  xmin=xmin, xmax=xmax, zmin=xmin, zmax=xmax, 
-                 sx=X[:,:,:,i].reshape(-1)[id_sou],sz=Y[:,:,:,i].reshape(-1)[id_sou],rx=X[:,:,:,i].reshape(-1)[id_rec],rz=Y[:,:,:,i].reshape(-1)[id_rec])
+                 sx=X[:,:,:,i].reshape(-1)[data.id_sou],sz=Y[:,:,:,i].reshape(-1)[data.id_sou],rx=X[:,:,:,i].reshape(-1)[data.id_rec],rz=Y[:,:,:,i].reshape(-1)[data.id_rec])
 
     # ZY plane
-    plot_section(v_pred.reshape(X.shape)[:,:,0,i], 'v_pred_zy.png', vmin=np.nanmin(velmodel)+0.1, 
-                 vmax=np.nanmax(velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
+    plot_section(v_pred.reshape(X.shape)[:,:,0,i], 'v_pred_zy.png', vmin=np.nanmin(data.velmodel)+0.1, 
+                 vmax=np.nanmax(data.velmodel)-0.5, save_dir=wandb_dir, aspect='equal',
                  xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
-                 sx=Y[:,:,:,i].reshape(-1)[id_sou],sz=Z[:,:,:,i].reshape(-1)[id_sou],rx=Y[:,:,:,i].reshape(-1)[id_rec],rz=Z[:,:,:,i].reshape(-1)[id_rec])
+                 sx=Y[:,:,:,i].reshape(-1)[data.id_sou],sz=Z[:,:,:,i].reshape(-1)[data.id_sou],rx=Y[:,:,:,i].reshape(-1)[data.id_rec],rz=Z[:,:,:,i].reshape(-1)[data.id_rec])
 
     # Save model
     torch.save({
