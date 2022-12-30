@@ -543,7 +543,7 @@ def setup_medium(args):
     ry=Y[:,:,:,0].reshape(-1)[id_rec]
     rz=Z[:,:,:,0].reshape(-1)[id_rec]
     
-    return X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index, sx, sy, sz, rx, ry, rz, velmodel, id_rec, id_sou
+    return X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index, sx, sy, sz, rx, ry, rz, vel3d, id_rec, id_sou
 
 # Lightning Dataset
 import copy
@@ -559,7 +559,7 @@ class HCEikonalPINNsData(pl.LightningDataModule):
         self.fast_loader = args['fast_loader']
         self.batch_size = batch_size
         self.num_workers = num_workers
-        X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index, self.sx, self.sy, self.sz, rx, ry, rz, self.velmodel, self.id_rec, self.id_sou = setup_medium(args)
+        X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index, self.sx, self.sy, self.sz, rx, ry, rz, self.vel3d, self.id_rec, self.id_sou = setup_medium(args)
         self.input_list = [X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index]
         if permute:
             perm_id = np.random.permutation(X.size-self.sx.size)
