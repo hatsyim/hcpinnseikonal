@@ -282,7 +282,7 @@ def setup_medium(args):
         vel = 4*np.ones((nz,nx))
     elif args['model_type']=='gradient':
         vel = 1 + 7*np.meshgrid(x,z)[1]
-    elif args.model_type=='arid':
+    elif args['model_type']=='arid':
         vel = np.fromfile('../data/seam_arid', np.float32).reshape(400,400,600)/1000
         vel3d = np.moveaxis(vel[::4,::4,::4], -1, 0)
 
