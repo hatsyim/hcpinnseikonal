@@ -124,7 +124,8 @@ if __name__ == "__main__":
             callbacks=[
                 TQDMProgressBar(refresh_rate=20), 
                 ModelCheckpoint(monitor="train_pde_loss", mode="min")],
-            logger=wandb_logger
+            logger=wandb_logger,
+            default_root_dir=wandb_dir
         )
 
     else:
@@ -136,7 +137,8 @@ if __name__ == "__main__":
             callbacks=[
                 TQDMProgressBar(refresh_rate=20), 
                 ModelCheckpoint(monitor="train_pde_loss", mode="min")],
-            logger=wandb_logger
+            logger=wandb_logger,
+            default_root_dir=wandb_dir
         )
     trainer.fit(model, datamodule=data)
 
