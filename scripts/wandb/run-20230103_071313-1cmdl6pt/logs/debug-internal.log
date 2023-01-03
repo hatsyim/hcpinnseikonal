@@ -1,0 +1,341 @@
+2023-01-03 07:13:13,187 INFO    StreamThr :47376 [internal.py:wandb_internal():90] W&B internal server running at pid: 47376, started at: 2023-01-03 07:13:13.186952
+2023-01-03 07:13:13,191 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: status
+2023-01-03 07:13:13,194 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: status
+2023-01-03 07:13:13,196 DEBUG   SenderThread:47376 [sender.py:send():302] send: header
+2023-01-03 07:13:13,196 INFO    WriterThread:47376 [datastore.py:open_for_write():75] open: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/run-1cmdl6pt.wandb
+2023-01-03 07:13:13,212 DEBUG   SenderThread:47376 [sender.py:send():302] send: run
+2023-01-03 07:13:13,940 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: check_version
+2023-01-03 07:13:13,948 INFO    SenderThread:47376 [dir_watcher.py:__init__():216] watching files in: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files
+2023-01-03 07:13:13,949 INFO    SenderThread:47376 [sender.py:_start_run_threads():913] run started: 1cmdl6pt with start time 1672719193.178572
+2023-01-03 07:13:13,949 DEBUG   SenderThread:47376 [sender.py:send():302] send: summary
+2023-01-03 07:13:13,949 INFO    SenderThread:47376 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2023-01-03 07:13:13,949 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: check_version
+2023-01-03 07:13:14,301 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: run_start
+2023-01-03 07:13:14,316 DEBUG   HandlerThread:47376 [meta.py:__init__():35] meta init
+2023-01-03 07:13:14,316 DEBUG   HandlerThread:47376 [meta.py:__init__():50] meta init done
+2023-01-03 07:13:14,316 DEBUG   HandlerThread:47376 [meta.py:probe():216] probe
+2023-01-03 07:13:14,323 DEBUG   HandlerThread:47376 [meta.py:_setup_git():206] setup git
+2023-01-03 07:13:14,350 DEBUG   HandlerThread:47376 [meta.py:_setup_git():213] setup git done
+2023-01-03 07:13:14,350 DEBUG   HandlerThread:47376 [meta.py:_save_code():88] save code
+2023-01-03 07:13:14,361 DEBUG   HandlerThread:47376 [meta.py:_save_code():109] save code done
+2023-01-03 07:13:14,361 DEBUG   HandlerThread:47376 [meta.py:_save_patches():126] save patches
+2023-01-03 07:13:14,519 DEBUG   HandlerThread:47376 [meta.py:_save_patches():168] save patches done
+2023-01-03 07:13:14,519 DEBUG   HandlerThread:47376 [meta.py:_save_pip():54] save pip
+2023-01-03 07:13:14,520 DEBUG   HandlerThread:47376 [meta.py:_save_pip():68] save pip done
+2023-01-03 07:13:14,521 DEBUG   HandlerThread:47376 [meta.py:_save_conda():75] save conda
+2023-01-03 07:13:14,528 ERROR   HandlerThread:47376 [meta.py:_save_conda():84] Error saving conda packages
+Traceback (most recent call last):
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/site-packages/wandb/sdk/internal/meta.py", line 80, in _save_conda
+    subprocess.call(
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/subprocess.py", line 340, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/taufikmh/miniconda3/envs/my_env_plot/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2023-01-03 07:13:14,532 DEBUG   HandlerThread:47376 [meta.py:_save_conda():85] save conda done
+2023-01-03 07:13:14,532 DEBUG   HandlerThread:47376 [meta.py:probe():254] probe done
+2023-01-03 07:13:14,583 DEBUG   SenderThread:47376 [sender.py:send():302] send: files
+2023-01-03 07:13:14,583 INFO    SenderThread:47376 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2023-01-03 07:13:14,584 INFO    SenderThread:47376 [sender.py:_save_file():1156] saving file code/scripts/Example-5.py with policy now
+2023-01-03 07:13:14,585 INFO    SenderThread:47376 [sender.py:_save_file():1156] saving file diff.patch with policy now
+2023-01-03 07:13:14,594 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:13:14,595 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:13:14,957 DEBUG   SenderThread:47376 [sender.py:send():302] send: telemetry
+2023-01-03 07:13:14,961 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/conda-environment.yaml
+2023-01-03 07:13:14,962 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/code/scripts/Example-5.py
+2023-01-03 07:13:14,962 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/requirements.txt
+2023-01-03 07:13:14,963 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/wandb-metadata.json
+2023-01-03 07:13:14,964 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/wandb-summary.json
+2023-01-03 07:13:14,965 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/diff.patch
+2023-01-03 07:13:14,967 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/code/scripts
+2023-01-03 07:13:14,968 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/code
+2023-01-03 07:13:15,064 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: log_artifact
+2023-01-03 07:13:15,065 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: log_artifact
+2023-01-03 07:13:15,731 INFO    Thread-16 :47376 [upload_job.py:push():138] Uploaded file /tmp/tmpmdi681ykwandb/3d8ucbjr-wandb-metadata.json
+2023-01-03 07:13:15,739 INFO    Thread-17 :47376 [upload_job.py:push():138] Uploaded file /tmp/tmpmdi681ykwandb/mhgrne6r-code/scripts/Example-5.py
+2023-01-03 07:13:16,572 INFO    Thread-18 :47376 [upload_job.py:push():138] Uploaded file /tmp/tmpmdi681ykwandb/pb3h9hz2-diff.patch
+2023-01-03 07:13:17,025 INFO    Thread-20 :47376 [upload_job.py:push():93] Skipped uploading /home/taufikmh/.cache/wandb/artifacts/obj/md5/96/78bd18a4d9830ea7d0d7d0415b60af
+2023-01-03 07:13:17,025 INFO    Thread-21 :47376 [upload_job.py:push():93] Skipped uploading /home/taufikmh/.cache/wandb/artifacts/obj/md5/36/20cb96acc83ed3bd7f946d834a1a72
+2023-01-03 07:13:17,668 INFO    Thread-22 :47376 [upload_job.py:push():96] Uploaded file /home/taufikmh/.cache/wandb/artifacts/obj/md5/52/b8b2ae9cdfd7b64d6a5b8dc4e03e09
+2023-01-03 07:13:19,479 INFO    SenderThread:47376 [sender.py:send_request_log_artifact():1207] logged artifact source-GFATT_PINNs-20-3d-lightning-inversion-scripts_Example-5.py - {'id': 'QXJ0aWZhY3Q6MzExMDM4MTM4', 'digest': 'db41046c23d541524e1766d62dcee525', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjQ4NjA1MDc5', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MzExMDMzNzg3', 'versionIndex': 0}}, 'version': 'latest'}
+2023-01-03 07:13:19,962 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:13:21,963 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:13:29,966 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:13:29,966 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:13:42,973 DEBUG   SenderThread:47376 [sender.py:send():302] send: stats
+2023-01-03 07:13:44,986 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/config.yaml
+2023-01-03 07:13:46,397 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:13:46,398 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:14:02,803 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:14:02,803 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:14:10,002 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/v_true_xy.png
+2023-01-03 07:14:10,003 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/v_true_zx.png
+2023-01-03 07:14:11,003 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_created():275] file/dir created: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/v_true_zy.png
+2023-01-03 07:14:13,616 DEBUG   SenderThread:47376 [sender.py:send():302] send: stats
+2023-01-03 07:14:18,251 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:14:18,251 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:14:33,580 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:14:33,580 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:14:44,050 DEBUG   SenderThread:47376 [sender.py:send():302] send: stats
+2023-01-03 07:14:48,017 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:14:48,910 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:14:48,910 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:14:50,018 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:14:52,019 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:05,319 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:15:05,319 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:15:10,032 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:12,034 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:14,035 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:14,670 DEBUG   SenderThread:47376 [sender.py:send():302] send: stats
+2023-01-03 07:15:16,037 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:18,039 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:20,040 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:21,290 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:15:21,290 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:15:22,042 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:24,043 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:26,044 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:28,046 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:30,047 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:32,049 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:34,051 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:36,052 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:36,648 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:15:36,649 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:15:38,054 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:40,055 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:42,057 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:44,058 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:45,322 DEBUG   SenderThread:47376 [sender.py:send():302] send: stats
+2023-01-03 07:15:46,060 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:48,061 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:50,063 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:52,011 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:15:52,011 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:15:52,065 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:54,066 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:56,068 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:15:58,069 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:00,071 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:02,072 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:04,075 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:06,076 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:07,374 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:16:07,375 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:16:08,078 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:10,079 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:12,084 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:14,085 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:15,991 DEBUG   SenderThread:47376 [sender.py:send():302] send: stats
+2023-01-03 07:16:16,087 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:18,089 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:20,090 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:22,092 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:22,734 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:16:22,735 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:16:24,094 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:26,095 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:28,097 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:30,098 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:32,102 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:34,106 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:37,107 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:38,086 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:16:38,086 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:16:39,109 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:41,111 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:43,112 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:45,114 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:46,669 DEBUG   SenderThread:47376 [sender.py:send():302] send: stats
+2023-01-03 07:16:47,115 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:49,117 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:51,119 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:53,120 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:53,445 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:16:53,446 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:16:55,122 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:57,124 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:16:59,125 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:01,127 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:03,128 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:05,130 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:07,131 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:08,811 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:17:08,811 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:17:09,135 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:11,136 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:13,137 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:15,139 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:17,141 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:17,345 DEBUG   SenderThread:47376 [sender.py:send():302] send: stats
+2023-01-03 07:17:19,142 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:21,144 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:23,145 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:24,171 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:17:24,171 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:17:25,147 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:27,149 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:29,150 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:31,152 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:33,154 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:35,155 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:37,157 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:39,159 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:39,672 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: stop_status
+2023-01-03 07:17:39,672 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: stop_status
+2023-01-03 07:17:41,160 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:43,162 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:44,162 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:44,869 DEBUG   SenderThread:47376 [sender.py:send():302] send: exit
+2023-01-03 07:17:44,869 INFO    SenderThread:47376 [sender.py:send_exit():438] handling exit code: 255
+2023-01-03 07:17:44,871 INFO    SenderThread:47376 [sender.py:send_exit():440] handling runtime: 270
+2023-01-03 07:17:44,873 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:44,873 INFO    SenderThread:47376 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2023-01-03 07:17:44,874 INFO    SenderThread:47376 [sender.py:send_exit():446] send defer
+2023-01-03 07:17:44,874 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:44,875 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:44,876 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 0
+2023-01-03 07:17:44,877 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:44,877 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 0
+2023-01-03 07:17:44,877 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 1
+2023-01-03 07:17:44,877 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:44,878 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 1
+2023-01-03 07:17:44,933 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:44,934 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 1
+2023-01-03 07:17:44,934 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 2
+2023-01-03 07:17:44,934 DEBUG   SenderThread:47376 [sender.py:send():302] send: stats
+2023-01-03 07:17:44,935 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:44,935 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 2
+2023-01-03 07:17:44,935 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:44,936 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 2
+2023-01-03 07:17:44,936 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 3
+2023-01-03 07:17:44,936 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:44,936 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 3
+2023-01-03 07:17:44,937 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:44,937 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 3
+2023-01-03 07:17:44,937 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 4
+2023-01-03 07:17:44,938 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:44,938 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 4
+2023-01-03 07:17:44,938 DEBUG   SenderThread:47376 [sender.py:send():302] send: summary
+2023-01-03 07:17:44,939 INFO    SenderThread:47376 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2023-01-03 07:17:44,940 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:44,940 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 4
+2023-01-03 07:17:44,940 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 5
+2023-01-03 07:17:44,940 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:44,941 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 5
+2023-01-03 07:17:44,941 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:44,941 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 5
+2023-01-03 07:17:44,941 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 6
+2023-01-03 07:17:44,942 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:44,942 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 6
+2023-01-03 07:17:44,942 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:44,942 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 6
+2023-01-03 07:17:44,977 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:45,163 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/wandb-summary.json
+2023-01-03 07:17:46,164 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:46,302 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 7
+2023-01-03 07:17:46,302 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:46,303 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:46,303 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 7
+2023-01-03 07:17:46,304 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:46,304 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 7
+2023-01-03 07:17:46,304 INFO    SenderThread:47376 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-01-03 07:17:46,405 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:47,164 INFO    Thread-12 :47376 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:47,166 INFO    SenderThread:47376 [dir_watcher.py:finish():392] scan: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files
+2023-01-03 07:17:47,166 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/v_true_xy.png v_true_xy.png
+2023-01-03 07:17:47,167 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/diff.patch diff.patch
+2023-01-03 07:17:47,167 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/v_true_zy.png v_true_zy.png
+2023-01-03 07:17:47,167 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/conda-environment.yaml conda-environment.yaml
+2023-01-03 07:17:47,167 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/requirements.txt requirements.txt
+2023-01-03 07:17:47,168 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/wandb-metadata.json wandb-metadata.json
+2023-01-03 07:17:47,168 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/v_true_zx.png v_true_zx.png
+2023-01-03 07:17:47,168 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/wandb-summary.json wandb-summary.json
+2023-01-03 07:17:47,169 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/config.yaml config.yaml
+2023-01-03 07:17:47,169 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log output.log
+2023-01-03 07:17:47,184 INFO    SenderThread:47376 [dir_watcher.py:finish():406] scan save: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/code/scripts/Example-5.py code/scripts/Example-5.py
+2023-01-03 07:17:47,184 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 8
+2023-01-03 07:17:47,185 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:47,205 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:47,207 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 8
+2023-01-03 07:17:47,214 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:47,214 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 8
+2023-01-03 07:17:47,214 INFO    SenderThread:47376 [file_pusher.py:finish():171] shutting down file pusher
+2023-01-03 07:17:47,306 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:47,306 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:47,408 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:47,409 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:47,511 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:47,511 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:47,613 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:47,613 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:47,715 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:47,715 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:47,817 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:47,818 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:47,920 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:47,920 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,022 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,022 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,124 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,125 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,226 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,227 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,315 INFO    Thread-25 :47376 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/requirements.txt
+2023-01-03 07:17:48,318 INFO    Thread-29 :47376 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/output.log
+2023-01-03 07:17:48,329 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,329 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,335 INFO    Thread-28 :47376 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/config.yaml
+2023-01-03 07:17:48,378 INFO    Thread-27 :47376 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/wandb-summary.json
+2023-01-03 07:17:48,431 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,432 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,533 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,534 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,636 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,636 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,641 INFO    Thread-26 :47376 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/v_true_zx.png
+2023-01-03 07:17:48,673 INFO    Thread-24 :47376 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/v_true_zy.png
+2023-01-03 07:17:48,738 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,738 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,779 INFO    Thread-23 :47376 [upload_job.py:push():138] Uploaded file /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/files/v_true_xy.png
+2023-01-03 07:17:48,840 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,840 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,942 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:48,943 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:48,980 INFO    Thread-11 :47376 [sender.py:transition_state():459] send defer: 9
+2023-01-03 07:17:48,981 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:48,981 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 9
+2023-01-03 07:17:48,981 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:48,981 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 9
+2023-01-03 07:17:49,044 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:49,587 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 10
+2023-01-03 07:17:49,587 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:49,588 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:49,588 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 10
+2023-01-03 07:17:49,589 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:49,589 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 10
+2023-01-03 07:17:49,590 INFO    SenderThread:47376 [sender.py:transition_state():459] send defer: 11
+2023-01-03 07:17:49,591 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: defer
+2023-01-03 07:17:49,591 DEBUG   SenderThread:47376 [sender.py:send():302] send: final
+2023-01-03 07:17:49,591 INFO    HandlerThread:47376 [handler.py:handle_request_defer():164] handle defer: 11
+2023-01-03 07:17:49,591 DEBUG   SenderThread:47376 [sender.py:send():302] send: footer
+2023-01-03 07:17:49,592 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: defer
+2023-01-03 07:17:49,592 INFO    SenderThread:47376 [sender.py:send_request_defer():455] handle sender defer: 11
+2023-01-03 07:17:49,691 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: poll_exit
+2023-01-03 07:17:49,691 DEBUG   SenderThread:47376 [sender.py:send_request():316] send_request: poll_exit
+2023-01-03 07:17:49,691 INFO    SenderThread:47376 [file_pusher.py:join():176] waiting for file pusher
+2023-01-03 07:17:50,134 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: sampled_history
+2023-01-03 07:17:50,136 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: get_summary
+2023-01-03 07:17:50,137 INFO    MainThread:47376 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2023-01-03 07:17:50,137 INFO    MainThread:47376 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2023-01-03 07:17:50,137 INFO    MainThread:47376 [wandb_run.py:_footer_sync_info():3261] logging synced files
+2023-01-03 07:17:50,138 DEBUG   HandlerThread:47376 [handler.py:handle_request():141] handle_request: shutdown
+2023-01-03 07:17:50,139 INFO    HandlerThread:47376 [handler.py:finish():810] shutting down handler
+2023-01-03 07:17:50,591 INFO    WriterThread:47376 [datastore.py:close():279] close: /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_071313-1cmdl6pt/run-1cmdl6pt.wandb
+2023-01-03 07:17:51,033 INFO    SenderThread:47376 [sender.py:finish():1312] shutting down sender
+2023-01-03 07:17:51,033 INFO    SenderThread:47376 [file_pusher.py:finish():171] shutting down file pusher
+2023-01-03 07:17:51,033 INFO    SenderThread:47376 [file_pusher.py:join():176] waiting for file pusher
+2023-01-03 07:17:51,144 INFO    MainThread:47376 [internal.py:handle_exit():80] Internal process exited

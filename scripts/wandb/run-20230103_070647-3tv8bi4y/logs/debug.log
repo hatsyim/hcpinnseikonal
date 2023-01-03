@@ -1,0 +1,26 @@
+2023-01-03 07:06:47,532 INFO    MainThread:44848 [wandb_setup.py:_flush():76] Configure stats pid to 44848
+2023-01-03 07:06:47,532 INFO    MainThread:44848 [wandb_setup.py:_flush():76] Loading settings from /home/taufikmh/.config/wandb/settings
+2023-01-03 07:06:47,532 INFO    MainThread:44848 [wandb_setup.py:_flush():76] Loading settings from /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/settings
+2023-01-03 07:06:47,532 INFO    MainThread:44848 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'_require_service': 'True'}
+2023-01-03 07:06:47,532 INFO    MainThread:44848 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/Example-5.py', 'program': './Example-5.py'}
+2023-01-03 07:06:47,532 INFO    MainThread:44848 [wandb_init.py:_log_setup():461] Logging user logs to /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_070647-3tv8bi4y/logs/debug.log
+2023-01-03 07:06:47,533 INFO    MainThread:44848 [wandb_init.py:_log_setup():462] Logging internal logs to /home/taufikmh/KAUST/fall_2022/external_repos/copy-HCPINNsEikonal-dev/scripts/wandb/run-20230103_070647-3tv8bi4y/logs/debug-internal.log
+2023-01-03 07:06:47,533 INFO    MainThread:44848 [wandb_init.py:init():495] calling init triggers
+2023-01-03 07:06:47,533 INFO    MainThread:44848 [wandb_init.py:init():498] wandb.init called with sweep_config: {}
+config: {}
+2023-01-03 07:06:47,533 INFO    MainThread:44848 [wandb_init.py:init():548] starting backend
+2023-01-03 07:06:47,533 INFO    MainThread:44848 [wandb_init.py:init():552] setting up manager
+2023-01-03 07:06:47,538 INFO    MainThread:44848 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-01-03 07:06:47,541 INFO    MainThread:44848 [wandb_init.py:init():558] backend started and connected
+2023-01-03 07:06:47,545 INFO    MainThread:44848 [wandb_init.py:init():636] updated telemetry
+2023-01-03 07:06:47,572 INFO    MainThread:44848 [wandb_init.py:init():667] communicating run to backend with 30 second timeout
+2023-01-03 07:06:48,351 INFO    MainThread:44848 [wandb_run.py:_on_init():1982] communicating current version
+2023-01-03 07:06:48,690 INFO    MainThread:44848 [wandb_run.py:_on_init():1986] got version response upgrade_message: "wandb version 0.13.7 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-01-03 07:06:48,690 INFO    MainThread:44848 [wandb_init.py:init():700] starting run threads in backend
+2023-01-03 07:06:48,973 INFO    MainThread:44848 [wandb_run.py:_console_start():1962] atexit reg
+2023-01-03 07:06:48,974 INFO    MainThread:44848 [wandb_run.py:_redirect():1820] redirect: SettingsConsole.WRAP_RAW
+2023-01-03 07:06:48,975 INFO    MainThread:44848 [wandb_run.py:_redirect():1885] Wrapping output streams.
+2023-01-03 07:06:48,975 INFO    MainThread:44848 [wandb_run.py:_redirect():1907] Redirects installed.
+2023-01-03 07:06:48,976 INFO    MainThread:44848 [wandb_init.py:init():732] run started, returning control to user process
+2023-01-03 07:09:53,707 WARNING MsgRouterThr:44848 [router.py:message_loop():76] message_loop has been closed

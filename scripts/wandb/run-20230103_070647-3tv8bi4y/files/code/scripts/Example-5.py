@@ -6,7 +6,6 @@ import os
 
 from argparse import ArgumentParser   
 from scipy import interpolate
-from pytorch_lightning.callbacks import LearningRateMonitor, ModelCheckpoint
 
 from hcpinnseikonal.utils import *
 from hcpinnseikonal.model import *
@@ -118,28 +117,28 @@ if __name__ == "__main__":
     if dict_args['mixed_precision']=='y':
         trainer = Trainer(
             accelerator="gpu",
-            strategy="ddp",#pl.strategies.DDPStrategy(find_unused_parameters=False), #"ddp", #"ddp_find_unused_parameters_false",
+            strategy=pl.strategies.DDPStrategy(find_unused_parameters=False), #"ddp", #"ddp_find_unused_parameters_false",
             devices="auto",  # limiting got iPython runs
             max_epochs=dict_args['num_epochs'],
             precision=16,
             callbacks=[
                 TQDMProgressBar(refresh_rate=20), 
-                ModelCheckpoint(dirpath=wandb_dir,filename='{epoch}-{train_pde_loss:.2f}',save_last=True,monitor="train_pde_loss", mode="min")],
+                ModelCheckpoint(monitor="train_pde_loss", mode="min")],
             logger=wandb_logger,
-            default_root_dir=wandb_dir+'checkpoint.ckpt'
+            default_root_dir=wandb_dir
         )
 
     else:
         trainer = Trainer(
             accelerator="gpu",
-            strategy="ddp", #pl.strategies.DDPStrategy(find_unused_parameters=False),
+            strategy=pl.strategies.DDPStrategy(find_unused_parameters=False),
             devices="auto",  # limiting got iPython runs
             max_epochs=dict_args['num_epochs'],
             callbacks=[
                 TQDMProgressBar(refresh_rate=20), 
-                ModelCheckpoint(dirpath=wandb_dir,filename='{epoch}-{train_pde_loss:.2f}',save_last=True,monitor="train_pde_loss", mode="min")],
+                ModelCheckpoint(monitor="train_pde_loss", mode="min")],
             logger=wandb_logger,
-            default_root_dir=wandb_dir+'checkpoint.ckpt'
+            default_root_dir=wandb_dir
         )
     trainer.fit(model, datamodule=data)
 
