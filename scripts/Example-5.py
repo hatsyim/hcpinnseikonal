@@ -108,33 +108,16 @@ if __name__ == "__main__":
                  vmax=np.nanmax(data.vel3d)-0.5, save_dir=wandb_dir, aspect='equal',
                  xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
                  sx=Y[:,:,:,0].reshape(-1)[data.id_sou],sz=Z[:,:,:,0].reshape(-1)[data.id_sou],rx=Y[:,:,:,0].reshape(-1)[data.id_rec],rz=Z[:,:,:,0].reshape(-1)[data.id_rec])
-    
+
     v_init = model.evaluate_velocity(init_loader,batch_size=BATCH_SIZE,num_pts=X.size)
 
-    # ZX plane after
-    plot_section(v_init.reshape(X.shape)[:,10,:,0], 'v_init_zx.png', vmin=np.nanmin(data.vel3d)+0.1, 
-                 vmax=np.nanmax(data.vel3d)-0.5, save_dir=wandb_dir, aspect='equal',
-                 xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
-                 sx=X[:,:,:,0].reshape(-1)[data.id_sou],sz=Z[:,:,:,0].reshape(-1)[data.id_sou],rx=X[:,:,:,0].reshape(-1)[data.id_rec],rz=Z[:,:,:,0].reshape(-1)[data.id_rec])
-
-    # XY plane
-    plot_section(v_init.reshape(X.shape)[5,:,:,0], 'v_init_xy.png', vmin=np.nanmin(data.vel3d)+0.1, 
-                 vmax=np.nanmax(data.vel3d)-0.5, save_dir=wandb_dir, aspect='equal',
-                 xmin=xmin, xmax=xmax, zmin=xmin, zmax=xmax, 
-                 sx=X[:,:,:,0].reshape(-1)[data.id_sou],sz=Y[:,:,:,0].reshape(-1)[data.id_sou],rx=X[:,:,:,0].reshape(-1)[data.id_rec],rz=Y[:,:,:,0].reshape(-1)[data.id_rec])
-
-    # ZY plane
-    plot_section(v_init.reshape(X.shape)[:,:,10,0], 'v_init_zy.png', vmin=np.nanmin(data.vel3d)+0.1, 
-                 vmax=np.nanmax(data.vel3d)-0.5, save_dir=wandb_dir, aspect='equal',
-                 xmin=xmin, xmax=xmax, zmin=zmin, zmax=zmax, 
-                 sx=Y[:,:,:,0].reshape(-1)[data.id_sou],sz=Z[:,:,:,0].reshape(-1)[data.id_sou],rx=Y[:,:,:,0].reshape(-1)[data.id_rec],rz=Z[:,:,:,0].reshape(-1)[data.id_rec])
     # Training
     wandb_logger = WandbLogger(log_model="all")
 
     if dict_args['mixed_precision']=='y':
         trainer = Trainer(
             accelerator="gpu",
-            strategy="ddp_find_unused_parameters_false",
+            strategy="ddp", #"ddp_find_unused_parameters_false",
             devices="auto",  # limiting got iPython runs
             max_epochs=dict_args['num_epochs'],
             precision=16,
@@ -147,7 +130,7 @@ if __name__ == "__main__":
     else:
         trainer = Trainer(
             accelerator="gpu",
-            strategy="ddp_find_unused_parameters_false",
+            strategy="ddp", #"ddp_find_unused_parameters_false",
             devices="auto",  # limiting got iPython runs
             max_epochs=dict_args['num_epochs'],
             callbacks=[
@@ -186,7 +169,7 @@ if __name__ == "__main__":
             'optimizer_state_dict': optimizer.state_dict(),
             'loss': loss_history
     }, wandb_dir+'/saved_model')
-    
+
     # Save model
     torch.save({
             'tau_model_state_dict': model.tau_model.state_dict(),
