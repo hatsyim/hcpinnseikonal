@@ -642,13 +642,14 @@ class HCEikonalPINNsModel(pl.LightningModule):
         # Computational model parameters    
         deltar = args['rec_spacing']
         deltas = args['sou_spacing']
-        zmin = 0.; zmax = args['max_depth']; deltaz = args['vertical_spacing'];
-        ymin = 0.; ymax = args['max_offset']; deltay = args['lateral_spacing'];
-        xmin = 0.; xmax = args['max_offset']; deltax = args['lateral_spacing'];
+        zmin = 0.; zmax = args['max_depth']
+        ymin = 0.; ymax = args['max_offset']
+        xmin = 0.; xmax = args['max_offset']
+        deltax, deltay, deltaz = args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2
         
-        z = torch.arange(zmin,zmax+deltaz,deltaz)
-        y = torch.arange(ymin,ymax+deltay,deltay)
-        x = torch.arange(xmin,xmax+deltax,deltax)
+        z = torch.arange(zmin,zmax,deltaz)
+        y = torch.arange(ymin,ymax,deltay)
+        x = torch.arange(xmin,xmax,deltax)
         
         Z,Y,X = np.meshgrid(z,y,x,indexing='ij')
         
