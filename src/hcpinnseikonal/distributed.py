@@ -39,7 +39,10 @@ def setup_medium(args):
     zmin = -0.1 if args['field_synthetic']=='y' else 0; zmax = args['max_depth'] #; deltaz = args['vertical_spacing'];
     ymin = 0.; ymax = args['max_offset'] #; deltay = args['lateral_spacing'];
     xmin = 0.; xmax = args['max_offset'] #; deltax = args['lateral_spacing'];
-    deltax, deltay, deltaz = args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2
+    if args['model_type']!='arid':
+        deltax, deltay, deltaz = args['lateral_spacing'], args['lateral_spacing'], args['vertical_spacing']
+    else:
+        deltax, deltay, deltaz = args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2
 
     if args['earth_scale']=='y':
         earth_radi = 6371/args['scale_factor'] # Average in km
@@ -645,7 +648,10 @@ class HCEikonalPINNsModel(pl.LightningModule):
         zmin = 0.; zmax = args['max_depth']
         ymin = 0.; ymax = args['max_offset']
         xmin = 0.; xmax = args['max_offset']
-        deltax, deltay, deltaz = args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2
+        if args['model_type']!='arid':
+            deltax, deltay, deltaz = args['lateral_spacing'], args['lateral_spacing'], args['vertical_spacing']
+        else:
+            deltax, deltay, deltaz = args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2*4, args['sampling_rate']*0.00625/2
         
         z = torch.arange(zmin,zmax,deltaz)
         y = torch.arange(ymin,ymax,deltay)
