@@ -6,6 +6,67 @@ import skfmm
 
 from torch.nn import Linear
 from torch.utils.data import TensorDataset, DataLoader
+            
+def save_models(epochs, tau_model, nu_model, nu_optimizer, criterion, tau_optimizer=None):
+    """
+    Function to save the trained model to disk.
+    """
+    print(f"Saving final model...")
+    if tau_optimizer is not None:
+        torch.save({
+                    'epoch': epochs,
+                    'tau_model_state_dict': tau_model.state_dict(),
+                    'nu_model_state_dict': nu_model.state_dict(),
+                    'nu_optimizer_state_dict': nu_optimizer.state_dict(),
+                    'loss': criterion,
+        }, wandb.run.dir+'/saved_model.pth')
+    else:
+        torch.save({
+                    'epoch': epochs,
+                    'tau_model_state_dict': tau_model.state_dict(),
+                    'nu_model_state_dict': nu_model.state_dict(),
+                    'nu_optimizer_state_dict': nu_optimizer.state_dict(),
+                    'tau_optimizer_state_dict': tau_optimizer.state_dict(),
+                    'loss': criterion,
+        }, wandb.run.dir+'/saved_model.pth')
+
+class SaveBestModels:
+    """
+    Class to save the best model while training. If the current epoch's 
+    validation loss is less than the previous least less, then save the
+    model state.
+    """
+    def __init__(
+        self, save_dir, best_valid_loss=float('inf')
+    ):
+        self.best_valid_loss = best_valid_loss
+        self.save_dir = save_dir
+        
+    def __call__(
+        self, current_valid_loss, 
+        epoch, tau_model, nu_model, nu_optimizer, criterion, tau_optimizer=None
+    ):
+        if current_valid_loss < self.best_valid_loss:
+            self.best_valid_loss = current_valid_loss
+            print(f"\nBest loss: {self.best_valid_loss}")
+            print(f"\nSaving best model for epoch: {epoch+1}\n")
+            if tau_optimizer is not None:
+                torch.save({
+                    'epoch': epoch+1,
+                    'tau_model_state_dict': tau_model.state_dict(),
+                    'nu_model_state_dict': nu_model.state_dict(),
+                    'nu_optimizer_state_dict': nu_optimizer.state_dict(),
+                    'tau_optimizer_state_dict': tau_optimizer.state_dict(),
+                    'loss': criterion,
+                }, self.save_dir+'/best_model.pth')
+            else:
+                torch.save({
+                    'epoch': epoch+1,
+                    'tau_model_state_dict': tau_model.state_dict(),
+                    'nu_model_state_dict': nu_model.state_dict(),
+                    'nu_optimizer_state_dict': nu_optimizer.state_dict(),
+                    'loss': criterion,
+                }, self.save_dir+'/best_model.pth')
 
 class SaveBestModel:
     """
@@ -14,9 +75,10 @@ class SaveBestModel:
     model state.
     """
     def __init__(
-        self, best_valid_loss=float('inf')
+        self, save_dir, best_valid_loss=float('inf')
     ):
         self.best_valid_loss = best_valid_loss
+        self.save_dir = save_dir
         
     def __call__(
         self, current_valid_loss, 
@@ -32,7 +94,7 @@ class SaveBestModel:
                 'v_model_state_dict': v_model.state_dict(),
                 'optimizer_state_dict': optimizer.state_dict(),
                 'loss': criterion,
-            }, wandb.run.dir+'/best_model.pth')
+            }, self.save_dir+'/best_model.pth')
             
 def save_model(epochs, tau_model, v_model, optimizer, criterion):
     """
@@ -271,6 +333,47 @@ def create_dataloaderdd(input_vec, sx1, sz1, sx2, sz2,
     ic2 = torch.tensor(np.array([sx2, sz2]), dtype=torch.float).to(device)
 
     return data_loader, ic1.T, ic2.T
+
+def create_dataloaderwell(input_vec, sx, sz, batch_size=200**3, shuffle=True, 
+                      device='cuda', fast_loader=False, perm_id=None):
+    
+    # input_wsrc = [X, Z, SX, taud, taudx, T0, px0, pz0]
+    # input_wosrc = [i.ravel()[isource.reshape(-1)][perm_id] for i in input_wsrc]
+    
+    XZ = torch.from_numpy(np.vstack((input_vec[0], input_vec[1])).T).float().to(device)
+    S = torch.from_numpy(input_vec[2]).float().to(device)
+    
+    taud = torch.from_numpy(input_vec[3]).float().to(device)
+    taud_dx = torch.from_numpy(input_vec[4]).float().to(device)
+
+    tana = torch.from_numpy(input_vec[5]).float().to(device)
+    tana_dx = torch.from_numpy(input_vec[6]).float().to(device)
+    tana_dz = torch.from_numpy(input_vec[7]).float().to(device)
+    
+    v0 = torch.from_numpy(input_vec[8]).float().to(device)
+    nuw = torch.from_numpy(input_vec[9]).float().to(device)
+    
+    v0ic = torch.from_numpy(input_vec[10]).float().to(device)
+    nuwic = torch.from_numpy(input_vec[11]).float().to(device)
+    
+    if perm_id is not None:
+        dataset = TensorDataset(XZ[perm_id], S[perm_id], taud[perm_id], taud_dx[perm_id], 
+                                tana[perm_id], tana_dx[perm_id], tana_dz[perm_id], 
+                                v0[perm_id], nuw[perm_id])
+    else:
+        dataset = TensorDataset(XZ, S, taud, taud_dx, tana, tana_dx, tana_dz, v0, nuw)
+    
+    if fast_loader:
+        data_loader = FastTensorDataLoader(XZ, S, taud, taud_dx, tana, tana_dx, tana_dz, 
+                                           v0, nuw, batch_size=batch_size, shuffle=shuffle)
+    else:
+        data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+
+    # Initial condition
+    ic = torch.tensor(np.array([sx, sz]), dtype=torch.float).to(device)
+    vic = torch.hstack([v0ic, nuwic]).to(device)
+
+    return data_loader, ic.T, vic
 
 def set_seed(seed):
 

@@ -176,6 +176,7 @@ def evaluate_tau3d(tau_model, grid_loader, num_pts, batch_size, device):
         T = torch.empty(num_pts, device=device)
         for i, X in enumerate(grid_loader, 0):
 
+            # xyzs = torch.hstack((X[0], X[1].view(-1,1), X[2].view(-1,1), X[3].view(-1,1)))
             xyzs = torch.hstack((X[0], X[-1].view(-1,1)))
             batch_end = (i+1)*batch_size if (i+1)*batch_size<num_pts else i*batch_size + X[0].shape[0]
             T[i*batch_size:batch_end] = tau_model(xyzs).view(-1)

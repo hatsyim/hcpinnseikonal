@@ -207,7 +207,7 @@ parser.add_argument(
     help="Integer scalar for the output of the velocity network.",
 )
 parser.add_argument(
-    "--nu_units",
+    "--v_units",
     type=str,
     default='unitless',
     help="Set whether the velocity network predicts a scalar (unitless) qantity or the velocity field directly.",
@@ -391,4 +391,46 @@ parser.add_argument(
     type=int,
     default=4,
     help="Sampling rate for the input velocity.",
+)
+parser.add_argument(
+    "--initial_mean",
+    type=float,
+    default=0.5,
+    help="Initialization weights.",
+)
+parser.add_argument(
+    "--initial_bias",
+    type=float,
+    default=0.5,
+    help="Initialization bias.",
+)
+parser.add_argument(
+    "--initial_deviation",
+    type=float,
+    default=0.5,
+    help="Initialization standard deviation.",
+)
+parser.add_argument(
+    "--dual_optimizer",
+    type=str,
+    default='n',
+    help="Whether dual optimizer is for each network used.",
+)
+parser.add_argument(
+    "--tau_function",
+    type=str,
+    default='l2',
+    help="Imposing smoothness through exponential function.",
+)
+parser.add_argument(
+    "--v_function",
+    type=str,
+    default='l2',
+    help="Type of norm used for the distance function in the velocity prediction.",
+)
+parser.add_argument(
+    "--with_well",
+    type=str,
+    default='n',
+    help="Boolean whether to include the well information for training.",
 )
