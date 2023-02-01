@@ -61,7 +61,7 @@ def plot_slice(x, y, z, data, xslice, yslice, zslice, ax=None, vmin=None, vmax=N
     
     if fig_name is not None:
         plt.savefig(os.path.join(save_dir, fig_name), 
-                    format='png', bbox_inches="tight")
+                    format='pdf', bbox_inches="tight")
 
 def plot_cube(values, xmin, ymin, zmin, deltax, deltay, deltaz, fig_name=None, save_dir='./'):
 
@@ -89,7 +89,7 @@ def plot_cube(values, xmin, ymin, zmin, deltax, deltay, deltaz, fig_name=None, s
     
     if fig_name is not None:
         plt.savefig(os.path.join(save_dir, fig_name), 
-                    format='png', bbox_inches="tight") 
+                    format='pdf', bbox_inches="tight") 
 
 def plot_contour(pred, true, init, idx, nx, nz, ns, sx, sz, x, z, fig_name=None, save_dir='./'):
     plt.figure()
@@ -114,37 +114,40 @@ def plot_contour(pred, true, init, idx, nx, nz, ns, sx, sz, x, z, fig_name=None,
     
     if fig_name is not None:
         plt.savefig(os.path.join(save_dir, fig_name), 
-                    format='png', bbox_inches="tight") 
+                    format='pdf', bbox_inches="tight") 
 
 def plot_section(data, fig_name, data_type='km/s', vmin=None, vmax=None, 
                  cmap='terrain', save_dir='./', aspect='equal', 
                  xmin=0, xmax=1, zmin=0, zmax=1, 
-                 sx=None, sz=None, rx=None, rz=None):
+                 sx=None, sz=None, rx=None, rz=None, xtop=None, ztop=None):
     plt.figure()
     ax = plt.gca()
     im = ax.imshow(data, extent=[xmin,xmax,zmax,zmin], cmap=cmap, 
                    aspect=aspect, vmin=vmin, vmax=vmax, interpolation='kaiser')
-    
+
     if sx is not None:
         plt.scatter(sx, sz, 5, 'white', marker='*')
-    
+
     if rx is not None:
         plt.scatter(rx, rz, 5, 'y', marker='v')
-    
+
+    if xtop is not None:
+        plt.scatter((xtop-xtop.min()), ztop, 2, 'black', marker='o')
+
     plt.xlabel('Offset (km)', fontsize=14)
     plt.xticks(fontsize=11)
     plt.ylabel('Depth (km)', fontsize=14)
     plt.yticks(fontsize=11)
-    
+
     divider = make_axes_locatable(ax)
     cax = divider.append_axes("right", size="6%", pad=0.15)
     cbar = plt.colorbar(im, cax=cax)
-    
+
     cbar.set_label(data_type,size=10)
-    
+
     if fig_name is not None:
         plt.savefig(os.path.join(save_dir, fig_name), 
-                    format='png', bbox_inches="tight") 
+                    format='pdf', bbox_inches="tight") 
         
 def plot_depth(data, fig_name, data_type='km/s', vmin=None, vmax=None, 
                  cmap='terrain', save_dir='./', aspect='equal', 
@@ -174,7 +177,7 @@ def plot_depth(data, fig_name, data_type='km/s', vmin=None, vmax=None,
     
     if fig_name is not None:
         plt.savefig(os.path.join(save_dir, fig_name), 
-                    format='png', bbox_inches="tight") 
+                    format='pdf', bbox_inches="tight") 
         
 def plot_trace(init, true, pred, trace_id, x, z, fig_name=None, save_dir='./'):
     plt.figure(figsize=(3,5))
@@ -199,7 +202,7 @@ def plot_trace(init, true, pred, trace_id, x, z, fig_name=None, save_dir='./'):
     
     if fig_name is not None:
         plt.savefig(os.path.join(save_dir, fig_name), 
-                    format='png', bbox_inches="tight") 
+                    format='pdf', bbox_inches="tight") 
         
 def plot_horizontal(trace1, trace2, x, title, ylabel, fig_name,
                     label1, label2, save_dir='./', id_rec_x=None, id_rec_z=None):
@@ -225,4 +228,4 @@ def plot_horizontal(trace1, trace2, x, title, ylabel, fig_name,
 
     if fig_name!=None:
         plt.savefig(os.path.join(save_dir, fig_name), 
-                    format='png', bbox_inches="tight")
+                    format='pdf', bbox_inches="tight")
