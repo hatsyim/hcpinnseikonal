@@ -62,6 +62,25 @@ def plot_slice(x, y, z, data, xslice, yslice, zslice, ax=None, vmin=None, vmax=N
     if fig_name is not None:
         plt.savefig(os.path.join(save_dir, fig_name), 
                     format='pdf', bbox_inches="tight")
+        
+def plot_matrix(array, length, vmin=None, vmax=None, save_dir=None, unit='km/s', xmin=0, xmax=1, zmax=1, zmin=0):
+    
+    fig, ax = plt.subplots(length, length, constrained_layout=True, sharex='col', sharey='row', figsize=(int(1.5*length), int(1.5*length)))
+
+    axs = ax.ravel()
+
+    for i in range(length**2):        
+        im = axs[i].imshow(array[i], vmin=vmin, vmax=vmax, extent=[xmin,xmax,zmax,zmin])
+        
+    fig.supxlabel('Offset (km)')
+    fig.supylabel('Depth (km)')
+        
+    cbar=fig.colorbar(im, ax=ax[:, :], shrink=0.6, location='right')
+    
+    cbar.set_label(unit)
+    
+    if save_dir is not None:
+        plt.savefig(save_dir)
 
 def plot_cube(values, xmin, ymin, zmin, deltax, deltay, deltaz, fig_name=None, save_dir='./'):
 
@@ -91,13 +110,13 @@ def plot_cube(values, xmin, ymin, zmin, deltax, deltay, deltaz, fig_name=None, s
         plt.savefig(os.path.join(save_dir, fig_name), 
                     format='pdf', bbox_inches="tight") 
 
-def plot_contour(pred, true, init, idx, nx, nz, ns, sx, sz, x, z, fig_name=None, save_dir='./'):
+def plot_contour(pred, true, init, idx, nx, nz, ns, sx, sz, x, z, fig_name=None, save_dir='./', title=None):
     plt.figure()
-    c_p = plt.contour(pred.reshape(nz,nx,ns)[:,:,idx],20, 
+    c_p = plt.contour(pred.reshape(nz,nx,ns)[:,:,idx],5, 
                       colors='k',extent=(x[0], x[-1], z[0], z[-1]))
-    c_t = plt.contour(true.reshape(nz,nx,ns)[:,:,idx], 20, 
+    c_t = plt.contour(true.reshape(nz,nx,ns)[:,:,idx], 5, 
                       colors='y', linestyles='dashed', extent=(x[0], x[-1], z[0], z[-1]))
-    c_i = plt.contour(init.reshape(nz,nx,ns)[:,:,idx], 20, 
+    c_i = plt.contour(init.reshape(nz,nx,ns)[:,:,idx], 5, 
                       colors='b', linestyles='dashed', extent=(x[0], x[-1], z[0], z[-1]))
 
     h1,_ = c_p.legend_elements()
@@ -107,7 +126,8 @@ def plot_contour(pred, true, init, idx, nx, nz, ns, sx, sz, x, z, fig_name=None,
     plt.legend([h1[0], h2[0], h3[0]], ['Prediction', 'True', 'Initial'])
     
     plt.scatter(sx[idx], sz[idx], s=200, marker='*', color='k')
-    plt.title('Traveltime Contour')
+    if title is not None:
+        plt.title('Traveltime Contour')
     plt.xlabel('X (km)')
     plt.ylabel('Z (km)')
     plt.axis('tight')
@@ -214,7 +234,7 @@ def plot_horizontal(trace1, trace2, x, title, ylabel, fig_name,
     plt.plot(x,trace2,'r:')
     
     if id_rec_x is not None:
-        plt.scatter(x[id_rec_x], trace1[id_rec_x])
+        plt.scatter(x[id_rec_x], trace1[id_rec_x], 5, 'y', marker='v')
 
     ax.set_title(title, fontsize=14)
 

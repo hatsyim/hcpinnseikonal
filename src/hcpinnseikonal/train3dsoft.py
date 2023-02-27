@@ -55,9 +55,12 @@ from torch.utils.data import TensorDataset, DataLoader
 def train3d(input_wosrc, sx, sy, sz,
           tau_model, v_model, optimizer, epoch,
           batch_size, vscaler, scheduler, fast_loader, device, args):
+    
     tau_model.train()
     v_model.train()
     loss = []
+    loss_pde = []
+    loss_data = []
     
     # Create dataloader
     weights = torch.Tensor(torch.ones(len(input_wosrc[0]))).to(device)
@@ -69,7 +72,7 @@ def train3d(input_wosrc, sx, sy, sz,
     for xyz, sx, sy, sz, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, idx in data_loader:
         
         xyz.requires_grad = True
-
+        
         sxic = sx
         syic = sy
         szic = sz
@@ -77,13 +80,21 @@ def train3d(input_wosrc, sx, sy, sz,
 
         # Input for the data network
         xyzsic = torch.hstack((xyz, sxic.view(-1,1), syic.view(-1,1), szic.view(-1,1)))
+        # xyzsic.requires_grad = True
+        
+        xyzr = torch.hstack((xyz[:,0].view(-1,1), xyz[:,1].view(-1,1), torch.zeros_like(xyz[:,2]).view(-1,1), 
+                             sxic.view(-1,1), syic.view(-1,1), szic.view(-1,1)))
+        # xyzr.requires_grad = True
+        
         # xyzsic = torch.hstack((xyz, sidx.view(-1,1)))
 
         # Compute T
         tau = tau_model(xyzsic).view(-1)
+        tau_p = tau_model(xyzr).view(-1)
 
         # Compute v
-        v = v_model(xyzsic[:, :3], idx).view(-1)
+        # v = v_well #+ well_operator(xyz[:,0].view(-1), xyz[:,1].view(-1)) * 
+        v = v_model(xyzsic[:, :3]).view(-1)
 
         # Gradients
         gradient = torch.autograd.grad(tau, xyzsic, torch.ones_like(tau), create_graph=True)[0]
@@ -110,50 +121,42 @@ def train3d(input_wosrc, sx, sy, sz,
             rec_op_dz = 1
                 
         if args['factorization_type']=='multiplicative':
-            T_dx = (rec_op*tau_dx + taud_dx)*t0 + (rec_op*tau + taud)*t0_dx
-            T_dz = (rec_op*tau_dz + rec_op_dz*tau)*t0 + (rec_op*tau + taud)*t0_dz
+            T_dx = (tau_dx)*t0 + (tau)*t0_dx
+            T_dy = (tau_dy)*t0 + (tau)*t0_dy
+            T_dz = (tau_dz)*t0 + (tau)*t0_dz
+            T_d = taud
+            T_p = tau_p * t0
         else:
             T_dx = rec_op*tau_dx + taud_dx + t0_dx
             T_dy = rec_op*tau_dy + taud_dy + t0_dy
             T_dz = rec_op*tau_dz + rec_op_dz*tau + t0_dz
         
         pde_lhs = (T_dx**2 + T_dy**2 + T_dz**2) * vscaler
-
-        if args['velocity_loss']=='y':
-            pde = torch.sqrt(1/pde_lhs) - v
-        else:
-            pde = pde_lhs - vscaler / (v ** 2)
         
-        # No causality
-        if args['causality_weight']=='type_0':
-            wl2=1        
-        # Stationary causality
-        elif args['causality_weight']=='type_1':
-            wl2 = torch.exp(-args['causality_factor']*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args['zid_source']])**2))
-        # Anti-causal causal non-stationary
-        elif args['causality_weight']=='type_2':
-            delt = (1-0.01)/args['num_epochs']
-            wl2 = torch.exp((-1+delt*epoch)*args['causality_factor']*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args['zid_source']])**2))
-        # Anti-causal
-        elif args['causality_weight']=='type_3':
-            wl2 = 1.05*(1-torch.exp(-args['causality_factor']*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args['zid_source']])**2)))
-        # Anti-causal causal non-stationary
-        elif args['causality_weight']=='type_4':
-            delt = (1-0.01)/args['num_epochs']
-            wl2 = torch.abs(torch.exp((-1+delt*epoch)*args['causality_factor']*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args['zid_source']])**2))-1) + (1-torch.exp(torch.tensor(-5e-4*epoch)))
+        # print(t0.min(), t0.max(), v.min(), v.max())
         
-        ls_pde = torch.mean(wl2*pde**2)
-        ls = ls_pde
+        ls = torch.mean(abs(torch.sqrt(1/pde_lhs) - v)/torch.sqrt(1/pde_lhs)) + torch.mean(abs(T_p - T_d)/T_d)
+        
+        # Add LVL term
+        # ls_pde = ls_pde + torch.mean((v_well + v_model(torch.hstack((xyz[:, :2], torch.ones_like(xyz[:, 0]*0.863).view(-1,1)))).view(-1) - torch.tensor(4.023))**2)
+        
         loss.append(ls.item())
         ls.backward()
+        loss_pde.append(torch.mean(abs(torch.sqrt(1/pde_lhs) - v)/torch.sqrt(1/pde_lhs)).item())
+        loss_data.append(torch.mean(abs(T_p - T_d)/T_d).item())
         optimizer.step()
+        # tau_optimizer.step()
+
         optimizer.zero_grad()
+        # tau_optimizer.zero_grad()
 
-        del idx, xyz, sxic, xyzsic, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, ls, v, tau, tau_dx, tau_dy, tau_dz, gradient, T_dx, T_dz, pde_lhs, ls_pde, pde, rec_op, rec_op_dz
+        del idx, xyz, sxic, xyzsic, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, ls, v, tau, tau_dx, tau_dy, tau_dz, gradient, T_dx, T_dz, pde_lhs, rec_op, rec_op_dz
 
-    mean_loss = np.sum(loss) / len(data_loader)
+    mean_ls = np.sum(loss) / len(data_loader)
+    mean_ls_pde = np.sum(loss_pde) / len(data_loader)
+    mean_ls_data = np.sum(loss_data) / len(data_loader)
 
-    return mean_loss
+    return [mean_ls, mean_ls_pde, mean_ls_data]
 
 def evaluate_tau3d(tau_model, grid_loader, num_pts, batch_size, device):
     tau_model.eval()
@@ -186,7 +189,7 @@ def evaluate_velocity3d(v_model, grid_loader, num_pts, batch_size, device):
 
             # Compute v
             batch_end = (i+1)*batch_size if (i+1)*batch_size<num_pts else i*batch_size + X[0].shape[0]
-            V[i*batch_size:batch_end] = v_model(X[0], X[-1]).view(-1)
+            V[i*batch_size:batch_end] = v_model(X[0]).view(-1)
 
     return V
 
@@ -205,13 +208,15 @@ def training_loop3d(input_wosrc, sx, sy, sz,
                   batch_size,
                   vscaler, scheduler, fast_loader, device, args)
         if wandb is not None:
-            wandb.log({"loss": mean_loss})
+            wandb.log({"loss": mean_loss[0]})
         loss_history.append(mean_loss)
 
         if epoch % 3 == 0:
-            print(f'Epoch {epoch}, Loss {mean_loss:.7f}')
+            print(f'Epoch {epoch}, Total Loss {mean_loss[0]:.7f}, PDE Loss {mean_loss[1]:.7f}, Data Loss {mean_loss[2]:.7f}')
         
         if scheduler is not None:
-            scheduler.step(mean_loss)
+            scheduler.step(mean_loss[0])
+            # tau_scheduler.step(mean_loss[0])
 
     return loss_history
+

@@ -68,22 +68,29 @@ def train3d(input_wosrc, sx, sy, sz,
         
     for xyz, sx, sy, sz, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, idx in data_loader:
         
+        # Number of source
+        num_sou = len(ic[:,0])
+
         xyz.requires_grad = True
 
-        sxic = sx
-        syic = sy
-        szic = sz
-        sidx = idx
+        # Input for the velocity network
+        xyzic = torch.cat([xyz, ic])
+
+        # Source location
+        sxic = torch.cat([sx, ic[:,0]])
+        syic = torch.cat([sy, ic[:,1]])
+        szic = torch.cat([sz, ic[:,2]])
+        sidx = torch.cat([idx, sid])
 
         # Input for the data network
-        xyzsic = torch.hstack((xyz, sxic.view(-1,1), syic.view(-1,1), szic.view(-1,1)))
-        # xyzsic = torch.hstack((xyz, sidx.view(-1,1)))
+        # xyzsic = torch.hstack((xyzic, sxic.view(-1,1), syic.view(-1,1), szic.view(-1,1)))
+        xyzsic = torch.hstack((xyzic, sidx.view(-1,1)))
 
         # Compute T
         tau = tau_model(xyzsic).view(-1)
 
         # Compute v
-        v = v_model(xyzsic[:, :3], idx).view(-1)
+        v = v_model(xyzsic[:, :3]).view(-1)
 
         # Gradients
         gradient = torch.autograd.grad(tau, xyzsic, torch.ones_like(tau), create_graph=True)[0]
@@ -110,19 +117,19 @@ def train3d(input_wosrc, sx, sy, sz,
             rec_op_dz = 1
                 
         if args['factorization_type']=='multiplicative':
-            T_dx = (rec_op*tau_dx + taud_dx)*t0 + (rec_op*tau + taud)*t0_dx
-            T_dz = (rec_op*tau_dz + rec_op_dz*tau)*t0 + (rec_op*tau + taud)*t0_dz
+            T_dx = (rec_op*tau_dx[:-num_sou] + taud_dx)*t0 + (rec_op*tau[:-num_sou] + taud)*t0_dx
+            T_dz = (rec_op*tau_dz[:-num_sou] + rec_op_dz*tau[:-num_sou])*t0 + (rec_op*tau[:-num_sou] + taud)*t0_dz
         else:
-            T_dx = rec_op*tau_dx + taud_dx + t0_dx
-            T_dy = rec_op*tau_dy + taud_dy + t0_dy
-            T_dz = rec_op*tau_dz + rec_op_dz*tau + t0_dz
+            T_dx = rec_op*tau_dx[:-num_sou] + taud_dx + t0_dx
+            T_dy = rec_op*tau_dy[:-num_sou] + taud_dy + t0_dy
+            T_dz = rec_op*tau_dz[:-num_sou] + rec_op_dz*tau[:-num_sou] + t0_dz
         
         pde_lhs = (T_dx**2 + T_dy**2 + T_dz**2) * vscaler
 
         if args['velocity_loss']=='y':
-            pde = torch.sqrt(1/pde_lhs) - v
+            pde = torch.sqrt(1/pde_lhs) - v[:-num_sou]
         else:
-            pde = pde_lhs - vscaler / (v ** 2)
+            pde = pde_lhs - vscaler / (v[:-num_sou] ** 2)
         
         # No causality
         if args['causality_weight']=='type_0':
@@ -149,7 +156,7 @@ def train3d(input_wosrc, sx, sy, sz,
         optimizer.step()
         optimizer.zero_grad()
 
-        del idx, xyz, sxic, xyzsic, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, ls, v, tau, tau_dx, tau_dy, tau_dz, gradient, T_dx, T_dz, pde_lhs, ls_pde, pde, rec_op, rec_op_dz
+        del idx, xyz, xyzic, sxic, xyzsic, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, ls, v, tau, tau_dx, tau_dy, tau_dz, gradient, num_sou, T_dx, T_dz, pde_lhs, ls_pde, pde, rec_op, rec_op_dz
 
     mean_loss = np.sum(loss) / len(data_loader)
 
@@ -169,8 +176,8 @@ def evaluate_tau3d(tau_model, grid_loader, num_pts, batch_size, device):
         T = torch.empty(num_pts, device=device)
         for i, X in enumerate(grid_loader, 0):
 
-            xyzs = torch.hstack((X[0], X[1].view(-1,1), X[2].view(-1,1), X[3].view(-1,1)))
-            # xyzs = torch.hstack((X[0], X[-1].view(-1,1)))
+            # xyzs = torch.hstack((X[0], X[1].view(-1,1), X[2].view(-1,1), X[3].view(-1,1)))
+            xyzs = torch.hstack((X[0], X[-1].view(-1,1)))
             batch_end = (i+1)*batch_size if (i+1)*batch_size<num_pts else i*batch_size + X[0].shape[0]
             T[i*batch_size:batch_end] = tau_model(xyzs).view(-1)
         
@@ -186,7 +193,7 @@ def evaluate_velocity3d(v_model, grid_loader, num_pts, batch_size, device):
 
             # Compute v
             batch_end = (i+1)*batch_size if (i+1)*batch_size<num_pts else i*batch_size + X[0].shape[0]
-            V[i*batch_size:batch_end] = v_model(X[0], X[-1]).view(-1)
+            V[i*batch_size:batch_end] = v_model(X[0]).view(-1)
 
     return V
 

@@ -8,7 +8,7 @@ import os
 import wandb
 
 from torch.optim.lr_scheduler import ReduceLROnPlateau
-from hcpinnseikonal.utils import create_dataloader3d
+from hcpinnseikonal.utils import create_dataloader3dwell
 
 # Load style @hatsyim
 # plt.style.use("~/science.mplstyle")
@@ -53,20 +53,20 @@ import torch.nn as nn
 from torch.utils.data import TensorDataset, DataLoader
 
 def train3d(input_wosrc, sx, sy, sz,
-          tau_model, v_model, optimizer, epoch,
-          batch_size, vscaler, scheduler, fast_loader, device, args):
+          tau_model, v_model, tau_optimizer, v_optimizer, epoch,
+          batch_size, vscaler, v_scheduler, tau_scheduler, fast_loader, device, args, well_operator):
     tau_model.train()
     v_model.train()
     loss = []
     
     # Create dataloader
     weights = torch.Tensor(torch.ones(len(input_wosrc[0]))).to(device)
-    data_loader, ic = create_dataloader3d(input_wosrc, sx, sy, sz, batch_size, shuffle='y', device=device, fast_loader=fast_loader, perm_id=None)
+    data_loader, ic = create_dataloader3dwell(input_wosrc, sx, sy, sz, batch_size, shuffle='y', device=device, fast_loader=fast_loader, perm_id=None)
                 
     # input_wsrc = [X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, idx]
     sid = torch.arange(sx.size).float().to(device)
         
-    for xyz, sx, sy, sz, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, idx in data_loader:
+    for xyz, sx, sy, sz, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, v_well, idx in data_loader:
         
         xyz.requires_grad = True
 
@@ -83,7 +83,7 @@ def train3d(input_wosrc, sx, sy, sz,
         tau = tau_model(xyzsic).view(-1)
 
         # Compute v
-        v = v_model(xyzsic[:, :3], idx).view(-1)
+        v = v_model(xyzsic[:, :3]).view(-1)
 
         # Gradients
         gradient = torch.autograd.grad(tau, xyzsic, torch.ones_like(tau), create_graph=True)[0]
@@ -143,11 +143,18 @@ def train3d(input_wosrc, sx, sy, sz,
             wl2 = torch.abs(torch.exp((-1+delt*epoch)*args['causality_factor']*torch.sqrt((xz[:,0]-s)**2+(xz[:,1]-z[args['zid_source']])**2))-1) + (1-torch.exp(torch.tensor(-5e-4*epoch)))
         
         ls_pde = torch.mean(wl2*pde**2)
+        
+        # Add LVL term
+        # ls_pde = ls_pde + torch.mean((v_well + v_model(torch.hstack((xyz[:, :2], torch.ones_like(xyz[:, 0]*0.863).view(-1,1)))).view(-1) - torch.tensor(4.023))**2)
+        
         ls = ls_pde
         loss.append(ls.item())
         ls.backward()
-        optimizer.step()
-        optimizer.zero_grad()
+        v_optimizer.step()
+        tau_optimizer.step()
+
+        v_optimizer.zero_grad()
+        tau_optimizer.zero_grad()
 
         del idx, xyz, sxic, xyzsic, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, ls, v, tau, tau_dx, tau_dy, tau_dz, gradient, T_dx, T_dz, pde_lhs, ls_pde, pde, rec_op, rec_op_dz
 
@@ -186,14 +193,16 @@ def evaluate_velocity3d(v_model, grid_loader, num_pts, batch_size, device):
 
             # Compute v
             batch_end = (i+1)*batch_size if (i+1)*batch_size<num_pts else i*batch_size + X[0].shape[0]
-            V[i*batch_size:batch_end] = v_model(X[0], X[-1]).view(-1)
+            V[i*batch_size:batch_end] = v_model(X[0]).view(-1)
 
     return V
 
 def training_loop3d(input_wosrc, sx, sy, sz,
-                  tau_model, v_model, optimizer, epochs,
-                  batch_size=200**3,
-                  vscaler= 1., scheduler=None, fast_loader='n', device='cuda', wandb=None, args=None):
+                    tau_model, v_model, tau_optimizer, v_optimizer, epochs,
+                    batch_size=200**3,
+                    vscaler= 1., v_scheduler=None, tau_scheduler=None, 
+                    fast_loader='n', device='cuda', wandb=None, args=None,
+                    well_operator=1):
 
     loss_history = []
 
@@ -201,17 +210,19 @@ def training_loop3d(input_wosrc, sx, sy, sz,
 
         # Train step
         mean_loss = train3d(input_wosrc, sx, sy, sz,
-                  tau_model, v_model, optimizer, epoch,
-                  batch_size,
-                  vscaler, scheduler, fast_loader, device, args)
+                            tau_model, v_model, tau_optimizer, v_optimizer, epoch,
+                            batch_size,
+                            vscaler, v_scheduler, tau_scheduler, fast_loader, 
+                            device, args, well_operator)
         if wandb is not None:
             wandb.log({"loss": mean_loss})
         loss_history.append(mean_loss)
 
         if epoch % 3 == 0:
-            print(f'Epoch {epoch}, Loss {mean_loss:.7f}')
+            print(f'Epoch {epoch}, Total Loss {mean_loss:.7f}') #, PDE Loss {mean_loss[1]:.7f}, Data Loss {mean_loss[2]:.7f}')
         
-        if scheduler is not None:
-            scheduler.step(mean_loss)
+        if v_scheduler is not None:
+            v_scheduler.step(mean_loss)
+            tau_scheduler.step(mean_loss)
 
     return loss_history

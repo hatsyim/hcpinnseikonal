@@ -164,7 +164,7 @@ class FastTensorDataLoader:
     the dataset and calls cat (slow).
     Source: https://discuss.pytorch.org/t/dataloader-much-slower-than-manual-batching/27014/6
     """
-    def __init__(self, *tensors, batch_size=200**3, shuffle='n'):
+    def __init__(self, *tensors, batch_size=200**3, shuffle=False):
         """
         Initialize a FastTensorDataLoader.
         :param *tensors: tensors to store. Must have the same length @ dim 0.
@@ -209,7 +209,7 @@ def torch_to_numpy(x, nx=None, nz=None, ns=None):
     else:
         return x.detach().cpu().numpy()
 
-def create_dataloader(input_vec, sx, sz, batch_size=200**3, shuffle='y', 
+def create_dataloader2d(input_vec, sx, sz, batch_size=200**3, shuffle=True, 
                       device='cuda', fast_loader='n', perm_id=None):
     
     XZ = torch.from_numpy(np.vstack((input_vec[0], input_vec[1])).T).float().to(device)
@@ -244,7 +244,7 @@ def create_dataloader(input_vec, sx, sz, batch_size=200**3, shuffle='y',
     return data_loader, ic.T
 
 
-def create_dataloader3d(input_vec, sx, sy, sz, batch_size=200**4, shuffle='y', 
+def create_dataloader3d(input_vec, sx, sy, sz, batch_size=200**4, shuffle=True, 
                       device='cuda', fast_loader='n', perm_id=None):
     
     # input_wsrc = [X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index]
@@ -285,8 +285,83 @@ def create_dataloader3d(input_vec, sx, sy, sz, batch_size=200**4, shuffle='y',
 
     return data_loader, ic.T
 
+def create_dataloader3dmodelingOld(input_vec, sx, sy, sz, batch_size=200**4, shuffle=True, 
+                      device='cuda', fast_loader='n', perm_id=None):
+    
+    # input_wsrc = [X, Y, Z, SX+len(id_sou), SY+len(id_sou), SZ+len(id_sou), T0, px0, py0, pz0, index]
+    
+    XYZ = torch.from_numpy(np.vstack((input_vec[0], input_vec[1], input_vec[2])).T).float().to(device)
+    SX = torch.from_numpy(input_vec[3]).float().to(device)
+    SY = torch.from_numpy(input_vec[4]).float().to(device)
+    SZ = torch.from_numpy(input_vec[5]).float().to(device)
+    
+    tana = torch.from_numpy(input_vec[6]).float().to(device)
+    tana_dx = torch.from_numpy(input_vec[7]).float().to(device)
+    tana_dy = torch.from_numpy(input_vec[8]).float().to(device)
+    tana_dz = torch.from_numpy(input_vec[9]).float().to(device)
+    
+    index = torch.from_numpy(input_vec[10]).float().to(device)
+    
+    if perm_id is not None:
+        dataset = TensorDataset(XYZ[perm_id], SX[perm_id], SY[perm_id], SZ[perm_id],
+                                tana[perm_id], tana_dx[perm_id], 
+                                tana_dy[perm_id], tana_dz[perm_id], index[perm_id])
+    else:
+        dataset = TensorDataset(XYZ, SX, SY, SZ, tana, tana_dx, tana_dy, tana_dz, index)
+    
+    if fast_loader:
+        data_loader = FastTensorDataLoader(XYZ, SX, SY, SZ, 
+                                           tana, tana_dx, tana_dy, tana_dz, index, 
+                                           batch_size=batch_size, shuffle=shuffle)
+    else:
+        data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+
+    # initial condition
+    ic = torch.tensor(np.array([sx, sy, sz]), dtype=torch.float).to(device)
+
+    return data_loader, ic.T
+
+def create_dataloader3dmodeling(input_vec, sx, sy, sz, batch_size=200**4, shuffle=True, 
+                      device='cuda', fast_loader='n', perm_id=None):
+    
+    # input_wsrc = [X, Y, Z, SX+len(id_sou), SY+len(id_sou), SZ+len(id_sou), T0, px0, py0, pz0, index]
+    
+    XYZ = torch.from_numpy(np.vstack(list(input_vec[:3])).T).float().to(device)
+    SX = torch.from_numpy(input_vec[3]).float().to(device)
+    SY = torch.from_numpy(input_vec[4]).float().to(device)
+    SZ = torch.from_numpy(input_vec[5]).float().to(device)
+    
+    tana = torch.from_numpy(input_vec[6]).float().to(device)
+    tana_dx = torch.from_numpy(input_vec[7]).float().to(device)
+    tana_dy = torch.from_numpy(input_vec[8]).float().to(device)
+    tana_dz = torch.from_numpy(input_vec[9]).float().to(device)
+    
+    v = torch.from_numpy(input_vec[10]).float().to(device)
+    # z = torch.from_numpy(np.vstack(list(input_vec[11:])).T).float().to(device)
+    z = torch.from_numpy(input_vec[11]).float().to(device)
+    
+    if perm_id is not None:
+        dataset = TensorDataset(XYZ[perm_id], SX[perm_id], SY[perm_id], SZ[perm_id],
+                                tana[perm_id], tana_dx[perm_id], 
+                                tana_dy[perm_id], tana_dz[perm_id], 
+                                v[perm_id], z[perm_id])
+    else:
+        dataset = TensorDataset(XYZ, SX, SY, SZ, tana, tana_dx, tana_dy, tana_dz, v, z)
+    
+    if fast_loader:
+        data_loader = FastTensorDataLoader(XYZ, SX, SY, SZ, 
+                                           tana, tana_dx, tana_dy, tana_dz, v, z, 
+                                           batch_size=batch_size, shuffle=shuffle)
+    else:
+        data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+
+    # initial condition
+    ic = torch.tensor(np.array([sx, sy, sz]), dtype=torch.float).to(device)
+
+    return data_loader, ic.T
+
 def create_dataloaderdd(input_vec, sx1, sz1, sx2, sz2, 
-                        batch_size=200**3, shuffle='y', 
+                        batch_size=200**3, shuffle=True, 
                         device='cuda', fast_loader='n', perm_id=None):
     
     XZ = torch.from_numpy(np.vstack((input_vec[0], input_vec[1])).T).float().to(device)
@@ -334,7 +409,7 @@ def create_dataloaderdd(input_vec, sx1, sz1, sx2, sz2,
 
     return data_loader, ic1.T, ic2.T
 
-def create_dataloaderwell(input_vec, sx, sz, batch_size=200**3, shuffle=True, 
+def create_dataloader2dwell(input_vec, sx, sz, batch_size=200**3, shuffle=True, 
                       device='cuda', fast_loader=False, perm_id=None):
     
     # input_wsrc = [X, Z, SX, taud, taudx, T0, px0, pz0]
@@ -440,3 +515,73 @@ def display_environment():
     ]
     var_text = "\n".join([get_env_display_text(var) for var in variable_names])
     print(f"\nEnvironmental variables:\n{divider_str}\n{var_text}\n{divider_str}\n")
+    
+def create_dataloader3dwell(input_vec, sx, sy, sz, batch_size=200**4, shuffle=True, 
+                      device='cuda', fast_loader='n', perm_id=None):
+    
+    # input_wsrc = [X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, index]
+    
+    XYZ = torch.from_numpy(np.vstack((input_vec[0], input_vec[1], input_vec[2])).T).float().to(device)
+    SX = torch.from_numpy(input_vec[3]).float().to(device)
+    SY = torch.from_numpy(input_vec[4]).float().to(device)
+    SZ = torch.from_numpy(input_vec[5]).float().to(device)
+    
+    taud = torch.from_numpy(input_vec[6]).float().to(device)
+    taud_dx = torch.from_numpy(input_vec[7]).float().to(device)
+    taud_dy = torch.from_numpy(input_vec[8]).float().to(device)
+
+    tana = torch.from_numpy(input_vec[9]).float().to(device)
+    tana_dx = torch.from_numpy(input_vec[10]).float().to(device)
+    tana_dy = torch.from_numpy(input_vec[11]).float().to(device)
+    tana_dz = torch.from_numpy(input_vec[12]).float().to(device)
+    
+    vw = torch.from_numpy(input_vec[13]).float().to(device)
+    
+    index = torch.from_numpy(input_vec[14]).float().to(device)
+    
+    if perm_id is not None:
+        dataset = TensorDataset(XYZ[perm_id], SX[perm_id], SY[perm_id], SZ[perm_id], taud[perm_id], 
+                                taud_dx[perm_id], taud_dy[perm_id], 
+                                tana[perm_id], tana_dx[perm_id], 
+                                tana_dy[perm_id], tana_dz[perm_id], vw[perm_id], index[perm_id])
+    else:
+        dataset = TensorDataset(XYZ, SX, SY, SZ, taud, taud_dx, taud_dy, tana, tana_dx, tana_dy, tana_dz, vw, index)
+    
+    if fast_loader:
+        data_loader = FastTensorDataLoader(XYZ, SX, SY, SZ, taud, taud_dx, 
+                                           taud_dy, tana, tana_dx, tana_dy, tana_dz, vw, index, 
+                                           batch_size=batch_size, shuffle=shuffle)
+    else:
+        data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+
+    # initial condition
+    ic = torch.tensor(np.array([sx, sy, sz]), dtype=torch.float).to(device)
+
+    return data_loader, ic.T
+
+from pykrige.ok import OrdinaryKriging
+
+def perform_kriging(v, x, y, well_interval):
+
+    vel_smooth = np.ones_like(v)
+
+    for i in range(v.shape[0]):
+
+        V_well = v[i,::well_interval,::well_interval]
+        X_well = x[i,::well_interval,::well_interval]
+        Y_well = y[i,::well_interval,::well_interval]
+
+        D_well = np.vstack((Y_well.reshape(-1), X_well.reshape(-1), V_well.reshape(-1))).T
+
+        OK = OrdinaryKriging(
+            D_well[:, 0], D_well[:, 1], D_well[:, 2],
+            variogram_model="linear",
+            verbose=False,
+            enable_plotting=False,
+        )
+
+        V, SS = OK.execute("grid", y[0,:,0], x[0,0,:])
+
+        vel_smooth[i,:,:] = V
+        
+    return vel_smooth

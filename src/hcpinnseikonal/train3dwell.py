@@ -8,7 +8,7 @@ import os
 import wandb
 
 from torch.optim.lr_scheduler import ReduceLROnPlateau
-from hcpinnseikonal.utils import create_dataloader3d
+from hcpinnseikonal.utils import create_dataloader3dwell
 
 # Load style @hatsyim
 # plt.style.use("~/science.mplstyle")
@@ -61,12 +61,12 @@ def train3d(input_wosrc, sx, sy, sz,
     
     # Create dataloader
     weights = torch.Tensor(torch.ones(len(input_wosrc[0]))).to(device)
-    data_loader, ic = create_dataloader3d(input_wosrc, sx, sy, sz, batch_size, shuffle='y', device=device, fast_loader=fast_loader, perm_id=None)
+    data_loader, ic = create_dataloader3dwell(input_wosrc, sx, sy, sz, batch_size, shuffle='y', device=device, fast_loader=fast_loader, perm_id=None)
                 
     # input_wsrc = [X, Y, Z, SX, SY, SZ, taud, taudx, taudy, T0, px0, py0, pz0, idx]
     sid = torch.arange(sx.size).float().to(device)
         
-    for xyz, sx, sy, sz, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, idx in data_loader:
+    for xyz, sx, sy, sz, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, idx, vw in data_loader:
         
         xyz.requires_grad = True
 
@@ -157,13 +157,6 @@ def train3d(input_wosrc, sx, sy, sz,
 
 def evaluate_tau3d(tau_model, grid_loader, num_pts, batch_size, device):
     tau_model.eval()
-    
-    # with torch.no_grad():
-    #     T = []
-    #     for xyz, sx, sy, sz, taud, taud_dx, taud_dy, t0, t0_dx, t0_dy, t0_dz, idx in grid_loader:
-    #         xyz.requires_grad = True
-    #         xyzs = torch.hstack((xyz, idx.view(-1,1)))    
-    #         T.append(tau_model(xyzs).view(-1))
             
     with torch.no_grad():
         T = torch.empty(num_pts, device=device)
