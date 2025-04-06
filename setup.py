@@ -6,7 +6,7 @@ def src(pth):
     return os.path.join(os.path.dirname(__file__), pth)
 
 # Project description
-descr = 'Repository for DWXXX: A robust seismic tomography framework via physics-informed machine learning with hard constrained data.'
+descr = 'Stable neural network-based traveltime tomography using hard-constrained measurements.'
 
 setup(
     name="hcpinnseikonal",
@@ -25,8 +25,8 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Topic :: Scientific/Engineering :: Mathematics'
     ],
-    author='Mohammad Taufik, Tariq Alkhalifah',
-    author_email='mohammad.taufik@kaust.edu.sa, tariq.alkhalifah@kaust.edu.sa',
+    author='Mohammad Taufik',
+    author_email='mohammad.taufik@kaust.edu.sa',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
