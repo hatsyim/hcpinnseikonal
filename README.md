@@ -40,4 +40,4 @@ conda activate hcpinnseikonal
 configurations may be required for different combinations of workstation and GPU.
 
 ## Cite us 
-DW0003 - Taufik and Alkhalifah (2022) A robust seismic tomography framework via physics-informed machine learning with hard constrained data.
+Taufik et al. (2024) Stable neural network-based traveltime tomography using hard-constrained measurements.
