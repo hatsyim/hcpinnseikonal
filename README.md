@@ -1,6 +1,6 @@
 ![LOGO](asset/logo.png)  
 
-Reproducible material for **A robust seismic tomography framework via physics-informed machine learning with hard constrained data - Taufik M. and Alkhalifah T.**
+Reproducible material for **Stable neural network-based traveltime tomography using hard-constrained measurements - Taufik M., Alkhalifah T., and Waheed U. B.**
 
 
 # Project structure
@@ -33,7 +33,7 @@ It will take some time, if at the end you see the word `Done!` on your terminal 
 
 Remember to always activate the environment by typing:
 ```
-conda activate my_env_plot
+conda activate hcpinnseikonal
 ```
 
 **Disclaimer:** All experiments have been carried on a Intel(R) Xeon(R) Gold 6230R CPU @ 2.10GHz equipped with a single NVIDIA Quadro RTX 8000 GPU. Different environment 
