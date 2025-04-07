@@ -15,7 +15,7 @@ This repository is organized as follows:
 ## Notebooks
 The following notebooks are provided:
 
-- :orange_book: ``Example-1.ipynb``: notebook performing a surface tomography acquisition with sparse source-receiver sampling.
+- :orange_book: ``Example-1-marmousi-2d.ipynb``: notebook performing a surface tomography acquisition with sparse source-receiver sampling using the cropped 2D Marmousi model.
 
 ## Scripts
 The following scripts are provided:
