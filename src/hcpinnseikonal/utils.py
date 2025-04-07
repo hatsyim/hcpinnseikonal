@@ -285,42 +285,6 @@ def create_dataloader3d(input_vec, sx, sy, sz, batch_size=200**4, shuffle=True,
 
     return data_loader, ic.T
 
-def create_dataloader3dmodelingOld(input_vec, sx, sy, sz, batch_size=200**4, shuffle=True, 
-                      device='cuda', fast_loader='n', perm_id=None):
-    
-    # input_wsrc = [X, Y, Z, SX+len(id_sou), SY+len(id_sou), SZ+len(id_sou), T0, px0, py0, pz0, index]
-    
-    XYZ = torch.from_numpy(np.vstack((input_vec[0], input_vec[1], input_vec[2])).T).float().to(device)
-    SX = torch.from_numpy(input_vec[3]).float().to(device)
-    SY = torch.from_numpy(input_vec[4]).float().to(device)
-    SZ = torch.from_numpy(input_vec[5]).float().to(device)
-    
-    tana = torch.from_numpy(input_vec[6]).float().to(device)
-    tana_dx = torch.from_numpy(input_vec[7]).float().to(device)
-    tana_dy = torch.from_numpy(input_vec[8]).float().to(device)
-    tana_dz = torch.from_numpy(input_vec[9]).float().to(device)
-    
-    index = torch.from_numpy(input_vec[10]).float().to(device)
-    
-    if perm_id is not None:
-        dataset = TensorDataset(XYZ[perm_id], SX[perm_id], SY[perm_id], SZ[perm_id],
-                                tana[perm_id], tana_dx[perm_id], 
-                                tana_dy[perm_id], tana_dz[perm_id], index[perm_id])
-    else:
-        dataset = TensorDataset(XYZ, SX, SY, SZ, tana, tana_dx, tana_dy, tana_dz, index)
-    
-    if fast_loader:
-        data_loader = FastTensorDataLoader(XYZ, SX, SY, SZ, 
-                                           tana, tana_dx, tana_dy, tana_dz, index, 
-                                           batch_size=batch_size, shuffle=shuffle)
-    else:
-        data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
-
-    # initial condition
-    ic = torch.tensor(np.array([sx, sy, sz]), dtype=torch.float).to(device)
-
-    return data_loader, ic.T
-
 def create_dataloader3dmodeling(input_vec, sx, sy, sz, batch_size=200**4, shuffle=True, 
                       device='cuda', fast_loader='n', perm_id=None):
     
