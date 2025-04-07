@@ -18,7 +18,7 @@ plt.rcParams['xtick.bottom'] = plt.rcParams['xtick.labelbottom'] = False
 plt.rcParams['xtick.top'] = plt.rcParams['xtick.labeltop'] = True
 plt.rcParams['figure.figsize'] =  [6.4, 4.8]
            
-def numerical_traveltime(vel, nx, nz, ns, xmin, zmin, deltax, deltaz, id_sou_x, id_sou_z):
+def numerical_traveltime2d(vel, nx, nz, ns, xmin, zmin, deltax, deltaz, id_sou_x, id_sou_z):
     
     import pykonal
 

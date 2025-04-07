@@ -11,7 +11,8 @@ do
     --until_cmb=y \
     --num_epochs=3000 \
     --seed=1234 \
-    --data_type=nn \
+    --data_type=full \
+    # --data_type=nn \
     --learning_rate=1e-3 \
     --rescale_plot=y \
     --initial_velocity=3 \
@@ -39,5 +40,6 @@ do
     --empty_middle=n \
     --regular_station=y \
     --sou_spacing=40 \
-    --rec_spacing=$i
+    --rec_spacing=$i \
+    --use_wandb=n
 done

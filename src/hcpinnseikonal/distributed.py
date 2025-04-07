@@ -20,7 +20,9 @@ plt.rcParams['xtick.top'] = plt.rcParams['xtick.labeltop'] = True
 plt.rcParams['figure.figsize'] =  [6.4, 4.8]
 
 from hcpinnseikonal.train3d import *
-from hcpinnseikonal.model import *
+from hcpinnseikonal.train2d import *
+from hcpinnseikonal.model2d import *
+from hcpinnseikonal.model3d import *
 from hcpinnseikonal.utils import *
 from hcpinnseikonal.plot import *
 

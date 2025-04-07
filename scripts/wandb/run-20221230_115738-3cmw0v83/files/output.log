@@ -1,6 +1,0 @@
-
-Global seed set to 1234
-Traceback (most recent call last):
-  File "./Example-5.py", line 42, in <module>
-    xmax, ymax, zmax = args['max_offset'], args['max_offset'], args['max_depth']
-TypeError: 'Namespace' object is not subscriptable

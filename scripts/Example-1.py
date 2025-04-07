@@ -3,22 +3,21 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import os
+import time
 
 from argparse import ArgumentParser   
 from scipy import interpolate
 
 from hcpinnseikonal.utils import *
-from hcpinnseikonal.model import *
+from hcpinnseikonal.nn import *
+from hcpinnseikonal.model2d import *
 from hcpinnseikonal.plot import *
 from hcpinnseikonal.arguments import *
 from hcpinnseikonal.distributed import *
 
-
 if __name__ == "__main__":
     
     args = parser.parse_args()
-
-    args.use_wandb='n'
 
     dict_args = vars(args)
     print(dict_args)
@@ -68,11 +67,6 @@ if __name__ == "__main__":
     num_tr_pts = 4000 #int(args.num_points * nz * nx)
 
     if args.field_synthetic=='y':
-        import pandas as pd
-        import pygmt
-        import numpy as np
-
-        import pandas as pd
 
         # Earthquake events location
         location = pd.read_csv('/home/taufikmh/KAUST/fall_2022/GFATT_PINNs/data/fang_etal_2020/sjfzcatlog.csv')
@@ -280,7 +274,7 @@ if __name__ == "__main__":
     X_star = [Z.reshape(-1,1), X.reshape(-1,1), SX.reshape(-1,1)] # Grid points for prediction 
 
     # Numerical traveltime
-    T_data = numerical_traveltime(vel, len(x), len(z), len(id_sou_x), xmin, zmin, deltax, deltaz, id_sou_x, id_sou_z)
+    T_data = numerical_traveltime2d(vel, len(x), len(z), len(id_sou_x), xmin, zmin, deltax, deltaz, id_sou_x, id_sou_z)
 
     # Plots
     if args.model_type=='checkerboard':
@@ -335,7 +329,7 @@ if __name__ == "__main__":
         criterion = torch.nn.MSELoss()
         model.train()
         loss_data = []
-        for epoch in range(int(5e3)):
+        for epoch in range(int(5e2)):
             total_loss = 0.
             model.train()
             loss = 0
@@ -475,7 +469,6 @@ if __name__ == "__main__":
         plt.savefig(os.path.join(wandb_dir, "interpolation.png"), format='png', bbox_inches="tight")
 
     # locate source boolean
-    import time
     start_time = time.time()
 
     TOLX = 1e-9
@@ -543,7 +536,7 @@ if __name__ == "__main__":
         ipermute = None
 
     # Compute traveltime with randomly initialized network
-    pde_loader, ic = create_dataloader([i.ravel() for i in input_wsrc], sx, np.ones_like(sx)*sz.reshape(-1,),
+    pde_loader, ic = create_dataloader2d([i.ravel() for i in input_wsrc], sx, np.ones_like(sx)*sz.reshape(-1,),
                                        shuffle=False, fast_loader=True, perm_id=ipermute)
 
     if args.exp_function=='y':
@@ -620,7 +613,6 @@ if __name__ == "__main__":
                                 save_dir=wandb_dir, id_rec_x=id_rec_x, id_rec_z=id_rec_z)
                 
     # Training
-    import time
     start_time = time.time()
     if args.field_synthetic=='y':
         loss_history = \
@@ -654,7 +646,7 @@ if __name__ == "__main__":
 
     # Prediction
     input_wsrc = [i.ravel() for i in input_wsrc]
-    pde_loader, ic = create_dataloader(input_wsrc, sx, np.ones_like(sx)*sz.reshape(-1,), 
+    pde_loader, ic = create_dataloader2d(input_wsrc, sx, np.ones_like(sx)*sz.reshape(-1,), 
                                        shuffle=False, fast_loader=True)
     v_pred = evaluate_velocity(v_model, pde_loader)
 

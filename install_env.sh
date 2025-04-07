@@ -11,14 +11,13 @@ conda env create -f environment.yml
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate hcpinnseikonal
 
-# Install eikonal solver: fast-marching with Pykonal
-pip install -e git+https://github.com/malcolmw/pykonal@373a7d4#egg=pykonal
-
 # Install hcpinnseikonal package
 pip install -e .
 
 # Install packages for 3D plotting on Jupyterlab
 pip install pyvista[all]
+pip install pykrige
+pip install pykonal
 
 conda env list
 echo 'Created and activated environment:' $(which python)

@@ -1,7 +1,0 @@
-
-Global seed set to 1234
-Global seed set to 1234
-Traceback (most recent call last):
-  File "./Example-5.py", line 104, in <module>
-    v_init = v_init.reshape(nz,nx,-1)
-RuntimeError: shape '[200, 134, -1]' is invalid for input of size 37500000
