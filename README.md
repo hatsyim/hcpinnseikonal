@@ -40,4 +40,16 @@ conda activate hcpinnseikonal
 configurations may be required for different combinations of workstation and GPU.
 
 ## Cite us 
-Taufik et al. (2024) Stable neural network-based traveltime tomography using hard-constrained measurements.
+If you find our work useful in your research, please cite:
+```
+@article{taufik2024stable,
+  title={Stable neural network-based traveltime tomography using hard-constrained measurements},
+  author={Taufik, Mohammad H and Alkhalifah, Tariq and Waheed, Umair bin},
+  journal={Geophysics},
+  volume={89},
+  number={6},
+  pages={U87--U99},
+  year={2024},
+  publisher={Society of Exploration Geophysicists}
+}
+```
